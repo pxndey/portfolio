@@ -11,20 +11,20 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import MusicPlayer from './components/MusicPlayer'
 import './components/Sidebar.css'
-
+import portfolioData from '../portfolio-data.json'
 
 function App() {
   return (
     <BrowserRouter>
       <div className="app-container">
-        <Sidebar />
+        <Sidebar portfolioData={portfolioData} />
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/academics" element={<Academics />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/research" element={<Research />} />
+            <Route path="/academics" element={<Academics portfolioData={portfolioData} />} />
+            <Route path="/experience" element={<Experience portfolioData={portfolioData} />} />
+            <Route path="/projects" element={<Projects portfolioData={portfolioData} />} />
+            <Route path="/research" element={<Research portfolioData={portfolioData} />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/music" element={<Music />} />
             <Route path="/misc" element={<Misc />} />

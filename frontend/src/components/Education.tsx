@@ -1,6 +1,13 @@
 import React from 'react';
 import './Education.css';
 
+interface ExtracurricularActivity {
+  organization: string;
+  role: string;
+  duration: string;
+  details?: string[];
+}
+
 interface EducationData {
   institution: string;
   location: string;
@@ -8,6 +15,7 @@ interface EducationData {
   marks: string;
   duration: string;
   coursework?: string[];
+  extracurriculars?: ExtracurricularActivity[];
 }
 
 interface EducationProps {
@@ -36,6 +44,38 @@ const Education: React.FC<EducationProps> = ({ data }) => {
                 {education.coursework.map((course, idx) => (
                   <span key={idx} className="course-item">{course}</span>
                 ))}
+              </div>
+            </div>
+          )}
+          {education.extracurriculars &&
+           Array.isArray(education.extracurriculars) &&
+           education.extracurriculars.length > 0 &&
+           typeof education.extracurriculars[0] === 'object' &&
+           education.extracurriculars[0] !== null && (
+            <div className="extracurricular-section">
+              <h4 className="extracurricular-heading">Extracurriculars</h4>
+              <div className="extracurricular-timeline">
+                {education.extracurriculars.map((activity, idx) => {
+                  if (!activity || typeof activity !== 'object') return null;
+                  return (
+                    <div key={idx} className="extracurricular-item">
+                      <div className="extracurricular-header">
+                        <div className="extracurricular-title">
+                          <span className="extracurricular-organization">{activity.organization || ''}</span>
+                          <span className="extracurricular-role">{activity.role || ''}</span>
+                        </div>
+                        <span className="extracurricular-duration">{activity.duration || ''}</span>
+                      </div>
+                      {activity.details && Array.isArray(activity.details) && activity.details.length > 0 && (
+                        <ul className="extracurricular-details">
+                          {activity.details.map((detail, detailIdx) => (
+                            <li key={detailIdx}>{detail}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

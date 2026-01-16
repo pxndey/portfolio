@@ -1,19 +1,41 @@
 import { Link, useLocation } from 'react-router-dom'
 import './Sidebar.css'
 
-function Sidebar() {
+interface PortfolioData {
+  workExperience: any[]
+  education: any[]
+  publications: any[]
+  projects: any[]
+}
+
+interface SidebarProps {
+  portfolioData: PortfolioData
+}
+
+function Sidebar({ portfolioData }: SidebarProps) {
   const location = useLocation()
 
-  const navItems = [
-    { path: '/', label: 'About Me', number: 1 },
-    { path: '/academics', label: 'Academics', number: 2 },
-    { path: '/experience', label: 'Experience', number: 3 },
-    { path: '/projects', label: 'Projects', number: 4 },
-    { path: '/research', label: 'Research', number: 5 },
-    { path: '/contact', label: 'Contact', number: 6 },
-    { path: '/music', label: 'Music', number: 7, dimmed: true },
-    { path: '/misc', label: 'Misc', number: 8, dimmed: true },
+  const allNavItems = [
+    { path: '/', label: 'About Me', key: 'home', alwaysShow: true },
+    { path: '/academics', label: 'Academics', key: 'academics', dataKey: 'education' as keyof PortfolioData },
+    { path: '/experience', label: 'Experience', key: 'experience', dataKey: 'workExperience' as keyof PortfolioData },
+    { path: '/projects', label: 'Projects', key: 'projects', dataKey: 'projects' as keyof PortfolioData },
+    { path: '/research', label: 'Research', key: 'research', dataKey: 'publications' as keyof PortfolioData },
+    { path: '/contact', label: 'Contact', key: 'contact', alwaysShow: true },
+    { path: '/music', label: 'Music', key: 'music', alwaysShow: true, dimmed: true },
+    { path: '/misc', label: 'Misc', key: 'misc', alwaysShow: true, dimmed: true },
   ]
+
+  const navItems = allNavItems
+    .filter(item => {
+      if (item.alwaysShow) return true
+      if (item.dataKey) {
+        const data = portfolioData[item.dataKey]
+        return data && data.length > 0
+      }
+      return true
+    })
+    .map((item, index) => ({ ...item, number: index + 1 }))
 
   return (
     <div className="sidebar closed">
