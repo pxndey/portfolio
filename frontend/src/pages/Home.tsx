@@ -7,7 +7,8 @@ function Home() {
       <h1 className="home-title">Anushk Pandey</h1>
 
       <h2 className="home-subtitle">
-        Software Engineer & Developer
+      Boring.
+
       </h2>
 
       <blockquote className="home-quote">
@@ -22,15 +23,16 @@ function Home() {
       <br />
 
       <p className="home-paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+      I grew up to dinner table conversations about melanomas and sarcomas and whatnot, so when i decided that Computer Science was the field i wanted to go to, I decided that I wanted to make an impact. That drive took me beyond traditional applications of Computer Science. Today, I am pursuing an Masters in Computer Science at New York University with a focus on AI, Machine Learning, how healthcare can benefit from its applications. 
       </p>
 
       <p className="home-paragraph">
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.
+	I have coded, developed, and researched innovations in healthcare and vision models to take a step at making life better for everyone. I have organized technical workshops, hackathons, and mentored outreach teams, conducting awareness programs for underprivileged high school students. 
       </p>
 
       <p className="home-paragraph">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+       Lorem Ipsum
+
       </p>
 
       <hr className="home-separator" />
