@@ -1,10 +1,14 @@
+import Education from '../components/Education';
+import portfolioData from '../../portfolio-data.json';
+import './Academics.css';
+
 function Academics() {
-    return (
-      <div>
-        <h1>Academics</h1>
-        <p>Academics page content</p>
-      </div>
-    )
-  }
-  
-  export default Academics
+  return (
+    <div className="academics-page">
+      <h1>Academics</h1>
+      <Education data={[portfolioData.education[0]]} />
+    </div>
+  )
+}
+
+export default Academics

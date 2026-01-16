@@ -1,0 +1,93 @@
+.publication-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.publication-card {
+  background:
+    radial-gradient(circle at center, rgba(0, 163, 224, 0.25) 0%, rgba(0, 163, 224, 0.15) 100%),
+    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9IjEuNSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMiIvPjwvc3ZnPg==');
+  background-blend-mode: overlay;
+  border: 1px solid #4a4a4a;
+  border-radius: 24px;
+  padding: 32px;
+  color: white;
+}
+
+.publication-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.paper-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  color: white;
+  flex: 1;
+  padding-right: 16px;
+}
+
+.journal-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #cccccc;
+  font-style: italic;
+}
+
+.publication-meta {
+  margin-bottom: 16px;
+}
+
+.authors {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin: 0 0 8px 0;
+  color: white;
+}
+
+.publication-year-doi {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.publication-year {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #cccccc;
+  font-style: italic;
+}
+
+.doi {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #cccccc;
+}
+
+.highlights {
+  list-style-type: disc;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.highlights li {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.highlights li:last-child {
+  margin-bottom: 0;
+}

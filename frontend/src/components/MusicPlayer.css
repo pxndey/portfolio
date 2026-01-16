@@ -1,0 +1,64 @@
+.music-player-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #000;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.music-player-button:hover {
+  background-color: #00A3E0;
+  border-color: #00A3E0;
+  transform: scale(1.1);
+}
+
+.music-player-button:hover .music-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.music-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.music-tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 0.5rem;
+  background-color: #000;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.music-artist {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #00A3E0;
+  margin-bottom: 0.25rem;
+}
+
+.music-song {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #fff;
+}

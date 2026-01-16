@@ -5,12 +5,14 @@ function Sidebar() {
   const location = useLocation()
 
   const navItems = [
-    { path: '/about', label: 'About', number: 1 },
+    { path: '/', label: 'About Me', number: 1 },
     { path: '/academics', label: 'Academics', number: 2 },
     { path: '/experience', label: 'Experience', number: 3 },
-    { path: '/contact', label: 'Contact', number: 4 },
-    { path: '/music', label: 'Music', number: 5, dimmed: true },
-    { path: '/misc', label: 'Misc', number: 6, dimmed: true },
+    { path: '/projects', label: 'Projects', number: 4 },
+    { path: '/research', label: 'Research', number: 5 },
+    { path: '/contact', label: 'Contact', number: 6 },
+    { path: '/music', label: 'Music', number: 7, dimmed: true },
+    { path: '/misc', label: 'Misc', number: 8, dimmed: true },
   ]
 
   return (

@@ -3,5 +3,5 @@
 	<feSpecularLighting surfaceScale="13" specularConstant="0.8" specularExponent="20" lighting-color="#b1b1b1" x="0%" y="0%" width="100%" height="100%" in="turbulence" result="specularLighting">
     		<feDistantLight azimuth="3" elevation="87"></feDistantLight>
   	</feSpecularLighting>
-  
-</filter></defs><rect width="700" height="700" fill="#130a06ff"></rect><rect width="700" height="700" fill="#b1b1b1" filter="url(#nnnoise-filter)"></rect></svg>
+
+</filter></defs><rect width="700" height="700" fill="####1f0101"></rect><rect width="700" height="700" fill="#b1b1b1" filter="url(#nnnoise-filter)"></rect></svg>

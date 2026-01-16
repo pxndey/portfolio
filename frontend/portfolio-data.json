@@ -1,0 +1,99 @@
+{
+  "workExperience": [
+    {
+      "company": "Hitachi MGRM",
+      "location": "Gurgaon, India",
+      "role": "Data Analyst Intern",
+      "duration": "Jan 2025 - Jul 2025",
+      "responsibilities": [
+        "Optimized Oracle SQL queries for analytics dashboards, reducing load times across all clients by 60%.",
+        "Developed clustering logic for hierarchical data, enhancing high level attendance, enrollment, and employee analytics.",
+        "Improved data visualization efficiency and accuracy for reporting for 200+ schools across Ladakh and Meghalaya and 20+ colleges across Bihar."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "New York University",
+      "location": "New York, NY",
+      "degree": "M.S. Computer Science",
+      "marks": "N/A",
+      "duration": "Sep 2025 - Present",
+      "coursework": [
+        "Responsible AI and the Law",
+        "Computer Vision",
+        "Algorithms"
+      ]
+    },
+    {
+      "institution": "Vellore Institute of Technology, Vellore",
+      "location": "Vellore, India",
+      "degree": "B.Tech. Computer Science and Engineering",
+      "marks": "N/A",
+      "duration": "Sept 2021 - Jul 2025",
+      "coursework": [
+        "Predictive Analytics",
+        "Machine Learning",
+        "Artificial Intelligence"
+      ]
+    }
+  ],
+  "publications": [],
+  "projects": [
+    {
+      "projectName": "Adversarial Debiasing Model Fairness-Aware ML System",
+      "technologies": "Python, Machine Learning",
+      "role": "ML Developer",
+      "duration": "Dec 2025",
+      "description": [
+        "Engineered a custom Adversarial Debiasing Model from scratch to mitigate algorithmic bias in a diabetes dataset.",
+        "Maintained high performance with 96.7% Accuracy, while achieving strong calibration parity across 5 racial groups.",
+        "Reduced Maximum False Negative Rate disparity across 5 racial groups by 20%, ensuring equitable distribution across protected demographics."
+      ]
+    },
+    {
+      "projectName": "GeoGuesser Geospatial Vision Modeling",
+      "technologies": "StreetCLIP, HPC Cluster, Computer Vision",
+      "role": "Computer Vision Engineer",
+      "duration": "Dec 2025",
+      "description": [
+        "Fine-tuned a StreetCLIP backbone on an HPC cluster to process over 329,000 multi-view images across 33 US states.",
+        "Implemented a custom four-directional feature aggregation pipeline, maximizing spatial context for State Classification.",
+        "Engineered a dual-target Computer Vision model achieving 88.9% accuracy on a 16,495-sample test set."
+      ]
+    },
+    {
+      "projectName": "Parkinson's Disease Detection Transfer-Learned Diagnostics",
+      "technologies": "ResNet152, ResNet50, MobileNet, VGG19, PyTorch/TensorFlow",
+      "role": "ML Researcher",
+      "duration": "Nov 2024",
+      "description": [
+        "Developed novel dual ResNet152 architecture achieving 95.2% accuracy on spiral drawings and 90.4% on wave patterns.",
+        "Implemented transfer learning with zero-training embedding method, achieving 100% precision on key datasets.",
+        "Benchmarked against 5+ architectures, matching state-of-the-art models with lower compute costs."
+      ]
+    },
+    {
+      "projectName": "Engine RUL Prediction Predictive Maintenance Modeling",
+      "technologies": "RNN, NASA-CMAPSS dataset, Python",
+      "role": "Data Scientist",
+      "duration": "Nov 2024",
+      "description": [
+        "Developed RNN model for aircraft engine lifetime prediction, achieving 31.6% better RMSE than existing literature.",
+        "Engineered novel regression features and processed 20,000+ entries from NASA-CMAPSS time series dataset.",
+        "Implemented complete ML pipeline including data preprocessing, model training and evaluation."
+      ]
+    },
+    {
+      "projectName": "Research Paper Recommender Graph-Based Recommender",
+      "technologies": "Graph Citation Networks, DeepWalk, Sentence-BERT",
+      "role": "Backend/ML Developer",
+      "duration": "Nov 2024",
+      "description": [
+        "Used graph citation networks to model relationships between research papers.",
+        "Employed DeepWalk and Sentence-BERT for vector representation and semantic similarity.",
+        "Provided personalized paper suggestions based on network insights and content relevance."
+      ]
+    }
+  ]
+}

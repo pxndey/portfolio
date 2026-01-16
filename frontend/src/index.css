@@ -1,13 +1,8 @@
-@font-face {
-  font-family: 'Formula1';
-  src: url('../Formula1-Bold_web.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  font-family: 'Formula1', sans-serif;
-  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
   line-height: 1.5;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
