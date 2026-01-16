@@ -1,0 +1,258 @@
+@font-face {
+  font-family: 'Formula1';
+  src: url('../../Formula1-Bold_web.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Formula1';
+  src: url('../../Formula1-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Formula1 Wide';
+  src: url('../../Formula1-Wide.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../background.svg');
+  background-repeat: repeat;
+  background-size: 700px 700px;
+  position: relative;
+}
+
+.sidebar {
+  background-color: #000;
+  color: #fff;
+  width: 80px;
+  padding: 2rem 1rem;
+  transition: width 0.3s ease, padding 0.3s ease;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  align-self: flex-start;
+  font-family: 'Formula1', sans-serif;
+  font-weight: bold;
+}
+
+.sidebar:hover {
+  width: 300px;
+  padding: 2rem;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.sidebar:hover .sidebar-header {
+  justify-content: center;
+}
+
+.sidebar-title {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, width 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  font-family: 'Formula1', sans-serif;
+  font-style: italic;
+}
+
+.sidebar-title h1 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  font-family: inherit;
+  font-style: inherit;
+}
+
+.sidebar:hover .sidebar-title {
+  opacity: 1;
+  width: auto;
+}
+
+.sidebar-title-collapsed {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  font-family: 'Formula1', sans-serif;
+  font-style: italic;
+}
+
+.sidebar-title-collapsed h1 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  font-family: inherit;
+  font-style: inherit;
+}
+
+.sidebar:hover .sidebar-title-collapsed {
+  display: none;
+}
+
+
+.progress-bar {
+  background-color: #fff;
+  height: 2px;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.progress-fill {
+  background-color: #fff;
+  height: 100%;
+  width: 15%;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: monospace;
+  font-size: 1rem;
+  color: #000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .progress-text {
+  opacity: 1;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0.5rem;
+  color: #888;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: 'Formula1 Wide', sans-serif;
+  font-size: 1.1rem;
+  position: relative;
+  justify-content: center;
+}
+
+.sidebar:hover .nav-item {
+  justify-content: flex-start;
+  padding: 0.75rem 1rem;
+}
+
+.nav-item:hover {
+  color: #00A3E0;
+}
+
+.nav-item.active {
+  color: #fff;
+}
+
+.nav-item.active .nav-number {
+  color: #00A3E0;
+}
+
+.nav-item.active .nav-label {
+  color: #00A3E0;
+}
+
+.nav-number {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+  font-family: 'Formula1 Wide', sans-serif;
+}
+
+.nav-label {
+  white-space: nowrap;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, width 0.3s ease;
+  font-family: 'Formula1 Wide', sans-serif;
+}
+
+.sidebar:hover .nav-label {
+  opacity: 1;
+  width: auto;
+}
+
+/* Dimmed items (Music and Misc) */
+.nav-item.dimmed {
+  color: #333;
+}
+
+.nav-item.dimmed:hover {
+  color: #00A3E0;
+}
+
+.nav-item.dimmed.active {
+  color: #888;
+}
+
+.nav-item.dimmed.active .nav-number {
+  color: #00A3E0;
+}
+
+.nav-item.dimmed.active .nav-label {
+  color: #00A3E0;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 2rem;
+  color: #fff;
+  overflow-x: auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-image: url('../background.svg');
+  background-repeat: repeat;
+  background-size: 700px 700px;
+}

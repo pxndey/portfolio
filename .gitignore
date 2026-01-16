@@ -1,0 +1,112 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+############################
+# OS / Editor
+############################
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+############################
+# Logs
+############################
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-debug.log*
+bun-error.log*
+
+############################
+# Environment variables
+############################
+.env
+.env.*
+!.env.example
+
+############################
+# Go
+############################
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Build output
+/bin/
+/dist/
+/build/
+
+# Go workspace
+/go.work
+/go.work.sum
+
+# Go modules
+/vendor/
+
+# Go coverage
+*.out
+coverage/
+
+############################
+# React / Bun
+############################
+# Dependencies
+node_modules/
+
+# Bun
+.bun/
+bun.lockb
+
+# Build output
+dist/
+build/
+
+# Cache
+.cache/
+.parcel-cache/
+.vite/
+
+############################
+# Testing
+############################
+coverage/
+*.lcov
+
+############################
+# Misc
+############################
+.tmp/
+temp/
+
