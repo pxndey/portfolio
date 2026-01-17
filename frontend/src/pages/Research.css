@@ -7,3 +7,27 @@
   font-size: 2.8rem;
   margin-bottom: 2rem;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .research-page {
+    max-width: 100%;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+  }
+
+  .research-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .research-page {
+    padding: 0 2rem;
+  }
+
+  .research-page h1 {
+    font-size: 2.4rem;
+  }
+}

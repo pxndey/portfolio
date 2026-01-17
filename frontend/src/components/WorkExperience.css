@@ -79,3 +79,53 @@
 .responsibilities li:last-child {
   margin-bottom: 0;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .work-experience-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .work-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .company-name {
+    font-size: 16px;
+  }
+
+  .location {
+    font-size: 13px;
+  }
+
+  .work-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .role {
+    font-size: 13px;
+  }
+
+  .duration {
+    font-size: 12px;
+  }
+
+  .responsibilities {
+    padding-left: 20px;
+  }
+
+  .responsibilities li {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .work-experience-card {
+    padding: 28px;
+  }
+}

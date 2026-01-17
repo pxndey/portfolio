@@ -195,3 +195,78 @@ code {
     animation: none !important;
   }
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    background-size: 500px 500px;
+  }
+
+  body::before {
+    background-size: 180px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .app {
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+    margin: 0 auto;
+  }
+
+  .logo-container {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo {
+    height: 4em;
+    padding: 1em;
+  }
+
+  .api-tester {
+    max-width: 100%;
+    gap: 0.75rem;
+  }
+
+  .endpoint-row {
+    padding: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .method {
+    font-size: 0.85em;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .url-input {
+    font-size: 0.9em;
+  }
+
+  .send-button {
+    padding: 0.35rem 1rem;
+    font-size: 0.9em;
+  }
+
+  .response-area {
+    min-height: 100px;
+    padding: 0.6rem;
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    background-size: 600px 600px;
+  }
+
+  h1 {
+    font-size: 2.6em;
+  }
+
+  .app {
+    padding: 2rem 2rem;
+  }
+}

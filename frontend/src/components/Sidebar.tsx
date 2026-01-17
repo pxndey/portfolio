@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 import './Sidebar.css'
 
 interface PortfolioData {
@@ -14,6 +15,15 @@ interface SidebarProps {
 
 function Sidebar({ portfolioData }: SidebarProps) {
   const location = useLocation()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
 
   const allNavItems = [
     { path: '/', label: 'About Me', key: 'home', alwaysShow: true },
@@ -38,33 +48,44 @@ function Sidebar({ portfolioData }: SidebarProps) {
     .map((item, index) => ({ ...item, number: index + 1 }))
 
   return (
-    <div className="sidebar closed">
-      <div className="sidebar-header">
-        <Link to="/" className="sidebar-title-collapsed">
-          <h1>AP</h1>
-        </Link>
-        <Link to="/" className="sidebar-title">
-          <h1>ANUSHK</h1>
-        </Link>
-      </div>
+    <>
+      <button className="hamburger-button" onClick={toggleMenu} aria-label="Toggle menu">
+        <span className="hamburger-line"></span>
+        <span className="hamburger-line"></span>
+        <span className="hamburger-line"></span>
+      </button>
 
-      <div className="progress-bar">
-        <div className="progress-fill"></div>
-      </div>
+      {isMenuOpen && <div className="sidebar-overlay" onClick={closeMenu}></div>}
 
-      <nav className="sidebar-nav">
-        {navItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`nav-item ${location.pathname === item.path ? 'active' : ''} ${item.dimmed ? 'dimmed' : ''}`}
-          >
-            <span className="nav-number">{item.number}</span>
-            <span className="nav-label">{item.label}</span>
+      <div className={`sidebar ${isMenuOpen ? 'open' : 'closed'}`}>
+        <div className="sidebar-header">
+          <Link to="/" className="sidebar-title-collapsed" onClick={closeMenu}>
+            <h1>AP</h1>
           </Link>
-        ))}
-      </nav>
-    </div>
+          <Link to="/" className="sidebar-title" onClick={closeMenu}>
+            <h1>ANUSHK</h1>
+          </Link>
+        </div>
+
+        <div className="progress-bar">
+          <div className="progress-fill"></div>
+        </div>
+
+        <nav className="sidebar-nav">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`nav-item ${location.pathname === item.path ? 'active' : ''} ${item.dimmed ? 'dimmed' : ''}`}
+              onClick={closeMenu}
+            >
+              <span className="nav-number">{item.number}</span>
+              <span className="nav-label">{item.label}</span>
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </>
   )
 }
 

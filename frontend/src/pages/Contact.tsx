@@ -1,19 +1,35 @@
 import './Contact.css'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaTwitter, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
 
 function Contact() {
   return (
     <div className="contact-container">
       <h1 className="contact-title">Get in Touch</h1>
+      <div className="location-subheading">
+        <FaMapMarkerAlt className="location-icon" />
+        <span>New York, New York</span>
+      </div>
 
       <div className="contact-section">
         <h2 className="section-heading">Email</h2>
         <div className="email-list">
           <a href="mailto:anushkpandey@proton.me" className="email-link">
-            anushkpandey@proton.me
+            <div className="email-icon">
+              <FaEnvelope size={24} />
+            </div>
+            <div className="email-content">
+              <div className="email-address">anushkpandey@proton.me</div>
+              <div className="email-description">Personal inbox</div>
+            </div>
           </a>
           <a href="mailto:anushk@pxndey.com" className="email-link">
-            anushk@pxndey.com
+            <div className="email-icon">
+              <FaEnvelope size={24} />
+            </div>
+            <div className="email-content">
+              <div className="email-address">anushk@pxndey.com</div>
+              <div className="email-description">Professional inquiries</div>
+            </div>
           </a>
         </div>
       </div>

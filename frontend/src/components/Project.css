@@ -79,3 +79,53 @@
 .description li:last-child {
   margin-bottom: 0;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .project-name {
+    font-size: 16px;
+  }
+
+  .technologies {
+    font-size: 13px;
+  }
+
+  .project-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .project-role {
+    font-size: 13px;
+  }
+
+  .project-duration {
+    font-size: 12px;
+  }
+
+  .description {
+    padding-left: 20px;
+  }
+
+  .description li {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-card {
+    padding: 28px;
+  }
+}
