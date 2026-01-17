@@ -205,53 +205,33 @@ function Music() {
         <div className="chart-container">
           <h2>{isNowPlaying || isRecentlyPlayed ? 'Now Playing' : 'Last Played'}</h2>
           {mostRecentTrack && (
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '300px',
-              padding: '20px'
-            }}>
+            <div className="now-playing-container">
               {mostRecentTrack.image && mostRecentTrack.image[3] && (
                 <img
                   src={mostRecentTrack.image[3]['#text']}
                   alt={mostRecentTrack.name}
-                  style={{
-                    width: '150px',
-                    height: '150px',
-                    borderRadius: '8px',
-                    marginBottom: '20px',
-                    boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
-                  }}
+                  className="album-image"
                 />
               )}
-              <div style={{ textAlign: 'center' }}>
+              <div className="track-details">
                 <a
                   href={mostRecentTrack.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    color: '#e0e0e0',
-                    textDecoration: 'none',
-                    fontSize: '18px',
-                    fontWeight: 'bold',
-                    display: 'block',
-                    marginBottom: '8px'
-                  }}
+                  className="track-detail-link"
                 >
                   {mostRecentTrack.name}
                 </a>
-                <div style={{ color: '#888', fontSize: '14px', marginBottom: '4px' }}>
+                <div className="track-detail-artist">
                   {mostRecentTrack.artist['#text']}
                 </div>
                 {mostRecentTrack.album['#text'] && (
-                  <div style={{ color: '#666', fontSize: '12px' }}>
+                  <div className="track-detail-album">
                     {mostRecentTrack.album['#text']}
                   </div>
                 )}
                 {!isNowPlaying && mostRecentTrack.date && (
-                  <div style={{ color: '#666', fontSize: '12px', marginTop: '8px' }}>
+                  <div className="track-detail-date">
                     {mostRecentTrack.date['#text']}
                   </div>
                 )}
@@ -262,7 +242,7 @@ function Music() {
       </div>
 
       {/* Top Tracks Row */}
-      <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#e0e0e0' }}>Top Tracks</h2>
+      <h2 className="top-tracks-header">Top Tracks</h2>
       <div className="tracks-row">
         <div className="tracks-column">
           {tracks.slice(0, 5).map((track, index) => (
