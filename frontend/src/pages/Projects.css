@@ -12,20 +12,20 @@
 
 .timeline-wrapper {
   position: relative;
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 
 .timeline-line {
   position: absolute;
   left: 50%;
   top: 0;
-  bottom: 0;
+  bottom: 3rem;
   width: 3px;
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    var(--accent-color, #61dafb) 5%,
-    var(--accent-color, #61dafb) 95%,
+    var(--accent-color) 5%,
+    var(--accent-color) 95%,
     transparent 100%
   );
   transform: translateX(-50%);
@@ -45,14 +45,13 @@
 
 .year-label {
   display: inline-block;
-  background: var(--bg-color, #282c34);
-  color: var(--accent-color, #61dafb);
+  background: var(--primary-color);
+  color: var(--accent-color);
   font-size: 1.5rem;
   font-weight: bold;
   padding: 0.4rem 1.5rem;
-  border: 2px solid var(--accent-color, #61dafb);
+  border: 2px solid var(--accent-color);
   border-radius: 50px;
-  box-shadow: 0 2px 8px rgba(97, 218, 251, 0.3);
   position: relative;
   z-index: 3;
 }
@@ -88,18 +87,18 @@
 .timeline-dot {
   width: 14px;
   height: 14px;
-  background-color: var(--accent-color, #61dafb);
+  background-color: var(--accent-color);
   border-radius: 50%;
-  border: 3px solid var(--bg-color, #282c34);
-  box-shadow: 0 0 0 3px var(--accent-color, #61dafb);
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 0 3px var(--accent-color);
   z-index: 2;
   position: relative;
 }
 
 .work-card,
 .project-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(97, 218, 251, 0.3);
+  background: var(--card-overlay);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1rem;
   transition: all 0.3s ease;
@@ -109,8 +108,7 @@
 .work-card:hover,
 .project-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(97, 218, 251, 0.2);
-  border-color: var(--accent-color, #61dafb);
+  border-color: var(--accent-color);
 }
 
 .card-header {
@@ -124,19 +122,19 @@
 
 .card-header h3 {
   font-size: 1.1rem;
-  color: var(--text-color, #fff);
+  color: var(--text-primary);
   margin: 0;
   flex: 1;
   min-width: 150px;
 }
 
 .project-link {
-  color: var(--accent-color, #61dafb);
+  color: var(--accent-color);
   text-decoration: none;
 }
 
 .project-link:hover {
-  color: var(--accent-color, #61dafb);
+  color: var(--accent-color);
   text-decoration: none;
 }
 
@@ -152,40 +150,40 @@
 }
 
 .work-badge {
-  background: rgba(76, 175, 80, 0.2);
-  color: #4caf50;
-  border: 1px solid #4caf50;
+  background: var(--card-overlay);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
 .project-badge {
-  background: rgba(97, 218, 251, 0.2);
-  color: var(--accent-color, #61dafb);
-  border: 1px solid var(--accent-color, #61dafb);
+  background: var(--card-overlay);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
 .card-role {
   font-size: 0.95rem;
-  color: var(--text-secondary, #aaa);
+  color: var(--text-secondary);
   margin: 0.3rem 0;
   font-weight: 500;
 }
 
 .card-location {
   font-size: 0.85rem;
-  color: var(--text-secondary, #888);
+  color: var(--text-secondary);
   margin: 0.2rem 0;
 }
 
 .card-tech {
   font-size: 0.85rem;
-  color: var(--accent-color, #61dafb);
+  color: var(--accent-color);
   margin: 0.3rem 0;
   font-style: italic;
 }
 
 .card-duration {
   font-size: 0.8rem;
-  color: var(--text-secondary, #999);
+  color: var(--text-tertiary);
   margin: 0.3rem 0;
 }
 
@@ -200,7 +198,7 @@
   margin-bottom: 0.5rem;
   font-size: 0.85rem;
   line-height: 1.5;
-  color: var(--text-color, #ddd);
+  color: var(--text-secondary);
   padding-left: 0.75rem;
 }
 
@@ -208,7 +206,7 @@
   content: '▹';
   position: absolute;
   left: -0.4rem;
-  color: var(--accent-color, #61dafb);
+  color: var(--accent-color);
   font-weight: bold;
 }
 

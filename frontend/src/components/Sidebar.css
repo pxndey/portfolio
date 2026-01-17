@@ -14,27 +14,30 @@
   display: flex;
   width: 100%;
   min-height: 100vh;
-  background-image: url('../background.svg');
-  background-repeat: repeat;
-  background-size: 700px 700px;
+  background-color: var(--primary-color);
   position: relative;
 }
 
 .sidebar {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--text-primary);
   width: 80px;
   padding: 2rem 1rem;
   transition: width 0.3s ease, padding 0.3s ease;
   position: sticky;
   top: 0;
   height: 100vh;
+  max-height: 100vh;
+  box-sizing: border-box;
   flex-shrink: 0;
   z-index: 1000;
-  overflow-y: auto;
+  overflow: hidden;
   align-self: flex-start;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar:hover {
@@ -48,6 +51,7 @@
   align-items: center;
   margin-bottom: 2rem;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .sidebar:hover .sidebar-header {
@@ -116,17 +120,18 @@
 
 
 .progress-bar {
-  background-color: #fff;
+  background-color: var(--text-primary);
   height: 2px;
   border-radius: 2px;
   margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
   transition: opacity 0.3s ease;
+  flex-shrink: 0;
 }
 
 .progress-fill {
-  background-color: #fff;
+  background-color: var(--text-primary);
   height: 100%;
   width: 15%;
   transition: width 0.3s ease;
@@ -139,7 +144,7 @@
   transform: translateY(-50%);
   font-family: monospace;
   font-size: 1rem;
-  color: #000;
+  color: var(--primary-color);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -153,7 +158,9 @@
   flex-direction: column;
   gap: 0.5rem;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .nav-item {
@@ -161,7 +168,7 @@
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 0.5rem;
-  color: #888;
+  color: var(--text-muted);
   text-decoration: none;
   transition: all 0.2s;
   font-family: 'Inter', sans-serif;
@@ -178,19 +185,19 @@
 }
 
 .nav-item:hover {
-  color: #00A3E0;
+  color: var(--accent-color);
 }
 
 .nav-item.active {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .nav-item.active .nav-number {
-  color: #00A3E0;
+  color: var(--accent-color);
 }
 
 .nav-item.active .nav-label {
-  color: #00A3E0;
+  color: var(--accent-color);
 }
 
 .nav-number {
@@ -220,23 +227,53 @@
 
 /* Dimmed items (Music and Misc) */
 .nav-item.dimmed {
-  color: #333;
+  color: #555555;
+  opacity: 0.6;
 }
 
 .nav-item.dimmed:hover {
-  color: #00A3E0;
+  color: var(--accent-color);
+  opacity: 1;
 }
 
 .nav-item.dimmed.active {
-  color: #888;
+  color: var(--text-muted);
+  opacity: 0.8;
 }
 
 .nav-item.dimmed.active .nav-number {
-  color: #00A3E0;
+  color: var(--accent-color);
 }
 
 .nav-item.dimmed.active .nav-label {
-  color: #00A3E0;
+  color: var(--accent-color);
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, width 0.3s ease;
+  white-space: nowrap;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.sidebar:hover .footer-text {
+  opacity: 0.5;
+  width: auto;
 }
 
 .main-content {
@@ -244,13 +281,10 @@
   width: 100%;
   min-width: 0;
   padding: 2rem;
-  color: #fff;
+  color: var(--text-primary);
   overflow-x: auto;
   min-height: 100vh;
   box-sizing: border-box;
-  background-image: url('../background.svg');
-  background-repeat: repeat;
-  background-size: 700px 700px;
 }
 
 /* Hamburger Menu Button */
@@ -260,8 +294,8 @@
   top: 1rem;
   right: 1rem;
   z-index: 1001;
-  background-color: #000;
-  border: 2px solid #fff;
+  background-color: var(--primary-color);
+  border: 2px solid var(--text-primary);
   border-radius: 8px;
   width: 48px;
   height: 48px;
@@ -274,14 +308,14 @@
 }
 
 .hamburger-button:hover {
-  background-color: #00A3E0;
-  border-color: #00A3E0;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .hamburger-line {
   width: 24px;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--text-primary);
   transition: all 0.3s ease;
 }
 
@@ -289,7 +323,7 @@
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
 }
 
@@ -309,6 +343,8 @@
     top: 0;
     width: 280px;
     height: 100vh;
+    max-height: 100vh;
+    box-sizing: border-box;
     padding: 2rem 1rem;
     transition: left 0.3s ease;
     z-index: 1000;
@@ -369,6 +405,11 @@
 
   .nav-number {
     display: block;
+  }
+
+  .footer-text {
+    opacity: 0.5;
+    width: auto;
   }
 
   .main-content {

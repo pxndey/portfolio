@@ -17,7 +17,7 @@
 }
 
 .music-title-link:hover {
-  color: #8884d8;
+  color: var(--accent-color);
 }
 
 /* Stats Row */
@@ -29,29 +29,29 @@
 }
 
 .stat-card {
-  background: #1a1a1a;
+  background: var(--card-overlay);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent-color);
 }
 
 .stat-value {
   font-size: 2em;
   font-weight: bold;
-  color: #e0e0e0;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
 .stat-label {
   font-size: 0.9em;
-  color: #a0a0a0;
+  color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -65,17 +65,17 @@
 }
 
 .chart-container {
-  background: #1a1a1a;
+  background: var(--card-overlay);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .chart-container h2 {
   margin-top: 0;
   margin-bottom: 20px;
   font-size: 1.3em;
-  color: #e0e0e0;
+  color: var(--text-secondary);
   text-align: center;
 }
 
@@ -84,10 +84,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  background: #1a1a1a;
+  background: var(--card-overlay);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .tracks-column {
@@ -100,19 +100,19 @@
   align-items: center;
   padding: 15px;
   margin-bottom: 10px;
-  background: #252525;
+  background: var(--card-overlay);
   border-radius: 6px;
   transition: background 0.2s ease;
 }
 
 .track-item:hover {
-  background: #303030;
+  border: 1px solid var(--accent-color);
 }
 
 .track-rank {
   font-size: 1.5em;
   font-weight: bold;
-  color: #8884d8;
+  color: var(--accent-color);
   min-width: 50px;
   margin-right: 15px;
 }
@@ -125,7 +125,7 @@
 .track-name {
   display: block;
   font-weight: 600;
-  color: #e0e0e0;
+  color: var(--text-secondary);
   text-decoration: none;
   margin-bottom: 4px;
   white-space: nowrap;
@@ -135,12 +135,12 @@
 }
 
 .track-name:hover {
-  color: #8884d8;
+  color: var(--accent-color);
 }
 
 .track-artist {
   font-size: 0.9em;
-  color: #a0a0a0;
+  color: var(--text-tertiary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -148,7 +148,7 @@
 
 .track-playcount {
   font-size: 0.85em;
-  color: #808080;
+  color: var(--text-muted);
   white-space: nowrap;
   margin-left: 10px;
 }

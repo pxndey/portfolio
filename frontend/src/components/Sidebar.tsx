@@ -83,6 +83,10 @@ function Sidebar({ portfolioData }: SidebarProps) {
             </Link>
           ))}
         </nav>
+
+        <div className="sidebar-footer">
+          <span className="footer-text">theme changes on reload</span>
+        </div>
       </div>
     </>
   )

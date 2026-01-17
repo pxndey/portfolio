@@ -13,6 +13,7 @@ function MusicPlayer() {
   const [musicData, setMusicData] = useState<MusicData | null>(null)
   const [error, setError] = useState<string | null>(null)
   const audioRef = useRef<HTMLAudioElement>(null)
+  const hasSetInitialPosition = useRef(false)
 
   useEffect(() => {
     fetchMusic()
@@ -42,6 +43,20 @@ function MusicPlayer() {
     }
   }
 
+  const setRandomStartPosition = () => {
+    if (!audioRef.current || hasSetInitialPosition.current) return
+
+    const duration = audioRef.current.duration
+    if (isNaN(duration) || duration <= 0) return
+
+    // Set random position between 25% and 75% of duration
+    const minPosition = duration * 0.25
+    const maxPosition = duration * 0.75
+    const randomPosition = minPosition + Math.random() * (maxPosition - minPosition)
+    audioRef.current.currentTime = randomPosition
+    hasSetInitialPosition.current = true
+  }
+
   const togglePlay = () => {
     if (!audioRef.current || !musicData) return
 
@@ -49,6 +64,18 @@ function MusicPlayer() {
       audioRef.current.pause()
       setIsPlaying(false)
     } else {
+      // Set random start position on first play only
+      if (!hasSetInitialPosition.current) {
+        const duration = audioRef.current.duration
+
+        if (!isNaN(duration) && duration > 0) {
+          setRandomStartPosition()
+        } else {
+          // Metadata not loaded yet, wait for it
+          audioRef.current.addEventListener('loadedmetadata', setRandomStartPosition, { once: true })
+        }
+      }
+
       audioRef.current.play()
       setIsPlaying(true)
     }
@@ -67,7 +94,7 @@ function MusicPlayer() {
         onEnded={() => setIsPlaying(false)}
       />
       <button
-        className="music-player-button"
+        className={`music-player-button ${isPlaying ? 'playing' : ''}`}
         onClick={togglePlay}
         title={`${musicData.artist} - ${musicData.songName}`}
       >

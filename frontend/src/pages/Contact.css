@@ -8,14 +8,14 @@
   font-weight: 700;
   font-size: 2.8rem;
   margin-bottom: 1rem;
-  color: white;
+  color: var(--text-primary);
 }
 
 .location-subheading {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #888;
+  color: var(--text-muted);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -34,7 +34,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
-  color: #00A3E0;
+  color: var(--accent-color);
   margin-bottom: 1.5rem;
 }
 
@@ -49,11 +49,8 @@
   font-weight: 400;
   text-decoration: none;
   padding: 32px;
-  background:
-    radial-gradient(circle at center, rgba(0, 163, 224, 0.25) 0%, rgba(0, 163, 224, 0.15) 100%),
-    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9IjEuNSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMiIvPjwvc3ZnPg==');
-  background-blend-mode: overlay;
-  border: 1px solid #4a4a4a;
+  background: var(--card-overlay);
+  border: 1px solid var(--border-color);
   border-radius: 24px;
   transition: all 0.3s ease;
   display: flex;
@@ -62,19 +59,19 @@
 }
 
 .email-link:hover {
-  border-color: #00A3E0;
+  border-color: var(--accent-color);
 }
 
 .email-link:hover .email-icon {
-  color: #00A3E0;
+  color: var(--accent-color);
 }
 
 .email-link:hover .email-address {
-  color: #00A3E0;
+  color: var(--accent-color);
 }
 
 .email-icon {
-  color: white;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,13 +86,13 @@
 
 .email-address {
   font-size: 18px;
-  color: white;
+  color: var(--text-primary);
   transition: color 0.3s ease;
 }
 
 .email-description {
   font-size: 15px;
-  color: #888;
+  color: var(--text-muted);
 }
 
 .social-list {
@@ -109,26 +106,23 @@
   align-items: center;
   gap: 24px;
   padding: 32px;
-  background:
-    radial-gradient(circle at center, rgba(0, 163, 224, 0.25) 0%, rgba(0, 163, 224, 0.15) 100%),
-    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9IjEuNSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMiIvPjwvc3ZnPg==');
-  background-blend-mode: overlay;
-  border: 1px solid #4a4a4a;
+  background: var(--card-overlay);
+  border: 1px solid var(--border-color);
   border-radius: 24px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .social-row:hover {
-  border-color: #00A3E0;
+  border-color: var(--accent-color);
 }
 
 .social-row:hover .social-icon {
-  color: #00A3E0;
+  color: var(--accent-color);
 }
 
 .social-icon {
-  color: white;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,14 +139,14 @@
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: white;
+  color: var(--text-primary);
 }
 
 .social-username {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: #cccccc;
+  color: var(--text-secondary);
 }
 
 /* Responsive Design */

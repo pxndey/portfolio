@@ -10,7 +10,7 @@
 }
 
 .home-subheading {
-  color: #888;
+  color: var(--text-muted);
   font-size: 1rem;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -19,7 +19,7 @@
 }
 
 .home-subtitle {
-  color: #00A3E0;
+  color: var(--accent-color);
   font-size: 1.1rem;
   font-weight: normal;
   margin-top: 0.5rem;
@@ -29,11 +29,11 @@
 }
 
 .home-quote {
-  border-left: 4px solid #00A3E0;
+  border-left: 4px solid var(--accent-color);
   padding-left: 1.5rem;
   margin: 2rem 0;
   font-style: italic;
-  color: #ccc;
+  color: var(--text-secondary);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
@@ -54,7 +54,7 @@
 
 .home-separator {
   border: none;
-  border-top: 1px solid #444;
+  border-top: 1px solid var(--border-color);
   margin: 2rem 0;
 }
 
@@ -66,12 +66,12 @@
 }
 
 .social-link {
-  color: #fff;
+  color: var(--text-primary);
   transition: color 0.2s;
 }
 
 .social-link:hover {
-  color: #00A3E0;
+  color: var(--accent-color);
 }
 
 /* Responsive Design */

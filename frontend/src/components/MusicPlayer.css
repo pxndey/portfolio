@@ -1,42 +1,90 @@
 .music-player-button {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background-color: #000;
-  border: 2px solid #fff;
-  color: #fff;
+  bottom: 3rem;
+  right: 3rem;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--text-primary);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  transition: width 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: width 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
   z-index: 9999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.4);
+  overflow: visible;
   padding: 0;
 }
 
+.music-player-button::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 18px;
+  background: conic-gradient(
+    from var(--angle),
+    var(--accent-color) 0deg,
+    var(--accent-color) 140deg,
+    white 180deg,
+    white 320deg,
+    var(--accent-color) 360deg
+  );
+  z-index: -1;
+}
+
+.music-player-button.playing::before {
+  animation: rotate 3s linear infinite;
+}
+
+.music-player-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  background-color: var(--primary-color);
+  z-index: -1;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
 .music-player-button:hover {
-  background-color: #00A3E0;
-  border-color: #00A3E0;
-  width: 280px;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 6px 12px rgba(0, 0, 0, 0.5);
+  width: 350px;
+}
+
+.music-player-button:hover::after {
+  background-color: var(--accent-color);
 }
 
 .music-icon-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 70px;
+  height: 70px;
   flex-shrink: 0;
 }
 
 .music-icon {
-  width: 28px;
-  height: 28px;
+  width: 35px;
+  height: 35px;
 }
 
 .music-info {
@@ -61,37 +109,46 @@
 .music-artist {
   font-weight: 700;
   font-size: 0.9rem;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 0.25rem;
 }
 
 .music-song {
   font-weight: 400;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .music-player-button {
-    bottom: 1rem;
-    right: 1rem;
-    width: 48px;
-    height: 48px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 13px;
+  }
+
+  .music-player-button::before {
+    border-radius: 16px;
+  }
+
+  .music-player-button::after {
+    border-radius: 13px;
   }
 
   .music-player-button:hover {
-    width: 240px;
+    width: 300px;
   }
 
   .music-icon-wrapper {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
   }
 
   .music-icon {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
   }
 
   .music-info {

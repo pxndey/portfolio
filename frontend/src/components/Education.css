@@ -5,14 +5,16 @@
 }
 
 .education-card {
-  background:
-    radial-gradient(circle at center, rgba(0, 163, 224, 0.25) 0%, rgba(0, 163, 224, 0.15) 100%),
-    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9IjEuNSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMiIvPjwvc3ZnPg==');
-  background-blend-mode: overlay;
-  border: 1px solid #4a4a4a;
+  background: var(--card-overlay);
+  border: 1px solid var(--border-color);
   border-radius: 24px;
   padding: 32px;
-  color: white;
+  color: var(--text-primary);
+  transition: all 0.2s;
+}
+
+.education-card:hover {
+  border-color: var(--accent-color);
 }
 
 .education-header {
@@ -27,14 +29,14 @@
   font-weight: 700;
   font-size: 18px;
   margin: 0;
-  color: white;
+  color: var(--text-primary);
 }
 
 .edu-location {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #cccccc;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -49,28 +51,28 @@
   font-weight: 400;
   font-size: 14px;
   margin: 0;
-  color: white;
+  color: var(--text-primary);
 }
 
 .marks {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: #e0e0e0;
+  color: var(--text-secondary);
 }
 
 .edu-duration {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: #cccccc;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
 .coursework-section {
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid #4a4a4a;
+  border-top: 1px solid var(--border-color);
 }
 
 .coursework-heading {
@@ -78,7 +80,7 @@
   font-weight: 400;
   font-size: 14px;
   margin: 0 0 12px 0;
-  color: white;
+  color: var(--text-primary);
 }
 
 .coursework-list {
@@ -91,17 +93,17 @@
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 12px;
-  color: #e0e0e0;
-  background-color: #3a3a3a;
+  color: var(--text-secondary);
+  background-color: var(--card-overlay);
   padding: 6px 12px;
   border-radius: 6px;
-  border: 1px solid #4a4a4a;
+  border: 1px solid var(--border-color);
 }
 
 .extracurricular-section {
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid #4a4a4a;
+  border-top: 1px solid var(--border-color);
 }
 
 .extracurricular-heading {
@@ -109,31 +111,31 @@
   font-weight: 400;
   font-size: 14px;
   margin: 0 0 16px 0;
-  color: white;
+  color: var(--text-primary);
 }
 
 .extracurricular-timeline {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding-left: 16px;
+  position: relative;
 }
 
 .extracurricular-item {
-  padding-left: 16px;
-  border-left: 2px solid #4a4a4a;
   position: relative;
 }
 
 .extracurricular-item::before {
   content: '';
   position: absolute;
-  left: -5px;
+  left: -16px;
   top: 6px;
   width: 8px;
   height: 8px;
-  background-color: #00a3e0;
+  background-color: var(--accent-color);
   border-radius: 50%;
-  border: 2px solid #1a1a1a;
+  border: 2px solid var(--primary-color);
 }
 
 .extracurricular-header {
@@ -153,21 +155,21 @@
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 14px;
-  color: white;
+  color: var(--text-primary);
 }
 
 .extracurricular-role {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: #cccccc;
+  color: var(--text-secondary);
 }
 
 .extracurricular-duration {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 12px;
-  color: #cccccc;
+  color: var(--text-secondary);
   font-style: italic;
   white-space: nowrap;
 }
@@ -182,7 +184,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: #e0e0e0;
+  color: var(--text-secondary);
   margin-bottom: 4px;
   line-height: 1.5;
 }
@@ -250,8 +252,12 @@
     margin-bottom: 12px;
   }
 
-  .extracurricular-item {
+  .extracurricular-timeline {
     padding-left: 12px;
+  }
+
+  .extracurricular-item::before {
+    left: -12px;
   }
 
   .extracurricular-header {
