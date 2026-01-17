@@ -1,74 +1,104 @@
 import { useState, useEffect } from 'react'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import './Music.css'
 
-interface Track {
-  rank: string
-  artist: string
-  artistMbid: string
+interface Artist {
   name: string
-  mbid: string
   playcount: string
   url: string
 }
 
-interface LastFmData {
-  user: string
-  from: string
-  to: string
-  tracks: Track[]
+interface RecentTrack {
+  name: string
+  artist: {
+    '#text': string
+    mbid: string
+  }
+  album: {
+    '#text': string
+    mbid: string
+  }
+  url: string
+  date?: {
+    uts: string
+    '#text': string
+  }
+  '@attr'?: {
+    nowplaying: string
+  }
+  image?: Array<{
+    '#text': string
+    size: string
+  }>
+}
+
+interface Track {
+  name: string
+  playcount: string
+  artist: {
+    name: string
+  }
+  url: string
+}
+
+interface UserInfo {
+  playcount: string
+  artist_count: string
+  album_count: string
+  track_count: string
+  url: string
+  name: string
+}
+
+interface MusicData {
+  userInfo: {
+    user: UserInfo
+  }
+  topArtists: {
+    topartists: {
+      artist: Artist[]
+    }
+  }
+  recentTracks: {
+    recenttracks: {
+      track: RecentTrack[]
+    }
+  }
+  topTracks: {
+    toptracks: {
+      track: Track[]
+    }
+  }
 }
 
 function Music() {
-  const [data, setData] = useState<LastFmData | null>(null)
+  const [data, setData] = useState<MusicData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetchLastFmData()
+    fetchMusicData()
   }, [])
 
-  const fetchLastFmData = async () => {
+  const fetchMusicData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/lastfm')
+      const response = await fetch('http://localhost:8080/music')
       if (!response.ok) {
-        throw new Error('Failed to fetch Last.fm data')
+        throw new Error('Failed to fetch music data')
       }
-      const xmlText = await response.text()
-      const parsedData = parseLastFmXml(xmlText)
-      setData(parsedData)
+      const jsonData = await response.json()
+      setData(jsonData)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load music data')
-      console.error('Error fetching Last.fm data:', err)
+      console.error('Error fetching music data:', err)
     } finally {
       setLoading(false)
     }
   }
 
-  const parseLastFmXml = (xmlText: string): LastFmData => {
-    const parser = new DOMParser()
-    const xmlDoc = parser.parseFromString(xmlText, 'text/xml')
-
-    const chartElement = xmlDoc.querySelector('weeklytrackchart')
-    const user = chartElement?.getAttribute('user') || ''
-    const from = chartElement?.getAttribute('from') || ''
-    const to = chartElement?.getAttribute('to') || ''
-
-    const trackElements = xmlDoc.querySelectorAll('track')
-    const tracks: Track[] = Array.from(trackElements).map(track => ({
-      rank: track.getAttribute('rank') || '',
-      artist: track.querySelector('artist')?.textContent || '',
-      artistMbid: track.querySelector('artist')?.getAttribute('mbid') || '',
-      name: track.querySelector('name')?.textContent || '',
-      mbid: track.querySelector('mbid')?.textContent || '',
-      playcount: track.querySelector('playcount')?.textContent || '',
-      url: track.querySelector('url')?.textContent || ''
-    }))
-
-    return { user, from, to, tracks }
-  }
-
   if (loading) {
     return (
-      <div>
+      <div className="music-container">
         <h1>Music</h1>
         <p>Loading...</p>
       </div>
@@ -77,7 +107,7 @@ function Music() {
 
   if (error) {
     return (
-      <div>
+      <div className="music-container">
         <h1>Music</h1>
         <p>Error: {error}</p>
       </div>
@@ -86,33 +116,183 @@ function Music() {
 
   if (!data) {
     return (
-      <div>
+      <div className="music-container">
         <h1>Music</h1>
         <p>No data available</p>
       </div>
     )
   }
 
-  return (
-    <div>
-      <h1>Music</h1>
-      <h2>Weekly Track Chart for {data.user}</h2>
-      <p>From: {new Date(parseInt(data.from) * 1000).toLocaleDateString()} - To: {new Date(parseInt(data.to) * 1000).toLocaleDateString()}</p>
+  const userInfo = data.userInfo.user
+  const artists = Array.isArray(data.topArtists.topartists.artist)
+    ? data.topArtists.topartists.artist
+    : [data.topArtists.topartists.artist]
+  const recentTracksData = Array.isArray(data.recentTracks.recenttracks.track)
+    ? data.recentTracks.recenttracks.track
+    : [data.recentTracks.recenttracks.track]
+  const tracks = Array.isArray(data.topTracks.toptracks.track)
+    ? data.topTracks.toptracks.track
+    : [data.topTracks.toptracks.track]
 
-      <div>
-        {data.tracks.map((track) => (
-          <div key={`${track.rank}-${track.name}`} style={{ marginBottom: '15px', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}>
-            <div><strong>#{track.rank}</strong></div>
-            <div><strong>{track.name}</strong></div>
-            <div>Artist: {track.artist}</div>
-            <div>Play count: {track.playcount}</div>
-            <div>
-              <a href={track.url} target="_blank" rel="noopener noreferrer">
-                View on Last.fm
-              </a>
+  // Prepare chart data
+  const artistChartData = artists.slice(0, 10).map(artist => ({
+    name: artist.name.length > 15 ? artist.name.substring(0, 15) + '...' : artist.name,
+    fullName: artist.name,
+    playcount: parseInt(artist.playcount)
+  }))
+
+  // Get the most recent track
+  const mostRecentTrack = recentTracksData[0]
+  const isNowPlaying = mostRecentTrack?.['@attr']?.nowplaying === 'true'
+  const isRecentlyPlayed = mostRecentTrack?.date
+    ? (Date.now() / 1000 - parseInt(mostRecentTrack.date.uts)) < 180 // Less than 3 minutes (180 seconds)
+    : false
+
+  return (
+    <div className="music-container">
+      <h1>
+        <a href={userInfo.url} target="_blank" rel="noopener noreferrer" className="music-title-link">
+          Music
+        </a>
+      </h1>
+
+      {/* Stats Row */}
+      <div className="stats-row">
+        <div className="stat-card">
+          <div className="stat-value">{parseInt(userInfo.playcount).toLocaleString()}</div>
+          <div className="stat-label">Scrobbles</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">{parseInt(userInfo.artist_count).toLocaleString()}</div>
+          <div className="stat-label">Artists</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">{parseInt(userInfo.album_count).toLocaleString()}</div>
+          <div className="stat-label">Albums</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">{parseInt(userInfo.track_count).toLocaleString()}</div>
+          <div className="stat-label">Tracks</div>
+        </div>
+      </div>
+
+      {/* Charts Row */}
+      <div className="charts-row">
+        <div className="chart-container">
+          <h2>Top Artists (All Time)</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={artistChartData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+              <XAxis dataKey="name" hide />
+              <YAxis stroke="#888" tick={{ fill: '#888' }} />
+              <Tooltip
+                contentStyle={{ backgroundColor: '#2a2a2a', border: '1px solid #444', borderRadius: '4px' }}
+                labelStyle={{ color: '#e0e0e0' }}
+                itemStyle={{ color: '#e0e0e0' }}
+                labelFormatter={(label: string, payload: any[]) => {
+                  if (payload && payload.length > 0) {
+                    return payload[0].payload.fullName
+                  }
+                  return label
+                }}
+                formatter={(value: number) => [value.toLocaleString(), '']}
+              />
+              <Bar dataKey="playcount" fill="#8884d8" />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="chart-container">
+          <h2>{isNowPlaying || isRecentlyPlayed ? 'Now Playing' : 'Last Played'}</h2>
+          {mostRecentTrack && (
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '300px',
+              padding: '20px'
+            }}>
+              {mostRecentTrack.image && mostRecentTrack.image[3] && (
+                <img
+                  src={mostRecentTrack.image[3]['#text']}
+                  alt={mostRecentTrack.name}
+                  style={{
+                    width: '150px',
+                    height: '150px',
+                    borderRadius: '8px',
+                    marginBottom: '20px',
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
+                  }}
+                />
+              )}
+              <div style={{ textAlign: 'center' }}>
+                <a
+                  href={mostRecentTrack.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: '#e0e0e0',
+                    textDecoration: 'none',
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    display: 'block',
+                    marginBottom: '8px'
+                  }}
+                >
+                  {mostRecentTrack.name}
+                </a>
+                <div style={{ color: '#888', fontSize: '14px', marginBottom: '4px' }}>
+                  {mostRecentTrack.artist['#text']}
+                </div>
+                {mostRecentTrack.album['#text'] && (
+                  <div style={{ color: '#666', fontSize: '12px' }}>
+                    {mostRecentTrack.album['#text']}
+                  </div>
+                )}
+                {!isNowPlaying && mostRecentTrack.date && (
+                  <div style={{ color: '#666', fontSize: '12px', marginTop: '8px' }}>
+                    {mostRecentTrack.date['#text']}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          )}
+        </div>
+      </div>
+
+      {/* Top Tracks Row */}
+      <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#e0e0e0' }}>Top Tracks</h2>
+      <div className="tracks-row">
+        <div className="tracks-column">
+          {tracks.slice(0, 5).map((track, index) => (
+            <div key={index} className="track-item">
+              <div className="track-rank">#{index + 1}</div>
+              <div className="track-info">
+                <a href={track.url} target="_blank" rel="noopener noreferrer" className="track-name">
+                  {track.name}
+                </a>
+                <div className="track-artist">{track.artist.name}</div>
+              </div>
+              <div className="track-playcount">{track.playcount} plays</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="tracks-column">
+          {tracks.slice(5, 10).map((track, index) => (
+            <div key={index} className="track-item">
+              <div className="track-rank">#{index + 6}</div>
+              <div className="track-info">
+                <a href={track.url} target="_blank" rel="noopener noreferrer" className="track-name">
+                  {track.name}
+                </a>
+                <div className="track-artist">{track.artist.name}</div>
+              </div>
+              <div className="track-playcount">{track.playcount} plays</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -3,11 +3,15 @@ import { useState } from 'react'
 
 // Import all server images - add more imports as you add images to the directory
 import serverImage1 from '../assets/server-images/server-1.jpg'
+import innovaImage from '../assets/server-images/Innova.jpg'
+import babyImage from '../assets/server-images/baby.jpg'
 // import serverImage2 from '../assets/server-images/server-2.jpg'
 // import serverImage3 from '../assets/server-images/server-3.jpg'
 
 const serverImages = [
   serverImage1,
+  innovaImage,
+  babyImage,
   // serverImage2,
   // serverImage3,
 ]

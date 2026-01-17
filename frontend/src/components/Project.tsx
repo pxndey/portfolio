@@ -6,6 +6,7 @@ interface ProjectData {
   technologies: string;
   role: string;
   duration: string;
+  githubLink: string;
   description: string[];
 }
 
@@ -18,19 +19,13 @@ const Project: React.FC<ProjectProps> = ({ data }) => {
     <div className="project-container">
       {data.map((project, index) => (
         <div key={index} className="project-card">
-          <div className="project-header">
-            <h3 className="project-name">{project.projectName}</h3>
-            <span className="technologies">{project.technologies}</span>
-          </div>
-          <div className="project-details">
-            <p className="project-role">{project.role}</p>
-            <span className="project-duration">{project.duration}</span>
-          </div>
-          <ul className="description">
-            {project.description.map((desc, idx) => (
-              <li key={idx}>{desc}</li>
-            ))}
-          </ul>
+          <h3 className="project-name">
+            <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link">
+              {project.projectName}
+            </a>
+          </h3>
+          <p className="technologies">{project.technologies}</p>
+          <p className="project-duration">{project.duration}</p>
         </div>
       ))}
     </div>

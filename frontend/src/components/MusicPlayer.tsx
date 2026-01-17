@@ -20,12 +20,22 @@ function MusicPlayer() {
 
   const fetchMusic = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/music')
+      const response = await fetch('http://localhost:8080/audio')
       if (!response.ok) {
         throw new Error('Failed to fetch music')
       }
       const data = await response.json()
-      setMusicData(data)
+
+      // Parse filename to extract artist and song name
+      // Expected format: "Artist - Song Name.mp3"
+      const filename = data.filename.replace('.mp3', '')
+      const [artist, songName] = filename.split(' - ').map((s: string) => s.trim())
+
+      setMusicData({
+        audioUrl: `http://localhost:8080${data.url}`,
+        artist: artist || 'Unknown Artist',
+        songName: songName || filename
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load music')
       console.error('Error fetching music:', err)
@@ -61,14 +71,16 @@ function MusicPlayer() {
         onClick={togglePlay}
         title={`${musicData.artist} - ${musicData.songName}`}
       >
-        {isPlaying ? (
-          <HiSpeakerWave className="music-icon" />
-        ) : (
-          <HiSpeakerXMark className="music-icon" />
-        )}
-        <span className="music-tooltip">
+        <span className="music-info">
           <div className="music-artist">{musicData.artist}</div>
           <div className="music-song">{musicData.songName}</div>
+        </span>
+        <span className="music-icon-wrapper">
+          {isPlaying ? (
+            <HiSpeakerWave className="music-icon" />
+          ) : (
+            <HiSpeakerXMark className="music-icon" />
+          )}
         </span>
       </button>
     </>

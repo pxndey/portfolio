@@ -117,6 +117,7 @@
       "technologies": "Python, Machine Learning",
       "role": "ML Developer",
       "duration": "Dec 2025",
+      "githubLink": "https://github.com/yourusername/adversarial-debiasing",
       "description": [
         "Engineered a custom Adversarial Debiasing Model from scratch to mitigate algorithmic bias in a diabetes dataset.",
         "Maintained high performance with 96.7% Accuracy, while achieving strong calibration parity across 5 racial groups.",
@@ -128,6 +129,7 @@
       "technologies": "StreetCLIP, HPC Cluster, Computer Vision",
       "role": "Computer Vision Engineer",
       "duration": "Dec 2025",
+      "githubLink": "https://github.com/yourusername/geoguesser-vision",
       "description": [
         "Fine-tuned a StreetCLIP backbone on an HPC cluster to process over 329,000 multi-view images across 33 US states.",
         "Implemented a custom four-directional feature aggregation pipeline, maximizing spatial context for State Classification.",
@@ -139,6 +141,7 @@
       "technologies": "ResNet152, ResNet50, MobileNet, VGG19, PyTorch/TensorFlow",
       "role": "ML Researcher",
       "duration": "Nov 2024",
+      "githubLink": "https://github.com/yourusername/parkinsons-detection",
       "description": [
         "Developed novel dual ResNet152 architecture achieving 95.2% accuracy on spiral drawings and 90.4% on wave patterns.",
         "Implemented transfer learning with zero-training embedding method, achieving 100% precision on key datasets.",
@@ -150,6 +153,7 @@
       "technologies": "RNN, NASA-CMAPSS dataset, Python",
       "role": "Data Scientist",
       "duration": "Nov 2024",
+      "githubLink": "https://github.com/yourusername/engine-rul-prediction",
       "description": [
         "Developed RNN model for aircraft engine lifetime prediction, achieving 31.6% better RMSE than existing literature.",
         "Engineered novel regression features and processed 20,000+ entries from NASA-CMAPSS time series dataset.",
@@ -161,6 +165,7 @@
       "technologies": "Graph Citation Networks, DeepWalk, Sentence-BERT",
       "role": "Backend/ML Developer",
       "duration": "Nov 2024",
+      "githubLink": "https://github.com/yourusername/research-paper-recommender",
       "description": [
         "Used graph citation networks to model relationships between research papers.",
         "Employed DeepWalk and Sentence-BERT for vector representation and semantic similarity.",

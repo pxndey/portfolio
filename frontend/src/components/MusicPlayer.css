@@ -4,28 +4,34 @@
   right: 2rem;
   width: 56px;
   height: 56px;
-  border-radius: 50%;
+  border-radius: 12px;
   background-color: #000;
   border: 2px solid #fff;
   color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
+  justify-content: flex-end;
+  transition: width 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   z-index: 9999;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  padding: 0;
 }
 
 .music-player-button:hover {
   background-color: #00A3E0;
   border-color: #00A3E0;
-  transform: scale(1.1);
+  width: 280px;
 }
 
-.music-player-button:hover .music-tooltip {
-  opacity: 1;
-  visibility: visible;
+.music-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
 }
 
 .music-icon {
@@ -33,34 +39,36 @@
   height: 28px;
 }
 
-.music-tooltip {
-  position: absolute;
-  bottom: 100%;
-  right: 0;
-  margin-bottom: 0.5rem;
-  background-color: #000;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  white-space: nowrap;
+.music-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  pointer-events: none;
+  padding-left: 1rem;
+  padding-right: 0.75rem;
+  white-space: nowrap;
   font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+.music-player-button:hover .music-info {
+  opacity: 1;
+  visibility: visible;
 }
 
 .music-artist {
   font-weight: 700;
   font-size: 0.9rem;
-  color: #00A3E0;
+  color: #fff;
   margin-bottom: 0.25rem;
 }
 
 .music-song {
   font-weight: 400;
   font-size: 0.85rem;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsive Design */
@@ -72,14 +80,23 @@
     height: 48px;
   }
 
+  .music-player-button:hover {
+    width: 240px;
+  }
+
+  .music-icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
   .music-icon {
     width: 24px;
     height: 24px;
   }
 
-  .music-tooltip {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
+  .music-info {
+    padding-left: 0.75rem;
+    padding-right: 0.5rem;
   }
 
   .music-artist {

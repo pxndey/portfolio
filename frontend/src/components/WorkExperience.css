@@ -56,8 +56,8 @@
 .duration {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
-  color: #cccccc;
+  font-size: 11px;
+  color: #999999;
   font-style: italic;
 }
 
@@ -112,7 +112,7 @@
   }
 
   .duration {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .responsibilities {
