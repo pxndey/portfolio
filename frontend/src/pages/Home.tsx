@@ -1,5 +1,6 @@
 import './Home.css'
 import { FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa'
+import ResumePDF from '../../Resume.pdf'
 
 function Home() {
   return (
@@ -52,7 +53,7 @@ function Home() {
         </a>
 
         <a
-          href="/resume.pdf"
+          href={ResumePDF}
           target="_blank"
           rel="noopener noreferrer"
           className="social-link"

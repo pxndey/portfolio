@@ -82,7 +82,7 @@ function Music() {
 
   const fetchMusicData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/music')
+      const response = await fetch('/api/music')
       if (!response.ok) {
         throw new Error('Failed to fetch music data')
       }

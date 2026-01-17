@@ -21,7 +21,7 @@ function MusicPlayer() {
 
   const fetchMusic = async () => {
     try {
-      const response = await fetch('http://localhost:8080/audio')
+      const response = await fetch('/api/audio')
       if (!response.ok) {
         throw new Error('Failed to fetch music')
       }
@@ -33,7 +33,7 @@ function MusicPlayer() {
       const [artist, songName] = filename.split(' - ').map((s: string) => s.trim())
 
       setMusicData({
-        audioUrl: `http://localhost:8080${data.url}`,
+        audioUrl: `/api${data.url}`,
         artist: artist || 'Unknown Artist',
         songName: songName || filename
       })
