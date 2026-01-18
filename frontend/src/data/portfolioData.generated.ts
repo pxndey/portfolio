@@ -123,7 +123,7 @@ const portfolioData = {
       "description": [
         "Developed novel dual ResNet152 architecture achieving 95.2% accuracy on spiral drawings and 90.4% on wave patterns.",
         "Implemented transfer learning with zero-training embedding method, achieving 100% precision on key datasets.",
-        "Benchmarked against 5+ architectures, matching state-of-the-art models with lower compute costs."
+        "Developed under the Guidance of Dr Sridhar Raj S (VIT)"
       ]
     },
     {
@@ -147,7 +147,7 @@ const portfolioData = {
       "description": [
         "Used graph citation networks to model relationships between research papers.",
         "Employed DeepWalk and Sentence-BERT for vector representation and semantic similarity.",
-        "Provided personalized paper suggestions based on network insights and content relevance."
+        "Developed under the guidance of Dr Athira K (VIT)"
       ]
     },
     {
