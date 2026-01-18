@@ -68,7 +68,7 @@ function Contact() {
           </a>
 
           <a
-            href="https://twitter.com/pxndey"
+            href="https://twitter.com/_pandeyanushk"
             target="_blank"
             rel="noopener noreferrer"
             className="social-row"
@@ -78,7 +78,7 @@ function Contact() {
             </div>
             <div className="social-info">
               <div className="social-name">Twitter</div>
-              <div className="social-username">@pxndey</div>
+              <div className="social-username">@_pandeyanushk</div>
             </div>
           </a>
         </div>
