@@ -87,6 +87,7 @@
   .work-experience-card {
     padding: 20px;
     border-radius: 16px;
+    border-color: var(--accent-color);
   }
 
   .work-header {
@@ -129,5 +130,6 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .work-experience-card {
     padding: 28px;
+    border-color: var(--accent-color);
   }
 }

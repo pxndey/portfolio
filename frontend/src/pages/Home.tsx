@@ -25,11 +25,11 @@ function Home() {
       <br />
 
       <p className="home-paragraph">
-      I grew up to dinner table conversations about melanomas and sarcomas and whatnot, so when I decided that Computer Science was the field i wanted to go to, I wanted to make an impact. Today, I am pursuing an Masters in Computer Science at New York University with a focus on Computer Vision, AI, and how healthcare can benefit from its applications. 
+      I grew up to dinner table conversations about melanomas and sarcomas and whatnot, so when I decided that Computer Science was the field i wanted to go to, I wanted to make an impact. Today, I am pursuing a <mark>Masters in Computer Science at New York University</mark> with a focus on <mark>Computer Vision, AI</mark>, and how <mark>healthcare</mark> can benefit from its applications.
       </p>
 
       <p className="home-paragraph">
-	I have coded, developed, and researched innovations in healthcare and vision models to take a step at (trying to) make life better for everyone. I have organized technical workshops, hackathons, and mentored outreach teams, conducting awareness programs for underprivileged high school students. 
+	I have coded, developed, and researched innovations in healthcare and vision models to take a step at (trying to) make life better for everyone. I have organized technical workshops, hackathons, and mentored outreach teams, conducting awareness programs for underprivileged high school students.
       </p>
 
       <hr className="home-separator" />

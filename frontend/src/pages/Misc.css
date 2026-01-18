@@ -129,11 +129,6 @@
 	margin-bottom: 1.5rem;
 }
 
-.highlight {
-	color: var(--accent-color);
-	font-weight: 600;
-}
-
 .ascii-art {
 	font-family: monospace;
 	font-size: 1.2rem;

@@ -49,17 +49,6 @@ function Misc() {
                   <button onClick={nextImage} className="carousel-button carousel-button-next" aria-label="Next image">
                     ›
                   </button>
-
-                  <div className="carousel-dots">
-                    {serverImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => goToImage(index)}
-                        className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
-                        aria-label={`Go to image ${index + 1}`}
-                      />
-                    ))}
-                  </div>
                 </>
               )}
             </>
@@ -68,11 +57,11 @@ function Misc() {
 
         <div className="server-writeup">
           <p>
-        	In my life, there are a lot of things I affectionately call my "<span style={{ color: '#00A3E0' }}>sh*tboxes</span>", well one of them, is this! The site you're browsing is being served off a 2011 Macbook Air i got off Facebook Marketplace!
+        	In my life, there are a lot of things I affectionately call my "<mark>sh*tboxes</mark>", well one of them, is this! The site you're browsing is being served off a <mark>2011 Macbook Air</mark> i got off Facebook Marketplace! (not the best use of 100$...)
           </p>
 
           <p>
-            Another is my car, the 2016 <span style={{ color: '#00A3E0' }}>Innova Crysta</span> (the original sh*tbox). I learnt driving on that car, and with a heavy heart I had to say it goodbye when I came to the US. I love driving, with having driven more than 1600 kilometers in New Zealand (that's 900 miles for all the freedom people) and more than 1200 miles in 2025 alone (in India ofcourse)!
+            Another is my car, the 2016 <mark>Innova Crysta</mark> (the original sh*tbox). I learnt driving on that car, and with a heavy heart I had to say it goodbye when I came to the US. I love driving, with having driven more than <mark>1600 kilometers in New Zealand</mark> (that's 900 miles for all the freedom people) and more than <mark>1200 miles in 2025 alone</mark>!
           </p>
 
           <p>

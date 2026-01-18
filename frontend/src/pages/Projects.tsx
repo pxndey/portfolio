@@ -108,6 +108,18 @@ function Projects({ portfolioData }: ProjectsProps) {
       <div className="timeline-wrapper">
         <div className="timeline-line"></div>
 
+        <div className="column-headers">
+          <div className="column-header left-header">
+            <h2 className="header-title">Work Experience</h2>
+            <p className="header-subtitle">Internships and Such</p>
+          </div>
+          <div className="column-header-spacer"></div>
+          <div className="column-header right-header">
+            <h2 className="header-title">Projects</h2>
+            <p className="header-subtitle">academic and personal</p>
+          </div>
+        </div>
+
         {years.map((year) => {
           const workItems = getItemsByType(year, 'work');
           const projectItems = getItemsByType(year, 'project');

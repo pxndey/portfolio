@@ -43,7 +43,7 @@ const portfolioData = {
         "Artificial Intelligence",
         "Probability and Statistics",
         "Big Data Analytics",
-        "Software Engineeing"
+        "Software Engineering"
       ],
       "extracurriculars": [
         {
@@ -52,12 +52,12 @@ const portfolioData = {
           "duration": "Mar 2022 - Jan 2023",
           "details": [
             "Organized coding competitions and technical workshops for 500+ students",
-            "Coordinated with a team of 10+ designers in designin Online Posters and Videos",
+            "Coordinated with a team of 10+ designers in designing Online Posters and Videos",
             "Invited industry speakers for tech talks and career guidance sessions"
           ]
         },
         {
-          "organization": "Indian Society For Technical Educaiton",
+          "organization": "Indian Society For Technical Education",
           "role": "Board Member",
           "duration": "Jan 2023 - Apr 2024",
           "details": [

@@ -99,6 +99,7 @@
   .publication-card {
     padding: 20px;
     border-radius: 16px;
+    border-color: var(--accent-color);
   }
 
   .publication-header {
@@ -147,5 +148,6 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .publication-card {
     padding: 28px;
+    border-color: var(--accent-color);
   }
 }

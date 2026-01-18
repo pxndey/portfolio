@@ -15,6 +15,14 @@
   --card-overlay: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
 }
+
+/* Highlighted text with accent color */
+mark {
+  background: none;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
 body {
   margin: 0;
   min-width: 320px;

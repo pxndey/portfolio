@@ -27,7 +27,7 @@
 .institution-name {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin: 0;
   color: var(--text-primary);
 }
@@ -35,7 +35,7 @@
 .edu-location {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   font-style: italic;
 }
@@ -49,7 +49,7 @@
 .degree {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin: 0;
   color: var(--text-primary);
 }
@@ -57,14 +57,14 @@
 .marks {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--text-secondary);
 }
 
 .edu-duration {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--text-secondary);
   font-style: italic;
 }
@@ -78,7 +78,7 @@
 .coursework-heading {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin: 0 0 12px 0;
   color: var(--text-primary);
 }
@@ -92,7 +92,7 @@
 .course-item {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   background-color: var(--card-overlay);
   padding: 6px 12px;
@@ -109,7 +109,7 @@
 .extracurricular-heading {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin: 0 0 16px 0;
   color: var(--text-primary);
 }
@@ -154,21 +154,21 @@
 .extracurricular-organization {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--text-primary);
 }
 
 .extracurricular-role {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--text-secondary);
 }
 
 .extracurricular-duration {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   font-style: italic;
   white-space: nowrap;
@@ -183,7 +183,7 @@
 .extracurricular-details li {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--text-secondary);
   margin-bottom: 4px;
   line-height: 1.5;
@@ -194,6 +194,7 @@
   .education-card {
     padding: 20px;
     border-radius: 16px;
+    border-color: var(--accent-color);
   }
 
   .education-header {
@@ -203,11 +204,11 @@
   }
 
   .institution-name {
-    font-size: 16px;
+    font-size: 1.125rem;
   }
 
   .edu-location {
-    font-size: 13px;
+    font-size: 0.875rem;
   }
 
   .education-details {
@@ -217,15 +218,15 @@
   }
 
   .degree {
-    font-size: 13px;
+    font-size: 0.875rem;
   }
 
   .marks {
-    font-size: 12px;
+    font-size: 0.8125rem;
   }
 
   .edu-duration {
-    font-size: 12px;
+    font-size: 0.8125rem;
   }
 
   .coursework-section {
@@ -234,11 +235,11 @@
   }
 
   .coursework-heading {
-    font-size: 13px;
+    font-size: 0.875rem;
   }
 
   .course-item {
-    font-size: 11px;
+    font-size: 0.75rem;
     padding: 5px 10px;
   }
 
@@ -248,7 +249,7 @@
   }
 
   .extracurricular-heading {
-    font-size: 13px;
+    font-size: 0.875rem;
     margin-bottom: 12px;
   }
 
@@ -266,15 +267,15 @@
   }
 
   .extracurricular-organization {
-    font-size: 13px;
+    font-size: 0.875rem;
   }
 
   .extracurricular-role {
-    font-size: 12px;
+    font-size: 0.8125rem;
   }
 
   .extracurricular-duration {
-    font-size: 11px;
+    font-size: 0.75rem;
     white-space: normal;
   }
 
@@ -283,12 +284,14 @@
   }
 
   .extracurricular-details li {
-    font-size: 12px;
+    font-size: 0.8125rem;
+    line-height: 1.6;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .education-card {
     padding: 28px;
+    border-color: var(--accent-color);
   }
 }

@@ -69,6 +69,7 @@
   .project-card {
     padding: 16px;
     border-radius: 12px;
+    border-color: var(--accent-color);
   }
 
   .project-name {
@@ -91,5 +92,6 @@
 
   .project-card {
     padding: 16px;
+    border-color: var(--accent-color);
   }
 }
