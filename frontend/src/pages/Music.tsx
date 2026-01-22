@@ -144,9 +144,20 @@ function Music() {
   // Get the most recent track
   const mostRecentTrack = recentTracksData[0]
   const isNowPlaying = mostRecentTrack?.['@attr']?.nowplaying === 'true'
-  const isRecentlyPlayed = mostRecentTrack?.date
-    ? (Date.now() / 1000 - parseInt(mostRecentTrack.date.uts)) < 180 // Less than 3 minutes (180 seconds)
-    : false
+
+  // Format date to Eastern Time
+  const formatDateET = (utcTimestamp: string) => {
+    const date = new Date(parseInt(utcTimestamp) * 1000)
+    return date.toLocaleString('en-US', {
+      timeZone: 'America/New_York',
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    })
+  }
 
   return (
     <div className="music-container">
@@ -195,15 +206,15 @@ function Music() {
                   }
                   return label
                 }}
-                formatter={(value: number) => [value.toLocaleString(), '']}
+                formatter={(value: number) => value.toLocaleString()}
               />
-              <Bar dataKey="playcount" fill="#8884d8" />
+              <Bar dataKey="playcount" fill="var(--accent-color)" />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
         <div className="chart-container">
-          <h2>{isNowPlaying || isRecentlyPlayed ? 'Now Playing' : 'Last Played'}</h2>
+          <h2>{isNowPlaying ? 'Now Playing' : 'Last Played'}</h2>
           {mostRecentTrack && (
             <div className="now-playing-container">
               {mostRecentTrack.image && mostRecentTrack.image[3] && (
@@ -232,7 +243,7 @@ function Music() {
                 )}
                 {!isNowPlaying && mostRecentTrack.date && (
                   <div className="track-detail-date">
-                    {mostRecentTrack.date['#text']}
+                    {formatDateET(mostRecentTrack.date.uts)}
                   </div>
                 )}
               </div>

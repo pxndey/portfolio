@@ -64,8 +64,8 @@
 .edu-duration {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
   font-style: italic;
 }
 
@@ -168,8 +168,8 @@
 .extracurricular-duration {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
   font-style: italic;
   white-space: nowrap;
 }
@@ -226,7 +226,7 @@
   }
 
   .edu-duration {
-    font-size: 0.8125rem;
+    font-size: 0.625rem;
   }
 
   .coursework-section {
@@ -275,7 +275,7 @@
   }
 
   .extracurricular-duration {
-    font-size: 0.75rem;
+    font-size: 0.625rem;
     white-space: normal;
   }
 

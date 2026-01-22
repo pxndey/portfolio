@@ -7,7 +7,7 @@
 .music-container h1 {
   text-align: center;
   margin-bottom: 40px;
-  font-size: 2.5em;
+  font-size: 2.8rem;
 }
 
 .music-title-link {
@@ -43,14 +43,14 @@
 }
 
 .stat-value {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
 .stat-label {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -74,7 +74,7 @@
 .chart-container h2 {
   margin-top: 0;
   margin-bottom: 20px;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   color: var(--text-secondary);
   text-align: center;
 }
@@ -110,7 +110,7 @@
 }
 
 .track-rank {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: bold;
   color: var(--accent-color);
   min-width: 50px;
@@ -139,7 +139,7 @@
 }
 
 .track-artist {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   color: var(--text-tertiary);
   white-space: nowrap;
   overflow: hidden;
@@ -147,7 +147,7 @@
 }
 
 .track-playcount {
-  font-size: 0.85em;
+  font-size: 0.85rem;
   color: var(--text-muted);
   white-space: nowrap;
   margin-left: 10px;
@@ -200,7 +200,7 @@
 .track-detail-link {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   display: block;
   margin-bottom: 8px;
@@ -212,18 +212,18 @@
 
 .track-detail-artist {
   color: var(--text-tertiary);
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-bottom: 4px;
 }
 
 .track-detail-album {
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .track-detail-date {
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: 0.75rem;
   margin-top: 8px;
 }
 
@@ -248,11 +248,11 @@
   }
 
   .stat-value {
-    font-size: 1.5em;
+    font-size: 1.5rem;
   }
 
   .track-rank {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     min-width: 40px;
   }
 

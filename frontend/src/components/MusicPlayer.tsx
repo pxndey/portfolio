@@ -19,6 +19,12 @@ function MusicPlayer() {
     fetchMusic()
   }, [])
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.01
+    }
+  }, [musicData])
+
   const fetchMusic = async () => {
     try {
       const response = await fetch('/api/audio')

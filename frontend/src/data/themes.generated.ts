@@ -5,7 +5,7 @@ const themes = {
   "item": [
     {
       "primary_color": "#212121",
-      "accent_color": "#1D3BB0"
+      "accent_color": "#FD4BC7"
     },
     {
       "primary_color": "#212121",

@@ -76,9 +76,6 @@ function Misc() {
         <div className="other-services">
           <p className="services-title">Other stuff</p>
           <div className="services-links">
-            <a href="https://pixelfed.pxndey.com" target="_blank" rel="noopener noreferrer" className="service-link">
-              Pixelfed
-            </a>
             <a href="https://www.goodreads.com/user/show/184758087" target="_blank" rel="noopener noreferrer" className="service-link">
               Goodreads
             </a>

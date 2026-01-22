@@ -5,9 +5,9 @@
 }
 
 .projects-page h1 {
-  font-size: 2rem;
+  font-size: 2.8rem;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .timeline-wrapper {
@@ -161,20 +161,21 @@
 }
 
 .card-header h3 {
-  font-size: 1.1rem;
-  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
   margin: 0;
   flex: 1;
   min-width: 150px;
 }
 
 .project-link {
-  color: #ffffff;
+  color: var(--text-primary);
   text-decoration: none;
 }
 
 .project-link:hover {
-  color: #ffffff;
+  color: var(--text-primary);
   text-decoration: underline;
 }
 
@@ -202,29 +203,31 @@
 }
 
 .card-role {
-  font-size: 0.95rem;
-  color: var(--accent-color);
+  font-size: 0.875rem;
+  color: var(--text-primary);
   margin: 0.3rem 0;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .card-location {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   margin: 0.2rem 0;
+  font-style: italic;
 }
 
 .card-tech {
-  font-size: 0.85rem;
-  color: var(--accent-color);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
   margin: 0.3rem 0;
   font-style: italic;
 }
 
 .card-duration {
-  font-size: 0.8rem;
+  font-size: 0.6875rem;
   color: var(--text-tertiary);
   margin: 0.3rem 0;
+  font-style: italic;
 }
 
 .card-list {
@@ -236,8 +239,8 @@
 .card-list li {
   position: relative;
   margin-bottom: 0.5rem;
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.8125rem;
+  line-height: 1.6;
   color: var(--text-secondary);
   padding-left: 0.75rem;
 }
@@ -258,7 +261,7 @@
   }
 
   .projects-page h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
   }
 
@@ -322,7 +325,7 @@
   }
 
   .card-header h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.3;
   }
 
@@ -333,12 +336,15 @@
 
   .card-role,
   .card-tech {
-    font-size: 0.9rem;
+    font-size: 0.8125rem;
   }
 
-  .card-location,
+  .card-location {
+    font-size: 0.8125rem;
+  }
+
   .card-duration {
-    font-size: 0.85rem;
+    font-size: 0.625rem;
   }
 
   .card-list {
@@ -347,7 +353,7 @@
   }
 
   .card-list li {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     line-height: 1.6;
     margin-bottom: 0.5rem;
   }
@@ -363,7 +369,7 @@
   }
 
   .projects-page h1 {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
   }
 
   .year-label {
@@ -375,7 +381,7 @@
   }
 
   .card-header h3 {
-    font-size: 1.05rem;
+    font-size: 1.125rem;
   }
 
   .work-card,

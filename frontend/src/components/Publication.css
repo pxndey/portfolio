@@ -27,7 +27,7 @@
 .paper-name {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin: 0;
   color: var(--text-primary);
   flex: 1;
@@ -37,7 +37,7 @@
 .journal-name {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   font-style: italic;
 }
@@ -49,7 +49,7 @@
 .authors {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 0.8125rem;
   margin: 0 0 8px 0;
   color: var(--text-primary);
 }
@@ -63,16 +63,17 @@
 .publication-year {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  color: var(--text-secondary);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
   font-style: italic;
 }
 
 .doi {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  color: var(--text-secondary);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  font-style: italic;
 }
 
 .highlights {
@@ -84,7 +85,7 @@
 .highlights li {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--text-secondary);
   margin-bottom: 8px;
   line-height: 1.6;
@@ -110,16 +111,16 @@
   }
 
   .paper-name {
-    font-size: 16px;
+    font-size: 1rem;
     padding-right: 0;
   }
 
   .journal-name {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 
   .authors {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .publication-year-doi {
@@ -129,11 +130,11 @@
   }
 
   .publication-year {
-    font-size: 11px;
+    font-size: 0.625rem;
   }
 
   .doi {
-    font-size: 11px;
+    font-size: 0.625rem;
   }
 
   .highlights {
@@ -141,7 +142,7 @@
   }
 
   .highlights li {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }
 

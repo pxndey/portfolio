@@ -82,16 +82,20 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
+  flex: 1;
 }
 
 .email-address {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: var(--text-primary);
   transition: color 0.3s ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .email-description {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: var(--text-muted);
 }
 
@@ -138,14 +142,14 @@
 .social-name {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   color: var(--text-primary);
 }
 
 .social-username {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--text-secondary);
 }
 
@@ -174,7 +178,7 @@
   .email-link {
     padding: 20px;
     border-radius: 16px;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .social-row {
@@ -184,11 +188,11 @@
   }
 
   .social-name {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .social-username {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 }
 
