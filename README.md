@@ -51,5 +51,5 @@ I also add new songs to the backend using rsync (again):
 ./sync_audio.sh
 ```
 
-(god bless tailscale)
+(god bless tailscale and [Cloudflared](https://github.com/cloudflare/cloudflared))
 
