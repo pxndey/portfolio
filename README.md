@@ -1,17 +1,6 @@
 # portfolio
 
-My personal portfolio site
-
-### Frontend
-- **Bun** - because why not try something new
-- **React 19** with TypeScript
-- **React Router DOM** for navigation
-- **Recharts** for visualizing my music stats
-- **React Icons** for all the icons
-
-### Backend
-- **Go** - a minimal HTTP server that proxies Last.fm API calls
-- Keeps API keys secure and serves audio files
+My personal portfolio site, react and Go (a backend because i wanted to serve music, and i dont want my LastFM API key in public lol)
 
 ## Project Structure
 
