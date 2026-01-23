@@ -1,6 +1,6 @@
 # portfolio
 
-My personal portfolio site, react and Go (a backend because i wanted to serve music, and i dont want my LastFM API key in public lol)
+My personal portfolio site, react and Go (a backend because i wanted to serve music, and i dont want my LastFM API key in public lol), hosted on a [2011 Macbook Air](https://pxndey.com/misc)
 
 ## Project Structure
 
