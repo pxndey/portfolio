@@ -85,6 +85,9 @@ function Misc() {
             <a href="https://vsco.co/pxndey" target="_blank" rel="noopener noreferrer" className="service-link">
               VSCO
             </a>
+            <a href="https://anilist.co/user/pxndey/" target="_blank" rel="noopener noreferrer" className="service-link">
+              AniList
+            </a>
           </div>
         </div>
       </div>

@@ -86,7 +86,7 @@ bun-error.log*
 ############################
 # Dependencies
 */node_modules/
-
+*.mp3
 # Bun
 */.bun/
 bun.lockb
