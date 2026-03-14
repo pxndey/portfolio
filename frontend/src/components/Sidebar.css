@@ -21,9 +21,8 @@
 .sidebar {
 	background-color: var(--primary-color);
 	color: var(--text-primary);
-	width: 80px;
-	padding: 2rem 1rem;
-	transition: width 0.3s ease, padding 0.3s ease;
+	width: 225px;
+	padding: 2rem;
 	position: sticky;
 	top: 0;
 	height: 100vh;
@@ -40,11 +39,6 @@
 	flex-direction: column;
 }
 
-.sidebar:hover {
-	width: 300px;
-	padding: 2rem;
-}
-
 .sidebar-header {
 	display: flex;
 	justify-content: center;
@@ -54,19 +48,14 @@
 	flex-shrink: 0;
 }
 
-.sidebar:hover .sidebar-header {
-	justify-content: center;
-}
-
 .sidebar-title {
 	font-size: 1.1rem;
 	font-weight: bold;
 	letter-spacing: 2px;
 	margin: 0;
-	opacity: 0;
-	width: 0;
+	opacity: 1;
+	width: auto;
 	overflow: hidden;
-	transition: opacity 0.3s ease, width 0.3s ease;
 	text-align: center;
 	text-decoration: none;
 	color: inherit;
@@ -85,36 +74,7 @@
 	font-style: inherit;
 }
 
-.sidebar:hover .sidebar-title {
-	opacity: 1;
-	width: auto;
-}
-
 .sidebar-title-collapsed {
-	font-size: 0.9rem;
-	font-weight: bold;
-	letter-spacing: 2px;
-	margin: 0;
-	text-align: center;
-	width: 100%;
-	text-decoration: none;
-	color: inherit;
-	display: block;
-	font-family: 'Formula1 Wide', sans-serif;
-	font-weight: normal;
-	font-style: normal;
-}
-
-.sidebar-title-collapsed h1 {
-	margin: 0;
-	font-size: inherit;
-	font-weight: inherit;
-	letter-spacing: inherit;
-	font-family: inherit;
-	font-style: inherit;
-}
-
-.sidebar:hover .sidebar-title-collapsed {
 	display: none;
 }
 
@@ -149,10 +109,6 @@
 	transition: opacity 0.3s ease;
 }
 
-.sidebar:hover .progress-text {
-	opacity: 1;
-}
-
 .sidebar-nav {
 	display: flex;
 	flex-direction: column;
@@ -167,7 +123,7 @@
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-	padding: 0.75rem 0.5rem;
+	padding: 0.75rem 1rem;
 	color: var(--text-muted);
 	text-decoration: none;
 	transition: all 0.2s;
@@ -175,13 +131,8 @@
 	font-weight: 400;
 	font-size: 1.1rem;
 	position: relative;
-	justify-content: center;
-	letter-spacing: 1.5px;
-}
-
-.sidebar:hover .nav-item {
 	justify-content: flex-start;
-	padding: 0.75rem 1rem;
+	letter-spacing: 1.5px;
 }
 
 .nav-item:hover {
@@ -211,18 +162,11 @@
 
 .nav-label {
 	white-space: nowrap;
-	opacity: 0;
-	width: 0;
-	overflow: hidden;
-	transition: opacity 0.3s ease, width 0.3s ease;
+	opacity: 1;
+	width: auto;
 	font-family: 'Inter', sans-serif;
 	font-weight: 400;
 	letter-spacing: 1.5px;
-}
-
-.sidebar:hover .nav-label {
-	opacity: 1;
-	width: auto;
 }
 
 /* Dimmed items (Music and Misc) */
@@ -253,27 +197,24 @@
 .sidebar-footer {
 	margin-top: auto;
 	padding: 1rem 0;
-	text-align: center;
 	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-self: stretch;
 }
 
 .footer-text {
-	font-size: 0.9rem;
+	font-size: 0.75rem;
 	color: var(--text-muted);
-	opacity: 0;
-	width: 0;
-	overflow: hidden;
-	transition: opacity 0.3s ease, width 0.3s ease;
-	white-space: nowrap;
-	display: inline-block;
+	opacity: 0.5;
+	display: block;
+	text-align: center;
 	font-family: 'Inter', sans-serif;
 	font-weight: 400;
 	letter-spacing: 0.5px;
-}
-
-.sidebar:hover .footer-text {
-	opacity: 0.5;
-	width: auto;
+	white-space: normal;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 .main-content {
@@ -339,9 +280,9 @@
 
 	.sidebar {
 		position: fixed;
-		left: -300px;
+		left: -210px;
 		top: 0;
-		width: 280px;
+		width: 210px;
 		height: 100vh;
 		max-height: 100vh;
 		box-sizing: border-box;
@@ -354,11 +295,6 @@
 		left: 0;
 	}
 
-	.sidebar:hover {
-		width: 280px;
-		padding: 2rem 1rem;
-	}
-
 	.sidebar-header {
 		margin-bottom: 2rem;
 	}
@@ -369,47 +305,8 @@
 		font-size: 1rem;
 	}
 
-	.sidebar-title-collapsed {
-		display: none;
-	}
-
-	.sidebar:hover .sidebar-title-collapsed {
-		display: none;
-	}
-
-	.progress-bar {
-		margin-bottom: 2rem;
-	}
-
-	.sidebar-nav {
-		flex-direction: column;
-		gap: 0.5rem;
-		justify-content: flex-start;
-	}
-
 	.nav-item {
-		padding: 0.75rem 1rem;
-		justify-content: flex-start;
 		font-size: 1rem;
-		letter-spacing: 1.5px;
-	}
-
-	.sidebar:hover .nav-item {
-		padding: 0.75rem 1rem;
-	}
-
-	.nav-label {
-		opacity: 1;
-		width: auto;
-	}
-
-	.nav-number {
-		display: block;
-	}
-
-	.footer-text {
-		opacity: 0.5;
-		width: auto;
 	}
 
 	.main-content {
@@ -420,12 +317,7 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
 	.sidebar {
-		width: 70px;
-		padding: 1.5rem 0.75rem;
-	}
-
-	.sidebar:hover {
-		width: 250px;
+		width: 188px;
 		padding: 1.5rem;
 	}
 

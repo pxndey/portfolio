@@ -95,6 +95,7 @@ const portfolioData = {
       "technologies": "Pytorch",
       "role": "",
       "duration": "Dec 2025",
+      "category": "academic",
       "githubLink": "https://github.com/pxndey/csgy9223_project",
       "description": [
         "Engineered a custom Adversarial Debiasing Model from scratch to mitigate algorithmic bias in a diabetes dataset.",
@@ -107,6 +108,7 @@ const portfolioData = {
       "technologies": "StreetCLIP, HPC, Computer Vision",
       "role": "",
       "duration": "Dec 2025",
+      "category": "academic",
       "githubLink": "https://github.com/pxndey/csgy6643_p4",
       "description": [
         "Fine-tuned a StreetCLIP backbone on an HPC cluster to process over 329,000 multi-view images across 33 US states.",
@@ -119,6 +121,7 @@ const portfolioData = {
       "technologies": "TensorFlow",
       "role": "",
       "duration": "Nov 2024",
+      "category": "academic",
       "githubLink": "https://github.com/pxndey/parkinsons",
       "description": [
         "Developed novel dual ResNet152 architecture achieving 95.2% accuracy on spiral drawings and 90.4% on wave patterns.",
@@ -131,6 +134,7 @@ const portfolioData = {
       "technologies": "RNN, Tensorflow",
       "role": "",
       "duration": "Nov 2024",
+      "category": "academic",
       "githubLink": "https://github.com/pxndey/engine_RUL",
       "description": [
         "Developed RNN model for aircraft engine lifetime prediction, achieving 31.6% better RMSE than existing literature.",
@@ -143,6 +147,7 @@ const portfolioData = {
       "technologies": "Graph Citation Networks, DeepWalk, Sentence-BERT",
       "role": "",
       "duration": "Nov 2024",
+      "category": "academic",
       "githubLink": "https://github.com/pxndey/rprs",
       "description": [
         "Used graph citation networks to model relationships between research papers.",
@@ -155,6 +160,7 @@ const portfolioData = {
       "technologies": "Go",
       "role": "",
       "duration": "Nov 2024",
+      "category": "personal",
       "githubLink": "https://github.com/pxndey/drs",
       "description": [
         "Command Line Tool to Show F1 Championship data",

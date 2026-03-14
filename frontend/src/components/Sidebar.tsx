@@ -28,7 +28,8 @@ function Sidebar({ portfolioData }: SidebarProps) {
   const allNavItems = [
     { path: '/', label: 'About Me', key: 'home', alwaysShow: true },
     { path: '/academics', label: 'Academics', key: 'academics', dataKey: 'education' as keyof PortfolioData },
-    { path: '/experience', label: 'Experience', key: 'experience', dataKey: 'projects' as keyof PortfolioData },
+    { path: '/experience', label: 'Experience', key: 'experience', dataKey: 'workExperience' as keyof PortfolioData },
+    { path: '/projects', label: 'Projects', key: 'projects', dataKey: 'projects' as keyof PortfolioData },
     { path: '/research', label: 'Research', key: 'research', dataKey: 'publications' as keyof PortfolioData },
     { path: '/contact', label: 'Contact', key: 'contact', alwaysShow: true },
     { path: '/music', label: 'Music', key: 'music', alwaysShow: true, dimmed: true },
