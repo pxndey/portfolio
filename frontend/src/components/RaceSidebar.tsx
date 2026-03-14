@@ -115,9 +115,19 @@ function RaceCard({ series, races }: RaceCardProps) {
 }
 
 export default function RaceSidebar() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
   return (
-    <aside className="race-sidebar">
-      <div className="race-sidebar-title">UPCOMING RACES</div>
+    <aside className={`race-sidebar${mobileOpen ? ' race-sidebar--open' : ''}`}>
+      <button
+        className="race-sidebar-toggle"
+        onClick={() => setMobileOpen(o => !o)}
+        aria-expanded={mobileOpen}
+        aria-label="Toggle upcoming races"
+      >
+        <span className="race-sidebar-title">UPCOMING RACES</span>
+        <span className={`race-sidebar-chevron${mobileOpen ? ' race-sidebar-chevron--up' : ''}`}>›</span>
+      </button>
       <div className="race-sidebar-cards">
         <RaceCard series="F1" races={racesData.f1 as Race[]} />
         <RaceCard series="MotoGP" races={racesData.motogp as Race[]} />
