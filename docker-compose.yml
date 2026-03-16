@@ -1,0 +1,62 @@
+services:
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    networks:
+      - portfolio
+    environment:
+      - NODE_ENV=production
+      - BACKEND_URL=http://backend:8080
+    ports:
+      - "3000:3000"
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    networks:
+      - portfolio
+    environment:
+      - PORT=8080
+      - LASTFM_API_KEY=${LASTFM_API_KEY}
+      - LASTFM_USERNAME=${LASTFM_USERNAME}
+    volumes:
+      - ./audio:/app/audio:ro
+    ports:
+      - "8080:8080"
+
+networks:
+  portfolio:
+    driver: bridge
+
+# --- Traefik (uncomment to use) ---
+#
+# services:
+#   traefik:
+#     image: traefik:v3
+#     command:
+#       - --providers.docker=true
+#       - --providers.docker.exposedbydefault=false
+#       - --entrypoints.web.address=:80
+#       - --entrypoints.websecure.address=:443
+#       - --certificatesresolvers.le.acme.tlschallenge=true
+#       - --certificatesresolvers.le.acme.email=you@pxndey.com
+#       - --certificatesresolvers.le.acme.storage=/letsencrypt/acme.json
+#     ports:
+#       - "80:80"
+#       - "443:443"
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock:ro
+#       - letsencrypt:/letsencrypt
+#     networks:
+#       - portfolio
+#
+# Add these labels to the frontend service:
+#   labels:
+#     - traefik.enable=true
+#     - traefik.http.routers.frontend.rule=Host(`pxndey.com`)
+#     - traefik.http.routers.frontend.entrypoints=websecure
+#     - traefik.http.routers.frontend.tls.certresolver=le
+#     - traefik.http.services.frontend.loadbalancer.server.port=3000
+#
+# volumes:
+#   letsencrypt:

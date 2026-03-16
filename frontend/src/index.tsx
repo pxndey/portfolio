@@ -27,6 +27,14 @@ const server = serve({
         message: `Hello, ${name}!`,
       });
     },
+
+    "/api/audio": async (req) => {
+      return fetch(`${process.env.BACKEND_URL}/audio`, req);
+    },
+
+    "/api/music": async (req) => {
+      return fetch(`${process.env.BACKEND_URL}/music`, req);
+    },
   },
 
   development: process.env.NODE_ENV !== "production",
