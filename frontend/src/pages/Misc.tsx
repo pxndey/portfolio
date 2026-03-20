@@ -2,7 +2,7 @@ import './Misc.css'
 import { useState } from 'react'
 
 // Import all server images - add more imports as you add images to the directory
-import serverImage1 from '../assets/server-images/server-1.jpg'
+import serverImage1 from '../assets/server-images/Omen.jpeg'
 import innovaImage from '../assets/server-images/new-innova.jpg'
 import babyImage from '../assets/server-images/baby.jpg'
 // import serverImage2 from '../assets/server-images/server-2.jpg'
@@ -57,7 +57,7 @@ function Misc() {
 
         <div className="server-writeup">
           <p>
-        	In my life, there are a lot of things I affectionately call my "<mark>sh*tboxes</mark>", well one of them, is this! The site you're browsing is being served off a <mark>2011 Macbook Air</mark> i got off Facebook Marketplace! (not the best use of 100$...)
+        	In my life, there are a lot of things I affectionately call my "<mark>sh*tboxes</mark>", well one of them, is this! The site you're browsing is being served off the laptop that got me through my (rough) undergrad, a <mark>2021 HP Omen</mark>!
           </p>
 
           <p>

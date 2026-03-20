@@ -1,5 +1,5 @@
 import './Contact.css'
-import { FaGithub, FaLinkedin, FaTwitter, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
 
 function Contact() {
   return (
@@ -64,21 +64,6 @@ function Contact() {
             <div className="social-info">
               <div className="social-name">LinkedIn</div>
               <div className="social-username">@pandeyanushk</div>
-            </div>
-          </a>
-
-          <a
-            href="https://twitter.com/_pandeyanushk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-row"
-          >
-            <div className="social-icon">
-              <FaTwitter size={48} />
-            </div>
-            <div className="social-info">
-              <div className="social-name">Twitter</div>
-              <div className="social-username">@_pandeyanushk</div>
             </div>
           </a>
         </div>
