@@ -1,17 +1,23 @@
 services:
   frontend:
     build: ./frontend
+    container_name: portfolio-frontend
     restart: unless-stopped
     networks:
       - portfolio
+      - proxy
     environment:
       - NODE_ENV=production
       - BACKEND_URL=http://backend:8080
-    ports:
-      - "3000:3000"
-
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.rule=Host(`pxndey.com`)"
+      - "traefik.http.routers.portfolio.entrypoints=web"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=3000"
+      - "traefik.docker.network=proxy"
   backend:
     build: ./backend
+    container_name: portfolio-backend
     restart: unless-stopped
     networks:
       - portfolio
@@ -21,12 +27,12 @@ services:
       - LASTFM_USERNAME=${LASTFM_USERNAME}
     volumes:
       - ./audio:/app/audio:ro
-    ports:
-      - "8080:8080"
 
 networks:
   portfolio:
     driver: bridge
+  proxy:
+    external: true
 
 # --- Traefik (uncomment to use) ---
 #
