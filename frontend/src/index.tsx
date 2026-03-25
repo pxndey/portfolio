@@ -1,4 +1,5 @@
 import { serve } from "bun";
+import { appendFileSync, mkdirSync } from "fs";
 import index from "./index.html";
 
 const server = serve({
@@ -43,6 +44,66 @@ const server = serve({
                 status: upstream.status,
                 headers: upstream.headers,
             });
+        },
+
+        "/api/log": {
+            async POST(req) {
+                const body = await req.json();
+
+                const ip =
+                    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+                    req.headers.get("x-real-ip") ||
+                    "unknown";
+                const acceptedEncoding = req.headers.get("accept-encoding") || "";
+
+                let geo: Record<string, string> = {};
+                try {
+                    const geoRes = await fetch(
+                        `http://ip-api.com/json/${ip}?fields=status,country,countryCode,regionName,city,zip,lat,lon,isp,org,as`
+                    );
+                    geo = await geoRes.json();
+                } catch {}
+
+                const timestamp = new Date().toISOString();
+                const location = [geo.city, geo.regionName, geo.country].filter(Boolean).join(", ");
+                const coordinates = geo.lat && geo.lon ? `${geo.lat},${geo.lon}` : "";
+
+                const fields = [
+                    timestamp,
+                    ip,
+                    location,
+                    coordinates,
+                    geo.zip || "",
+                    geo.countryCode || "",
+                    geo.isp || "",
+                    geo.org || "",
+                    geo.as || "",
+                    body.platform || "",
+                    body.screenSize || "",
+                    body.viewportSize || "",
+                    body.colorDepth || "",
+                    body.browser || "",
+                    body.userAgent || "",
+                    body.language || "",
+                    acceptedEncoding,
+                    body.timezone || "",
+                    body.deviceMemory || "",
+                    body.connectionType || "",
+                    body.doNotTrack || "",
+                    String(body.cookiesEnabled ?? ""),
+                    String(body.localStorage ?? ""),
+                    body.route || "",
+                ];
+
+                try {
+                    mkdirSync("logs", { recursive: true });
+                    appendFileSync("logs/visitors.log", fields.join("\t") + "\n");
+                } catch (e) {
+                    console.error("Failed to write visitor log:", e);
+                }
+
+                return Response.json({ ok: true });
+            },
         },
 
         "/api/audio": async (req) => {

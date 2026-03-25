@@ -7,7 +7,7 @@ import Contact from './pages/Contact'
 import Music from './pages/Music'
 import Misc from './pages/Misc'
 import './index.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import MusicPlayer from './components/MusicPlayer'
 import RaceSidebar from './components/RaceSidebar'
@@ -15,6 +15,58 @@ import './components/Sidebar.css'
 import portfolioData from './data/portfolioData.generated'
 import themes from './data/themes.generated'
 import { useEffect } from 'react'
+
+function getBrowserName(ua: string): string {
+  if (ua.includes('SamsungBrowser')) return 'Samsung Browser'
+  if (ua.includes('OPR') || ua.includes('Opera')) return 'Opera'
+  if (ua.includes('Edg')) return 'Edge'
+  if (ua.includes('Firefox')) return 'Firefox'
+  if (ua.includes('Chrome')) return 'Chrome'
+  if (ua.includes('Safari')) return 'Safari'
+  return 'Unknown'
+}
+
+function PageLogger() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const nav = navigator as Navigator & {
+      deviceMemory?: number
+      connection?: { effectiveType?: string; type?: string }
+    }
+    const conn = nav.connection
+
+    let localStorageAvailable = false
+    try {
+      localStorage.setItem('_chk', '1')
+      localStorage.removeItem('_chk')
+      localStorageAvailable = true
+    } catch {}
+
+    fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        route: location.pathname,
+        platform: nav.platform || '',
+        screenSize: `${screen.width}x${screen.height}`,
+        viewportSize: `${window.innerWidth}x${window.innerHeight}`,
+        colorDepth: String(screen.colorDepth),
+        browser: getBrowserName(nav.userAgent),
+        userAgent: nav.userAgent,
+        language: nav.language || '',
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        deviceMemory: nav.deviceMemory != null ? String(nav.deviceMemory) : '',
+        connectionType: conn?.effectiveType || conn?.type || '',
+        doNotTrack: nav.doNotTrack ?? '',
+        cookiesEnabled: nav.cookieEnabled,
+        localStorage: localStorageAvailable,
+      }),
+    }).catch(() => {})
+  }, [location.pathname])
+
+  return null
+}
 
 function App() {
   useEffect(() => {
@@ -65,6 +117,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <PageLogger />
       <div className="app-container">
         <Sidebar portfolioData={portfolioData} />
         <main className="main-content">
