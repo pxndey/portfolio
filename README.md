@@ -43,3 +43,7 @@ I also add new songs to the backend using rsync (again):
 
 (god bless tailscale and [Cloudflared](https://github.com/cloudflare/cloudflared))
 
+## Logging
+
+Visitor analytics get written to `logs/visitors.log` (gitignored, obviously). Every Sunday at midnight a week-separator gets stamped in, and a parser script splits the previous week's entries into their own file under `logs/truncated/visitor_<start>_<end>.log` — both driven by cron.
+
