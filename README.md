@@ -1,6 +1,6 @@
 # portfolio
 
-My personal portfolio site, react and Go (a backend because i wanted to serve music, and i dont want my LastFM API key in public lol), hosted on a [2011 Macbook Air](https://pxndey.com/misc)
+My personal portfolio site, react and Go (a backend because i wanted to serve music, and i dont want my LastFM API key in public lol), hosted on [the laptop that got me through undergrad](https://pxndey.com/misc)
 
 ## Project Structure
 
@@ -25,11 +25,12 @@ portfolio/
 - **Dynamic Theming**: F1 Team Themed Colors 
 - **Music Integration**: Live Last.fm stats, weekly charts, top artists
 - **Audio Player**: Embedded player that streams from the Go backend
+- **Race Countdown**: Race countdowns for Formula 1, MotoGP, and WEC's upcoming races
 - **Data-Driven**: All content generated from structured TOML files
 - **Responsive**: Works on mobile (tested on my phone, mostly)
 
 ## Deployment
-I deploy to my "server" (yes, the MacBook Air) using rsync:
+I deploy to my "server" (yes, the Box) using rsync:
 
 ```bash
 ./deploy.sh
