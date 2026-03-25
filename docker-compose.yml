@@ -25,8 +25,10 @@ services:
       - PORT=8080
       - LASTFM_API_KEY=${LASTFM_API_KEY}
       - LASTFM_USERNAME=${LASTFM_USERNAME}
+      - LOG_PATH=/app/logs/visitors.log
     volumes:
       - ./audio:/app/audio:ro
+      - ./logs:/app/logs
 
 networks:
   portfolio:

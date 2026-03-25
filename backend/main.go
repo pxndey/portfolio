@@ -22,6 +22,27 @@ type AudioData struct {
 	URL      string `json:"url"`
 }
 
+type VisitorPayload struct {
+	Route      string `json:"route"`
+	Platform   string `json:"platform"`
+	ScreenSize string `json:"screenSize"`
+	Browser    string `json:"browser"`
+	Language   string `json:"language"`
+	Timezone   string `json:"timezone"`
+	Referrer   string `json:"referrer"`
+}
+
+type GeoResponse struct {
+	Status      string  `json:"status"`
+	Country     string  `json:"country"`
+	CountryCode string  `json:"countryCode"`
+	RegionName  string  `json:"regionName"`
+	City        string  `json:"city"`
+	Lat         float64 `json:"lat"`
+	Lon         float64 `json:"lon"`
+	ISP         string  `json:"isp"`
+}
+
 // Helper function to fetch data from Last.fm API
 func fetchLastFmAPI(baseURL string, params map[string]string) (map[string]interface{}, error) {
 	urlParams := url.Values{}
@@ -48,6 +69,17 @@ func fetchLastFmAPI(baseURL string, params map[string]string) (map[string]interf
 	}
 
 	return result, nil
+}
+
+// filter removes empty strings from a slice
+func filter(ss []string) []string {
+	var out []string
+	for _, s := range ss {
+		if s != "" {
+			out = append(out, s)
+		}
+	}
+	return out
 }
 
 // CORS middleware to enable cross-origin requests from frontend
@@ -259,6 +291,82 @@ func main() {
 
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(aggregatedData)
+	})
+
+	// Route 5: /log - receive visitor analytics and write to log file
+	http.HandleFunc("/log", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+
+		var payload VisitorPayload
+		if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
+			http.Error(w, "Invalid JSON", http.StatusBadRequest)
+			return
+		}
+
+		ip := r.Header.Get("X-Forwarded-For")
+		if ip != "" {
+			ip = strings.SplitN(ip, ",", 2)[0]
+			ip = strings.TrimSpace(ip)
+		}
+		if ip == "" {
+			ip = r.Header.Get("X-Real-Ip")
+		}
+		if ip == "" {
+			ip = strings.SplitN(r.RemoteAddr, ":", 2)[0]
+		}
+
+		var geo GeoResponse
+		geoResp, err := http.Get(fmt.Sprintf("http://ip-api.com/json/%s?fields=status,country,countryCode,regionName,city,lat,lon,isp", ip))
+		if err == nil {
+			defer geoResp.Body.Close()
+			json.NewDecoder(geoResp.Body).Decode(&geo)
+		}
+
+		location := strings.Join(filter([]string{geo.City, geo.RegionName, geo.Country}), ", ")
+		coordinates := ""
+		if geo.Lat != 0 || geo.Lon != 0 {
+			coordinates = fmt.Sprintf("%g,%g", geo.Lat, geo.Lon)
+		}
+
+		fields := []string{
+			time.Now().UTC().Format(time.RFC3339),
+			ip,
+			location,
+			coordinates,
+			geo.CountryCode,
+			geo.ISP,
+			payload.Route,
+			payload.Platform,
+			payload.ScreenSize,
+			payload.Browser,
+			payload.Language,
+			payload.Timezone,
+			payload.Referrer,
+		}
+
+		logPath := os.Getenv("LOG_PATH")
+		if logPath == "" {
+			logPath = "logs/visitors.log"
+		}
+
+		if err := os.MkdirAll(filepath.Dir(logPath), 0755); err != nil {
+			http.Error(w, "Failed to create log directory", http.StatusInternalServerError)
+			return
+		}
+
+		f, err := os.OpenFile(logPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		if err != nil {
+			http.Error(w, "Failed to open log file", http.StatusInternalServerError)
+			return
+		}
+		defer f.Close()
+		fmt.Fprintln(f, strings.Join(fields, "\t"))
+
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte(`{"ok":true}`))
 	})
 
 	fmt.Printf("Server running on http://localhost:%s\n", port)

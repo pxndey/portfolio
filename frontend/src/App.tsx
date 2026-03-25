@@ -30,37 +30,17 @@ function PageLogger() {
   const location = useLocation()
 
   useEffect(() => {
-    const nav = navigator as Navigator & {
-      deviceMemory?: number
-      connection?: { effectiveType?: string; type?: string }
-    }
-    const conn = nav.connection
-
-    let localStorageAvailable = false
-    try {
-      localStorage.setItem('_chk', '1')
-      localStorage.removeItem('_chk')
-      localStorageAvailable = true
-    } catch {}
-
     fetch('/api/log', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         route: location.pathname,
-        platform: nav.platform || '',
+        platform: navigator.platform || '',
         screenSize: `${screen.width}x${screen.height}`,
-        viewportSize: `${window.innerWidth}x${window.innerHeight}`,
-        colorDepth: String(screen.colorDepth),
-        browser: getBrowserName(nav.userAgent),
-        userAgent: nav.userAgent,
-        language: nav.language || '',
+        browser: getBrowserName(navigator.userAgent),
+        language: navigator.language || '',
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        deviceMemory: nav.deviceMemory != null ? String(nav.deviceMemory) : '',
-        connectionType: conn?.effectiveType || conn?.type || '',
-        doNotTrack: nav.doNotTrack ?? '',
-        cookiesEnabled: nav.cookieEnabled,
-        localStorage: localStorageAvailable,
+        referrer: document.referrer,
       }),
     }).catch(() => {})
   }, [location.pathname])
