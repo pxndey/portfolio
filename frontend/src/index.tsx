@@ -28,27 +28,6 @@ const server = serve({
             });
         },
 
-        "/.well-known/matrix/server": async (req) => {
-            return Response.json({ "m.server": "matrix.pxndey.com:443" });
-        },
-
-        "/.well-known/matrix/client": async (req) => {
-            return Response.json({ "m.homeserver": { "base_url": "https://matrix.pxndey.com" } });
-        },
-
-        "/.well-known/*": async (req) => {
-            const url = new URL(req.url);
-            const upstream = await fetch(`https://social.pxndey.com${url.pathname}${url.search}`);
-            return new Response(upstream.body, {
-                status: upstream.status,
-                headers: upstream.headers,
-            });
-        },
-
-        "/api/log": async (req) => {
-            return fetch(`${process.env.BACKEND_URL}/log`, req);
-        },
-
         "/api/audio": async (req) => {
             return fetch(`${process.env.BACKEND_URL}/audio`, req);
         },
