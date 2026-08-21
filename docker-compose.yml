@@ -27,8 +27,8 @@ services:
       - LASTFM_USERNAME=${LASTFM_USERNAME}
       - LOG_PATH=/app/logs/visitors.log
     volumes:
-      - ./audio:/app/audio:ro
-      - ./logs:/app/logs
+      - /home/pxndey/srv/portfolio/audio:/app/audio:ro
+      - /home/pxndey/srv/portfolio/logs:/app/logs
 
 networks:
   portfolio:
