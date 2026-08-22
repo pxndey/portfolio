@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- origin boards -->
+  <rect x="8" y="25" width="11" height="11" rx="2"/>
+  <rect x="8" y="84" width="11" height="11" rx="2"/>
+  <!-- paths converging -->
+  <path d="M19 30.5h5c17 0 21 23.5 37 23.5"/>
+  <path d="M19 89.5h5c17 0 21-23.5 37-23.5"/>
+  <path d="M61 54h29"/>
+  <!-- destination node + check -->
+  <circle cx="99" cy="54" r="8"/>
+  <path d="M95 54l3 3 5.5-6"/>
+</svg>

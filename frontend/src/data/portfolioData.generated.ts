@@ -4,14 +4,28 @@
 const portfolioData = {
   "workExperience": [
     {
+      "company": "Neuroinformatics Lab, NYU",
+      "location": "New York, NY",
+      "role": "Research Assistant",
+      "duration": "Apr 2026 - Present",
+      "art": "nyu-neuro",
+      "responsibilities": [
+        "Developed a self-supervised machine learning localization network that jointly optimizes with DREDge registration via alternating optimization in PyTorch on Unix.",
+        "Applied rigorous statistics and experimental design to achieve higher pairwise normalized cross-correlation (NCC) than standard baselines without degrading spatial entropy.",
+        "First author on \"End-to-End Spike Localization and Drift Correction,\" submitted to NeurIPS 2026.",
+        "Presented poster at Neuromodulation Conference, CCNY 2026."
+      ]
+    },
+    {
       "company": "Hitachi MGRM",
       "location": "Gurgaon, India",
       "role": "Data Analyst Intern",
       "duration": "Jan 2025 - Jul 2025",
+      "art": "hitachi",
       "responsibilities": [
-        "Optimized Oracle SQL queries for analytics dashboards, reducing load times across all clients by 60%.",
-        "Developed clustering logic for hierarchical data, enhancing high level attendance, enrollment, and employee analytics.",
-        "Improved data visualization efficiency and accuracy for reporting for 200+ schools across Ladakh and Meghalaya and 20+ colleges across Bihar."
+        "Optimized pipelines and Oracle SQL queries for the MStar Analytics Platform, reducing dashboard latency by 60% and improving system scalability and performance.",
+        "Improved performance for 250+ schools and colleges across 3 Indian states by improving analytics workflows.",
+        "Built clustering logic for hierarchical institutional data to improve attendance, enrollment, and employee analytics across educational organizations."
       ]
     }
   ],
@@ -20,30 +34,46 @@ const portfolioData = {
       "institution": "New York University",
       "location": "New York, NY",
       "degree": "M.S. Computer Science",
-      "marks": "3.2",
-      "duration": "Sep 2025 - Present",
-      "coursework": [
-        "Responsible AI and the Law",
-        "Computer Vision",
-        "Algorithms",
-        "Neuroinformatics",
-        "Machine Learning",
-        "Data Visualization"
+      "marks": "3.61 / 4.00",
+      "duration": "Sep 2025 - Jul 2027",
+      "art": "nyu",
+      "semesters": [
+        {
+          "term": "Fall 2026",
+          "note": "Teaching Assistant for CS-GY 6643: Computer Vision",
+          "courses": []
+        },
+        {
+          "term": "Spring 2026",
+          "courses": [
+            "Machine Learning (CS-GY 6923)",
+            "Information Visualization (CS-GY 6313)",
+            "Neuroinformatics"
+          ]
+        },
+        {
+          "term": "Fall 2025",
+          "courses": [
+            "Responsible AI",
+            "Computer Vision (CS-GY 6643)",
+            "Big Data"
+          ]
+        }
       ]
     },
     {
       "institution": "Vellore Institute of Technology, Vellore",
       "location": "Vellore, India",
       "degree": "B.Tech. Computer Science and Engineering",
-      "marks": "8.49",
+      "marks": "8.49 / 10.00",
       "duration": "Sept 2021 - Jul 2025",
+      "art": "vit",
       "coursework": [
-        "Predictive Analytics",
+        "Software Engineering",
         "Machine Learning",
+        "Big Data",
         "Artificial Intelligence",
-        "Probability and Statistics",
-        "Big Data Analytics",
-        "Software Engineering"
+        "Predictive Analytics"
       ],
       "extracurriculars": [
         {
@@ -83,76 +113,54 @@ const portfolioData = {
             "Organised student teams that sparked inquisitiveness abot core science concepts to high schoolers at Williams Matriculation and Aatichuty Special School in Vellore.",
             "Conducted hands-on science experiments for high schoolers to demonstrate practical applications.",
             "Led non-profit outreach under ISTE-VIT to bridge the gap between academics and professional careers."
-          ],
-          "publications": []
+          ]
         }
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "paperName": "End-to-End Spike Localization and Drift Correction",
+      "journalName": "NeurIPS 2026 (submitted)",
+      "authors": [
+        "Anushk Pandey"
+      ],
+      "publicationYear": "2026",
+      "doi": "",
+      "art": "spike-localization",
+      "highlights": [
+        "First-author paper on a self-supervised spike localization network jointly optimized with DREDge registration via alternating optimization in PyTorch.",
+        "Higher pairwise normalized cross-correlation than standard baselines without degrading spatial entropy.",
+        "Poster presented at Neuromodulation Conference, CCNY 2026."
       ]
     }
   ],
   "projects": [
     {
-      "projectName": "Adversarial Debiasing Model",
-      "technologies": "Pytorch",
+      "projectName": "J2J Coapply",
+      "technologies": "React, Next.js, PostgreSQL",
       "role": "",
-      "duration": "Dec 2025",
-      "category": "academic",
-      "githubLink": "https://github.com/pxndey/csgy9223_project",
+      "duration": "2026 - Present",
+      "category": "personal",
+      "liveLink": "https://j2j.pxndey.com",
+      "art": "j2j",
       "description": [
-        "Engineered a custom Adversarial Debiasing Model from scratch to mitigate algorithmic bias in a diabetes dataset.",
-        "Maintained high performance with 96.7% Accuracy, while achieving strong calibration parity across 5 racial groups.",
-        "Reduced Maximum False Negative Rate disparity across 5 racial groups by 20%, ensuring equitable distribution across protected demographics."
+        "Full-stack collaborative job application tracker: 15+ features across frontend and backend, used by 10+ concurrent users.",
+        "Self-hosted behind a reverse-proxy stack with 99% uptime.",
+        "Migrated 1000+ records from Firebase to PostgreSQL with zero data loss and minimal downtime."
       ]
     },
     {
-      "projectName": "GeoGuesser",
-      "technologies": "StreetCLIP, HPC, Computer Vision",
+      "projectName": "Self-Hosted Homelab",
+      "technologies": "Docker, Traefik, PostgreSQL, CI/CD",
       "role": "",
-      "duration": "Dec 2025",
-      "category": "academic",
-      "githubLink": "https://github.com/pxndey/csgy6643_p4",
+      "duration": "2025 - Present",
+      "category": "personal",
+      "art": "homelab",
       "description": [
-        "Fine-tuned a StreetCLIP backbone on an HPC cluster to process over 329,000 multi-view images across 33 US states.",
-        "Implemented a custom four-directional feature aggregation pipeline, maximizing spatial context for State Classification.",
-        "Engineered a dual-target Computer Vision model achieving 88.9% accuracy on a 16,495-sample test set."
-      ]
-    },
-    {
-      "projectName": "Parkinson's Disease Detection",
-      "technologies": "TensorFlow",
-      "role": "",
-      "duration": "Nov 2024",
-      "category": "academic",
-      "githubLink": "https://github.com/pxndey/parkinsons",
-      "description": [
-        "Developed novel dual ResNet152 architecture achieving 95.2% accuracy on spiral drawings and 90.4% on wave patterns.",
-        "Implemented transfer learning with zero-training embedding method, achieving 100% precision on key datasets.",
-        "Developed under the Guidance of Dr Sridhar Raj S (VIT)"
-      ]
-    },
-    {
-      "projectName": "Engine RUL Prediction",
-      "technologies": "RNN, Tensorflow",
-      "role": "",
-      "duration": "Nov 2024",
-      "category": "academic",
-      "githubLink": "https://github.com/pxndey/engine_RUL",
-      "description": [
-        "Developed RNN model for aircraft engine lifetime prediction, achieving 31.6% better RMSE than existing literature.",
-        "Engineered novel regression features and processed 20,000+ entries from NASA-CMAPSS time series dataset.",
-        "Implemented complete ML pipeline including data preprocessing, model training and evaluation."
-      ]
-    },
-    {
-      "projectName": "Research Paper Recommender",
-      "technologies": "Graph Citation Networks, DeepWalk, Sentence-BERT",
-      "role": "",
-      "duration": "Nov 2024",
-      "category": "academic",
-      "githubLink": "https://github.com/pxndey/rprs",
-      "description": [
-        "Used graph citation networks to model relationships between research papers.",
-        "Employed DeepWalk and Sentence-BERT for vector representation and semantic similarity.",
-        "Developed under the guidance of Dr Athira K (VIT)"
+        "Hosts 9+ production services on a single Unix server with Traefik as the reverse proxy.",
+        "Polling-based CI/CD with Docker Compose for 3 actively-developed apps, plus automated database migrations.",
+        "Postgres and object storage with 2 replicas and daily offsite backups; Alertmanager brings incident detection under a minute at 99% uptime."
       ]
     },
     {
@@ -162,10 +170,53 @@ const portfolioData = {
       "duration": "Nov 2024",
       "category": "personal",
       "githubLink": "https://github.com/pxndey/drs",
+      "art": "drs",
       "description": [
-        "Command Line Tool to Show F1 Championship data",
-        "Fetch Driver/Constructor Standings for any year, all within the terminal",
-        "Display Historical Race Data and standings for any year"
+        "Command line tool to show F1 championship data.",
+        "Fetch driver and constructor standings for any year, all within the terminal.",
+        "Display historical race data and standings for any year."
+      ]
+    },
+    {
+      "projectName": "SVG Transformer Scaling Laws",
+      "technologies": "PyTorch, μP, Transformers",
+      "role": "",
+      "duration": "May 2026",
+      "category": "academic",
+      "githubLink": "https://github.com/pxndey/csgy6923_machineLearning",
+      "art": "svg-scaling",
+      "description": [
+        "Trained decoder-only transformers from 1.5M to 92M parameters on a 144M-token SVG corpus, comparing Standard Parameterization and μP.",
+        "End-to-end pipeline: tokenization, scaling sweeps, learning-rate transfer, and evaluation. μP scaled monotonically; standard parameterization degraded at larger sizes.",
+        "Best test perplexity of 1.93 at 92M parameters; 100% structurally valid, renderable SVG generations after post-processing."
+      ]
+    },
+    {
+      "projectName": "Adversarial Debiasing Model",
+      "technologies": "PyTorch",
+      "role": "",
+      "duration": "Dec 2025",
+      "category": "academic",
+      "githubLink": "https://github.com/pxndey/csgy9223_project",
+      "art": "debiasing",
+      "description": [
+        "Engineered an adversarial debiasing model from scratch to evaluate alignment and safety metrics across 5 demographic groups.",
+        "Maintained 96.7% accuracy while achieving calibration parity across all protected demographics.",
+        "Reduced maximum false negative rate disparity by 20% across racial groups via adversarial training."
+      ]
+    },
+    {
+      "projectName": "GeoGuessr Classifier",
+      "technologies": "StreetCLIP, HPC, Computer Vision",
+      "role": "",
+      "duration": "Dec 2025",
+      "category": "academic",
+      "githubLink": "https://github.com/pxndey/csgy6643_p4",
+      "art": "geoguessr",
+      "description": [
+        "Fine-tuned a StreetCLIP backbone on an HPC cluster to process over 329,000 multi-view images across 33 US states.",
+        "Implemented a custom four-directional feature aggregation pipeline, maximizing spatial context for state classification.",
+        "Achieved 88.9% accuracy on a 16,495-sample test set with a dual-target computer vision model."
       ]
     }
   ]

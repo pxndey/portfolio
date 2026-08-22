@@ -1,99 +1,53 @@
 .project-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.85rem;
 }
 
 .project-card {
-  background: var(--card-overlay);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 16px;
-  color: var(--text-primary);
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.35rem;
   aspect-ratio: 4 / 3;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .project-card:hover {
-  border-color: var(--accent-color);
+  border-color: var(--border-strong);
+  background: var(--card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .project-name {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 0.95rem;
   margin: 0;
-  color: var(--text-primary);
 }
 
 .project-link {
-  color: var(--text-primary);
+  color: inherit;
   text-decoration: none;
-  cursor: pointer;
-}
-
-.project-link:hover {
-  color: var(--text-primary);
-  text-decoration: none;
-}
-
-.project-link:visited {
-  color: var(--text-primary);
 }
 
 .technologies {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
   margin: 0;
-  font-style: italic;
 }
 
 .project-duration {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.6875rem;
-  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
   margin: 0;
-  font-style: italic;
+  margin-top: auto;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .project-container {
     grid-template-columns: 1fr;
-  }
-
-  .project-card {
-    padding: 16px;
-    border-radius: 12px;
-    border-color: var(--accent-color);
-  }
-
-  .project-name {
-    font-size: 1rem;
-  }
-
-  .technologies {
-    font-size: 0.8125rem;
-  }
-
-  .project-duration {
-    font-size: 0.625rem;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .project-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .project-card {
-    padding: 16px;
-    border-color: var(--accent-color);
   }
 }

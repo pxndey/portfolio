@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { FiMoon, FiSun } from 'react-icons/fi'
 import './Sidebar.css'
 
 interface PortfolioData {
@@ -13,9 +14,23 @@ interface SidebarProps {
   portfolioData: PortfolioData
 }
 
+function getInitialMode(): 'light' | 'dark' {
+  const saved = localStorage.getItem('theme-mode')
+  if (saved === 'light' || saved === 'dark') return saved
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+}
+
 function Sidebar({ portfolioData }: SidebarProps) {
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [mode, setMode] = useState<'light' | 'dark'>(getInitialMode)
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', mode)
+    localStorage.setItem('theme-mode', mode)
+  }, [mode])
+
+  const toggleMode = () => setMode(m => (m === 'light' ? 'dark' : 'light'))
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -60,15 +75,11 @@ function Sidebar({ portfolioData }: SidebarProps) {
       <div className={`sidebar ${isMenuOpen ? 'open' : 'closed'}`}>
         <div className="sidebar-header">
           <Link to="/" className="sidebar-title-collapsed" onClick={closeMenu}>
-            <h1>AP</h1>
+            AP
           </Link>
           <Link to="/" className="sidebar-title" onClick={closeMenu}>
-            <h1>ANUSHK</h1>
+            <h1>Anushk</h1>
           </Link>
-        </div>
-
-        <div className="progress-bar">
-          <div className="progress-fill"></div>
         </div>
 
         <nav className="sidebar-nav">
@@ -86,7 +97,18 @@ function Sidebar({ portfolioData }: SidebarProps) {
         </nav>
 
         <div className="sidebar-footer">
-          <span className="footer-text">theme changes on reload</span>
+          <button
+            className="theme-toggle"
+            onClick={toggleMode}
+            aria-label={mode === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+            title={mode === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+          >
+            <span className="theme-toggle-icon">
+              {mode === 'light' ? <FiMoon /> : <FiSun />}
+            </span>
+            <span className="theme-toggle-label">{mode === 'light' ? 'dark mode' : 'light mode'}</span>
+          </button>
+          <span className="footer-text">accent changes on reload</span>
         </div>
       </div>
     </>

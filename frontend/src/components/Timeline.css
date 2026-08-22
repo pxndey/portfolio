@@ -1,0 +1,231 @@
+.timeline {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 8.25rem 1rem minmax(0, 1fr);
+  column-gap: 0.9rem;
+  align-items: start;
+}
+
+.timeline-when {
+  margin: 0;
+  padding-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--text-tertiary);
+  text-align: right;
+  white-space: pre-line;
+}
+
+.timeline-rail {
+  position: relative;
+  align-self: stretch;
+  min-height: 100%;
+}
+
+.timeline-rail::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0.55rem;
+  bottom: -0.15rem;
+  width: 1px;
+  background: var(--border-color);
+  transform: translateX(-50%);
+}
+
+.timeline-item:last-child .timeline-rail::before {
+  bottom: auto;
+  height: 0;
+}
+
+.timeline-mark {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.35rem;
+}
+
+.timeline-mark img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.timeline-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  min-width: 0;
+  padding-bottom: 2.25rem;
+}
+
+.timeline-item:last-child .timeline-main {
+  padding-bottom: 0;
+}
+
+.timeline-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline-art {
+  width: 7.5rem;
+  height: 7.5rem;
+  flex-shrink: 0;
+  object-fit: contain;
+  color: var(--text-secondary);
+}
+
+/* SVGs are loaded as <img>, so currentColor inside resolves to black and CSS
+   vars don't reach them. Invert in dark mode so line art reads as light strokes. */
+:root[data-theme='dark'] .timeline-mark img,
+:root[data-theme='dark'] .timeline-art {
+  filter: invert(1);
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.15rem;
+  letter-spacing: -0.01em;
+}
+
+.timeline-kicker {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
+  margin: 0.2rem 0 0.7rem;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+/* Project category chips */
+.category-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.1rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+
+.category-chip::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.category-chip.academic {
+  color: var(--cat-academic);
+}
+
+.category-chip.personal {
+  color: var(--cat-personal);
+}
+
+.timeline-item[data-category='academic'] {
+  --category-color: var(--cat-academic);
+}
+
+.timeline-item[data-category='personal'] {
+  --category-color: var(--cat-personal);
+}
+
+.timeline-item[data-category] .timeline-title::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 0.45rem;
+  border-radius: 50%;
+  background: var(--category-color, var(--accent-color));
+  vertical-align: middle;
+}
+
+.timeline-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-bullets li {
+  position: relative;
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  padding-left: 0.9rem;
+}
+
+.timeline-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+    grid-template-columns: 0.85rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+  }
+
+  .timeline-when {
+    grid-column: 2;
+    text-align: left;
+    padding-top: 0;
+    margin-bottom: 0.35rem;
+  }
+
+  .timeline-rail {
+    grid-row: 1 / span 2;
+  }
+
+  .timeline-main {
+    grid-column: 2;
+    padding-bottom: 1.75rem;
+  }
+
+  .timeline-art {
+    display: none;
+  }
+}

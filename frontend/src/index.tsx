@@ -1,6 +1,11 @@
 import { serve } from "bun";
 import index from "./index.html";
 
+const isProd = process.env.NODE_ENV === "production";
+const backendUrl = isProd
+    ? (process.env.BACKEND_URL || process.env.PROD_ENV || "http://backend:8080")
+    : (process.env.DEV_ENV || "http://localhost:8080");
+
 const server = serve({
     routes: {
         // Serve index.html for all unmatched routes.
@@ -29,16 +34,16 @@ const server = serve({
         },
 
         "/api/audio": async (req) => {
-            return fetch(`${process.env.BACKEND_URL}/audio`, req);
+            return fetch(`${backendUrl}/audio`, req);
         },
 
         "/api/music": async (req) => {
-            return fetch(`${process.env.BACKEND_URL}/music`, req);
+            return fetch(`${backendUrl}/music`, req);
         },
 
         "/api/audio/file": async (req) => {
             const url = new URL(req.url);
-            const upstream = await fetch(`${process.env.BACKEND_URL}/audio/file${url.search}`);
+            const upstream = await fetch(`${backendUrl}/audio/file${url.search}`);
             return new Response(upstream.body, {
                 status: upstream.status,
                 headers: {
@@ -48,7 +53,7 @@ const server = serve({
         },
     },
 
-    development: process.env.NODE_ENV !== "production",
+    development: !isProd,
 });
 
-console.log(`🚀 Server running at ${server.url}`);
+console.log(`🚀 Server running at ${server.url} → backend ${backendUrl}`);

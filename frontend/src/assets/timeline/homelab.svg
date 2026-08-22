@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- monitor -->
+  <rect x="22" y="20" width="76" height="52" rx="3"/>
+  <rect x="30" y="28" width="60" height="36" rx="1.5"/>
+  <!-- rack units on screen -->
+  <rect x="36" y="33" width="48" height="8" rx="1.5"/>
+  <rect x="36" y="45" width="48" height="8" rx="1.5"/>
+  <circle cx="41.5" cy="37" r="1.2" fill="currentColor" stroke="none"/>
+  <circle cx="41.5" cy="49" r="1.2" fill="currentColor" stroke="none"/>
+  <path d="M50 37h27M50 49h27" stroke-width="1" opacity="0.55"/>
+  <!-- stand -->
+  <path d="M54 72v6M66 72v6M47 82h26"/>
+  <!-- wifi uplink -->
+  <path d="M88 12a9 9 0 0 1 13 0" stroke-width="1.4"/>
+  <path d="M91.5 16.5a5.5 5.5 0 0 1 6 0" stroke-width="1.4"/>
+  <circle cx="94.5" cy="19.5" r="1" fill="currentColor" stroke="none"/>
+</svg>

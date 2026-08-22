@@ -1,90 +1,93 @@
-import React from 'react';
-import './Projects.css';
+import React from 'react'
+import { FaGithub } from 'react-icons/fa'
+import { FiLink } from 'react-icons/fi'
+import { sortByDuration } from '../lib/chrono'
+import { Timeline, TimelineItem } from '../components/Timeline'
+import './Projects.css'
 
 interface ProjectData {
-  projectName: string;
-  technologies: string;
-  role: string;
-  duration: string;
-  githubLink: string;
-  description: string[];
-  category: 'academic' | 'personal';
-}
-
-interface PortfolioData {
-  workExperience: any[];
-  education: any[];
-  publications: any[];
-  projects: ProjectData[];
+  projectName: string
+  technologies: string
+  role: string
+  duration: string
+  githubLink?: string
+  liveLink?: string
+  description: string[]
+  category: 'academic' | 'personal'
+  art?: string
 }
 
 interface ProjectsProps {
-  portfolioData: PortfolioData;
+  portfolioData: {
+    projects: ProjectData[]
+  }
 }
 
-function ProjectCard({ project }: { project: ProjectData }) {
-  return (
-    <div className="project-card">
-      <div className="project-card-header">
-        <h3>
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link"
-          >
-            {project.projectName}
-          </a>
-        </h3>
-        <span className="project-duration">{project.duration}</span>
-      </div>
-      <p className="project-tech">{project.technologies}</p>
-      <ul className="project-description">
-        {project.description.map((desc, idx) => (
-          <li key={idx}>{desc}</li>
-        ))}
-      </ul>
-    </div>
-  );
+function ProjectLinks({ project }: { project: ProjectData }) {
+  if (project.liveLink) {
+    return (
+      <a
+        href={project.liveLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="project-icon-link"
+        aria-label={`Open ${project.projectName}`}
+      >
+        <FiLink />
+      </a>
+    )
+  }
+
+  if (project.githubLink) {
+    return (
+      <a
+        href={project.githubLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="project-icon-link"
+        aria-label={`${project.projectName} on GitHub`}
+      >
+        <FaGithub />
+      </a>
+    )
+  }
+
+  return null
 }
 
 function Projects({ portfolioData }: ProjectsProps) {
-  const academicProjects = portfolioData.projects.filter(p => p.category === 'academic');
-  const personalProjects = portfolioData.projects.filter(p => p.category === 'personal');
+  const items = sortByDuration(portfolioData.projects, (project) => project.duration)
 
   return (
     <div className="projects-page">
       <h1>Projects</h1>
-
-      {academicProjects.length > 0 && (
-        <section className="projects-section">
-          <div className="section-header">
-            <h2 className="section-title">Academic</h2>
-            <p className="section-subtitle">coursework and research</p>
-          </div>
-          <div className="projects-grid">
-            {academicProjects.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {personalProjects.length > 0 && (
-        <section className="projects-section">
-          <div className="section-header">
-            <h2 className="section-title">Personal</h2>
-            <p className="section-subtitle">built for fun</p>
-          </div>
-          <div className="projects-grid">
-            {personalProjects.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
-        </section>
-      )}
+      <Timeline>
+        {items.map((project) => (
+          <TimelineItem
+            key={project.projectName}
+            when={project.duration.replace(' - ', '\n')}
+            kind="project"
+            art={project.art}
+            category={project.category}
+          >
+            <div className="project-heading">
+              <h3 className="timeline-title">{project.projectName}</h3>
+              <ProjectLinks project={project} />
+            </div>
+            <p className="timeline-meta">
+              <span>{project.technologies}</span>
+              <span className={`category-chip ${project.category}`}>{project.category}</span>
+            </p>
+            <ul className="timeline-bullets">
+              {project.description.map((desc) => (
+                <li key={desc}>{desc}</li>
+              ))}
+            </ul>
+          </TimelineItem>
+        ))}
+      </Timeline>
     </div>
-  );
+  )
 }
 
-export default Projects;
+export default Projects

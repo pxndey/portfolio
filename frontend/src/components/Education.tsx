@@ -1,88 +1,129 @@
-import React from 'react';
-import './Education.css';
+import React from 'react'
+import { sortByDuration } from '../lib/chrono'
+import { Timeline, TimelineItem } from './Timeline'
+import './Education.css'
 
 interface ExtracurricularActivity {
-  organization: string;
-  role: string;
-  duration: string;
-  details?: string[];
+  organization: string
+  role: string
+  duration: string
+  details?: string[]
+}
+
+interface Semester {
+  term: string
+  courses?: string[]
+  note?: string
 }
 
 interface EducationData {
-  institution: string;
-  location: string;
-  degree: string;
-  marks: string;
-  duration: string;
-  coursework?: string[];
-  extracurriculars?: ExtracurricularActivity[];
+  institution: string
+  location: string
+  degree: string
+  marks: string
+  duration: string
+  coursework?: string[]
+  notes?: string[]
+  semesters?: Semester[]
+  extracurriculars?: ExtracurricularActivity[]
+  art?: string
 }
 
 interface EducationProps {
-  data: EducationData[];
+  data: EducationData[]
 }
 
 const Education: React.FC<EducationProps> = ({ data }) => {
+  const schools = sortByDuration(data, (school) => school.duration)
+
   return (
-    <div className="education-container">
-      {data.map((education, index) => (
-        <div key={index} className="education-card">
-          <div className="education-header">
-            <h3 className="institution-name">{education.institution}</h3>
-            <span className="edu-location">{education.location}</span>
-          </div>
-          <div className="education-details">
-            <p className="degree">
-              {education.degree} <span className="marks">| {education.marks}</span>
+    <Timeline>
+      {schools.map((education) => {
+        const semesters = education.semesters
+          ? sortByDuration(education.semesters, (semester) => semester.term)
+          : []
+        const extras = education.extracurriculars
+          ? sortByDuration(education.extracurriculars, (activity) => activity.duration)
+          : []
+
+        return (
+          <TimelineItem
+            key={education.institution}
+            when={education.duration.replace(' - ', '\n')}
+            kind="school"
+            art={education.art}
+          >
+            <h3 className="timeline-title">{education.institution}</h3>
+            <p className="timeline-kicker">
+              {education.degree} <span className="marks">· {education.marks}</span>
             </p>
-            <span className="edu-duration">{education.duration}</span>
-          </div>
-          {education.coursework && education.coursework.length > 0 && (
-            <div className="coursework-section">
-              <h4 className="coursework-heading">Relevant Coursework</h4>
-              <div className="coursework-list">
-                {education.coursework.map((course, idx) => (
-                  <span key={idx} className="course-item">{course}</span>
+            <p className="timeline-meta">{education.location}</p>
+
+            {education.notes && education.notes.length > 0 && (
+              <ul className="timeline-bullets">
+                {education.notes.map((note) => (
+                  <li key={note}>{note}</li>
                 ))}
+              </ul>
+            )}
+
+            {semesters.length > 0 && (
+              <ol className="term-list">
+                {semesters.map((semester) => (
+                  <li key={semester.term} className="term-block">
+                    <span className="term-name">{semester.term}</span>
+                    {semester.note ? <p className="term-note">{semester.note}</p> : null}
+                    {semester.courses && semester.courses.length > 0 && (
+                      <ul className="term-courses">
+                        {semester.courses.map((course) => (
+                          <li key={course}>{course}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            )}
+
+            {education.coursework && education.coursework.length > 0 && (
+              <div className="coursework-section">
+                <h4 className="coursework-heading">Coursework</h4>
+                <ul className="term-courses">
+                  {education.coursework.map((course) => (
+                    <li key={course}>{course}</li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          )}
-          {education.extracurriculars &&
-           Array.isArray(education.extracurriculars) &&
-           education.extracurriculars.length > 0 &&
-           typeof education.extracurriculars[0] === 'object' &&
-           education.extracurriculars[0] !== null && (
-            <div className="extracurricular-section">
-              <h4 className="extracurricular-heading">Extracurriculars</h4>
-              <div className="extracurricular-timeline">
-                {education.extracurriculars.map((activity, idx) => {
-                  if (!activity || typeof activity !== 'object') return null;
-                  return (
-                    <div key={idx} className="extracurricular-item">
-                      <div className="extracurricular-header">
-                        <div className="extracurricular-title">
-                          <span className="extracurricular-organization">{activity.organization || ''}</span>
-                          <span className="extracurricular-role">{activity.role || ''}</span>
-                        </div>
-                        <span className="extracurricular-duration">{activity.duration || ''}</span>
-                      </div>
-                      {activity.details && Array.isArray(activity.details) && activity.details.length > 0 && (
-                        <ul className="extracurricular-details">
-                          {activity.details.map((detail, detailIdx) => (
-                            <li key={detailIdx}>{detail}</li>
+            )}
+
+            {extras.length > 0 && (
+              <div className="extracurricular-section">
+                <h4 className="extracurricular-heading">Extracurriculars</h4>
+                <ol className="term-list">
+                  {extras.map((activity) => (
+                    <li key={`${activity.organization}-${activity.role}`} className="term-block">
+                      <span className="term-name">{activity.duration}</span>
+                      <p className="term-note">
+                        <strong>{activity.role}</strong>
+                        {activity.organization ? ` · ${activity.organization}` : ''}
+                      </p>
+                      {activity.details && activity.details.length > 0 && (
+                        <ul className="timeline-bullets">
+                          {activity.details.map((detail) => (
+                            <li key={detail}>{detail}</li>
                           ))}
                         </ul>
                       )}
-                    </div>
-                  );
-                })}
+                    </li>
+                  ))}
+                </ol>
               </div>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-};
+            )}
+          </TimelineItem>
+        )
+      })}
+    </Timeline>
+  )
+}
 
-export default Education;
+export default Education

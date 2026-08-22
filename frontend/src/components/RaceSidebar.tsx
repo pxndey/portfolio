@@ -87,22 +87,12 @@ function RaceCard({ series, races }: RaceCardProps) {
       <div className="race-circuit">{race.circuit}</div>
       {state.status === 'countdown' ? (
         <div className="race-countdown">
-          <div className="countdown-row">
-            <span className="countdown-value">{state.countdown.days}</span>
-            <span className="countdown-label">d</span>
-          </div>
-          <div className="countdown-row">
-            <span className="countdown-value">{state.countdown.hours}</span>
-            <span className="countdown-label">h</span>
-          </div>
-          <div className="countdown-row">
-            <span className="countdown-value">{state.countdown.minutes}</span>
-            <span className="countdown-label">m</span>
-          </div>
-          <div className="countdown-row">
-            <span className="countdown-value">{state.countdown.seconds}</span>
-            <span className="countdown-label">s</span>
-          </div>
+          {(['days', 'hours', 'minutes', 'seconds'] as const).map((unit) => (
+            <div key={unit} className="countdown-unit">
+              <span className="countdown-value">{String(state.countdown[unit]).padStart(unit === 'days' ? 1 : 2, '0')}</span>
+              <span className="countdown-label">{unit[0]}</span>
+            </div>
+          ))}
         </div>
       ) : (
         <div className="race-live">
@@ -125,9 +115,10 @@ export default function RaceSidebar() {
         aria-expanded={mobileOpen}
         aria-label="Toggle upcoming races"
       >
-        <span className="race-sidebar-title">UPCOMING RACES</span>
+        <span className="race-sidebar-title">Upcoming Races</span>
         <span className={`race-sidebar-chevron${mobileOpen ? ' race-sidebar-chevron--up' : ''}`}>›</span>
       </button>
+      <p className="race-sidebar-title race-sidebar-title--desktop">Upcoming Races</p>
       <div className="race-sidebar-cards">
         <RaceCard series="F1" races={racesData.f1 as Race[]} />
         <RaceCard series="MotoGP" races={racesData.motogp as Race[]} />

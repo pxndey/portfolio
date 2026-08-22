@@ -15,7 +15,7 @@ function Contact() {
         <div className="email-list">
           <a href="mailto:anushkpandey@proton.me" className="email-link">
             <div className="email-icon">
-              <FaEnvelope size={24} />
+              <FaEnvelope size={18} />
             </div>
             <div className="email-content">
               <div className="email-address">anushkpandey@proton.me</div>
@@ -24,7 +24,7 @@ function Contact() {
           </a>
           <a href="mailto:anushk@pxndey.com" className="email-link">
             <div className="email-icon">
-              <FaEnvelope size={24} />
+              <FaEnvelope size={18} />
             </div>
             <div className="email-content">
               <div className="email-address">anushk@pxndey.com</div>
@@ -44,7 +44,7 @@ function Contact() {
             className="social-row"
           >
             <div className="social-icon">
-              <FaGithub size={48} />
+              <FaGithub size={22} />
             </div>
             <div className="social-info">
               <div className="social-name">GitHub</div>
@@ -59,7 +59,7 @@ function Contact() {
             className="social-row"
           >
             <div className="social-icon">
-              <FaLinkedin size={48} />
+              <FaLinkedin size={22} />
             </div>
             <div className="social-info">
               <div className="social-name">LinkedIn</div>

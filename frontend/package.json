@@ -20,8 +20,10 @@
     "toml": "^3.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@types/bun": "latest",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "playwright": "^1.62.1"
   }
 }

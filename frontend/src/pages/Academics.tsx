@@ -15,6 +15,8 @@ interface EducationData {
   marks: string;
   duration: string;
   coursework?: string[];
+  notes?: string[];
+  semesters?: { term: string; courses?: string[]; note?: string }[];
   extracurriculars?: ExtracurricularActivity[];
 }
 

@@ -1,52 +1,50 @@
-import React from 'react';
-import './Experience.css';
+import React from 'react'
+import { sortByDuration } from '../lib/chrono'
+import { Timeline, TimelineItem } from '../components/Timeline'
+import './Experience.css'
 
 interface WorkExperienceData {
-  company: string;
-  location: string;
-  role: string;
-  duration: string;
-  responsibilities: string[];
-}
-
-interface PortfolioData {
-  workExperience: WorkExperienceData[];
-  education: any[];
-  publications: any[];
-  projects: any[];
+  company: string
+  location: string
+  role: string
+  duration: string
+  responsibilities: string[]
+  art?: string
 }
 
 interface ExperienceProps {
-  portfolioData: PortfolioData;
+  portfolioData: {
+    workExperience: WorkExperienceData[]
+  }
 }
 
 function Experience({ portfolioData }: ExperienceProps) {
+  const items = sortByDuration(portfolioData.workExperience, (work) => work.duration)
+
   return (
     <div className="experience-page">
       <h1>Experience</h1>
-      <div className="experience-list">
-        {portfolioData.workExperience.map((work, index) => (
-          <div key={index} className="experience-card">
-            <div className="experience-card-header">
-              <div className="experience-card-left">
-                <h3 className="experience-company">{work.company}</h3>
-                <p className="experience-role">{work.role}</p>
-                <p className="experience-location">{work.location}</p>
-              </div>
-              <div className="experience-card-right">
-                <span className="experience-duration">{work.duration}</span>
-              </div>
-            </div>
-            <ul className="experience-responsibilities">
-              {work.responsibilities.map((resp, idx) => (
-                <li key={idx}>{resp}</li>
+      <Timeline>
+        {items.map((work) => (
+          <TimelineItem
+            key={`${work.company}-${work.duration}`}
+            when={work.duration.replace(' - ', '\n')}
+            kind="work"
+            art={work.art}
+          >
+            <h3 className="timeline-title">{work.role}</h3>
+            <p className="timeline-kicker">{work.company}</p>
+            <p className="timeline-meta">{work.location}</p>
+            <ul className="timeline-bullets">
+              {work.responsibilities.map((resp) => (
+                <li key={resp}>{resp}</li>
               ))}
             </ul>
-          </div>
+          </TimelineItem>
         ))}
-      </div>
+      </Timeline>
     </div>
-  );
+  )
 }
 
-export default Experience;
+export default Experience

@@ -1,50 +1,41 @@
 .misc-container {
-	max-width: 900px;
-	margin: 0 auto;
-	padding: 2rem;
+	max-width: var(--prose-max);
 }
 
 .misc-title {
-	font-family: 'Inter', sans-serif;
-	font-weight: 700;
-	font-size: 2.8rem;
-	margin-bottom: 3rem;
-	color: var(--text-primary);
-	text-align: center;
+	margin-bottom: 2rem;
 }
 
 .server-section {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: stretch;
 	gap: 2rem;
 	margin-bottom: 3rem;
 }
 
 .server-image-container {
 	width: 100%;
-	max-width: 700px;
 	display: flex;
 	justify-content: center;
-	padding: 2rem;
-	background: var(--card-overlay);
+	padding: 0.75rem;
+	background: var(--card-bg);
 	border: 1px solid var(--border-color);
-	border-radius: 24px;
+	border-radius: var(--radius-lg);
 	position: relative;
-	transition: border-color 0.3s ease;
+	transition: border-color 0.2s ease;
 }
 
 .server-image-container:hover {
-	border-color: var(--accent-color);
+	border-color: var(--border-strong);
 }
 
 .server-image {
 	width: 100%;
-	height: 500px;
+	height: 380px;
 	object-fit: cover;
 	object-position: center;
-	border-radius: 12px;
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+	border-radius: var(--radius-md);
 }
 
 .carousel-button {
@@ -53,12 +44,12 @@
 	transform: translateY(-50%);
 	background-color: var(--primary-color);
 	color: var(--text-primary);
-	border: 2px solid var(--border-color);
+	border: 1px solid var(--border-color);
 	border-radius: 50%;
-	width: 48px;
-	height: 48px;
-	font-size: 2rem;
-	font-weight: 300;
+	width: 40px;
+	height: 40px;
+	font-size: 1.5rem;
+	font-weight: 400;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -116,11 +107,8 @@
 }
 
 .server-writeup {
-	max-width: 700px;
-	text-align: center;
-	font-family: 'Inter', sans-serif;
-	font-weight: 400;
-	font-size: 1.1rem;
+	font-family: var(--font-body);
+	font-size: 1rem;
 	line-height: 1.8;
 	color: var(--text-secondary);
 }
@@ -130,7 +118,7 @@
 }
 
 .ascii-art {
-	font-family: monospace;
+	font-family: var(--font-mono);
 	font-size: 1.2rem;
 	color: var(--accent-color);
 	margin: 1rem 0;
@@ -139,39 +127,41 @@
 .other-services {
 	padding-top: 2rem;
 	border-top: 1px solid var(--border-color);
-	text-align: center;
 }
 
 .services-title {
-	font-family: 'Inter', sans-serif;
-	font-weight: 600;
-	font-size: 1.2rem;
-	color: var(--text-secondary);
+	font-family: var(--font-body);
+	font-weight: 700;
+	font-size: 0.8rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-muted);
 	margin-bottom: 1rem;
 }
 
 .services-links {
 	display: flex;
-	gap: 2rem;
-	justify-content: center;
+	gap: 0.6rem;
 	flex-wrap: wrap;
 }
 
 .service-link {
-	font-family: 'Inter', sans-serif;
+	font-family: var(--font-body);
 	font-weight: 500;
-	font-size: 1.1rem;
-	color: var(--accent-color);
+	font-size: 0.875rem;
+	color: var(--text-primary);
 	text-decoration: none;
-	padding: 0.75rem 2rem;
-	border: 1px solid var(--accent-color);
-	border-radius: 12px;
-	transition: all 0.3s ease;
+	padding: 0.6rem 1.15rem;
+	background: var(--card-bg);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-sm);
+	transition: all 0.2s ease;
 }
 
 .service-link:hover {
-	background: var(--card-overlay);
+	background: var(--accent-muted);
 	border-color: var(--accent-color);
+	color: var(--accent-color);
 	transform: translateY(-2px);
 }
 
@@ -179,13 +169,6 @@
 @media (max-width: 768px) {
 	.misc-container {
 		max-width: 100%;
-		padding: 2rem 1.5rem;
-		margin: 0 auto;
-	}
-
-	.misc-title {
-		font-size: 2rem;
-		margin-bottom: 2rem;
 	}
 
 	.server-section {
@@ -193,51 +176,23 @@
 		margin-bottom: 2rem;
 	}
 
-	.server-image-container {
-		padding: 1rem;
-		border-radius: 16px;
-	}
-
 	.server-image {
-		height: 350px;
-		border-radius: 8px;
+		height: 260px;
 	}
 
 	.server-writeup {
 		font-size: 0.95rem;
-		line-height: 1.6;
+		line-height: 1.7;
 	}
 
 	.server-writeup p {
 		margin-bottom: 1rem;
 	}
 
-	.ascii-art {
-		font-size: 0.9rem;
-	}
-
-	.other-services {
-		margin-top: 2rem;
-		padding-top: 1.5rem;
-	}
-
-	.services-title {
-		font-size: 1.1rem;
-	}
-
-	.services-links {
-		gap: 1rem;
-	}
-
-	.service-link {
-		font-size: 0.95rem;
-		padding: 0.6rem 1.5rem;
-	}
-
 	.carousel-button {
-		width: 40px;
-		height: 40px;
-		font-size: 1.5rem;
+		width: 34px;
+		height: 34px;
+		font-size: 1.25rem;
 	}
 
 	.carousel-button-prev {
@@ -254,21 +209,7 @@
 	}
 
 	.carousel-dot {
-		width: 10px;
-		height: 10px;
-	}
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-	.misc-container {
-		padding: 2rem 2rem;
-	}
-
-	.misc-title {
-		font-size: 2.4rem;
-	}
-
-	.server-writeup {
-		font-size: 1.05rem;
+		width: 8px;
+		height: 8px;
 	}
 }

@@ -1,9 +1,8 @@
 .race-sidebar {
-  width: 225px;
+  width: var(--race-width);
   flex-shrink: 0;
-  background-color: var(--primary-color);
   border-left: 1px solid var(--border-color);
-  padding: 2rem;
+  padding: 1.75rem 1rem;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -11,126 +10,157 @@
   box-sizing: border-box;
   align-self: flex-start;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .race-sidebar-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 2.5px;
+  letter-spacing: 0.12em;
   color: var(--text-muted);
-  opacity: 0.6;
   text-transform: uppercase;
   flex-shrink: 0;
+  margin: 0;
+}
+
+.race-sidebar-title--desktop {
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .race-sidebar-title--desktop {
+    display: none;
+  }
 }
 
 .race-sidebar-cards {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
   flex: 1;
+  min-width: 0;
 }
 
 .race-card {
-  background-color: rgba(0, 0, 0, 0.15);
+  background: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 0.85rem 0.9rem;
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  min-width: 0;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.race-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
 }
 
 .race-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--accent-color);
-  margin-bottom: 0.2rem;
+  gap: 0.5rem;
+  min-width: 0;
 }
 
 .race-series {
-  font-family: 'Formula1 Wide', 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Formula1 Wide', var(--font-display), sans-serif;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .race-round {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
   color: var(--text-muted);
-  letter-spacing: 1px;
+  flex-shrink: 0;
 }
 
 .race-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.3;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .race-circuit {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
+  font-size: 0.7rem;
   color: var(--text-tertiary);
   line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .race-countdown {
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   margin-top: 0.4rem;
+  min-width: 0;
 }
 
-.countdown-row {
-  display: flex;
+.countdown-unit {
+  display: inline-flex;
   align-items: baseline;
-  gap: 3px;
+  gap: 1px;
+  min-width: 0;
 }
 
 .countdown-value {
-  font-family: 'Inter', monospace;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--text-primary);
   font-variant-numeric: tabular-nums;
-  line-height: 1;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .countdown-label {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--text-muted);
+  line-height: 1;
 }
 
 .race-live {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-top: 0.4rem;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
   color: var(--accent-color);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.4rem;
 }
 
 .live-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: #e10600;
   flex-shrink: 0;
@@ -152,19 +182,11 @@
 }
 
 .race-card-no-race {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  opacity: 0.6;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-/* Desktop toggle button: hidden */
 .race-sidebar-toggle {
   display: none;
 }
@@ -173,7 +195,6 @@
   display: none;
 }
 
-/* Shared bottom bar styles (mobile + tablet) */
 @media (max-width: 1200px) {
   .race-sidebar {
     position: fixed;
@@ -192,6 +213,7 @@
     z-index: 100;
     transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     align-self: auto;
+    background: var(--primary-color);
   }
 
   .race-sidebar--open {
@@ -213,15 +235,10 @@
     flex-shrink: 0;
   }
 
-  .race-sidebar-title {
-    flex-shrink: 0;
-  }
-
   .race-sidebar-chevron {
     display: block;
     font-size: 1.2rem;
     color: var(--text-muted);
-    opacity: 0.6;
     transform: rotate(90deg);
     transition: transform 0.3s ease;
     line-height: 1;
@@ -235,24 +252,26 @@
     padding: 0.75rem 1.25rem 1.25rem;
     flex: none;
   }
+
+  .race-countdown {
+    gap: 0.75rem;
+  }
 }
 
-/* Tablet: offset from main sidebar so expanded content isn't hidden behind it */
 @media (min-width: 769px) and (max-width: 1024px) {
   .race-sidebar {
-    left: 188px; /* matches main sidebar width at this breakpoint */
+    left: 200px;
     width: auto;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) {
   .race-sidebar {
-    left: 225px; /* matches main sidebar width at this breakpoint */
+    left: var(--sidebar-width);
     width: auto;
   }
 }
 
-/* Mobile: full width */
 @media (max-width: 768px) {
   .race-sidebar {
     left: 0;

@@ -1,135 +1,91 @@
 .work-experience-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1rem;
 }
 
 .work-experience-card {
-  background: var(--card-overlay);
-  border: 1px solid var(--border-color);
-  border-radius: 24px;
-  padding: 32px;
-  color: var(--text-primary);
-  transition: all 0.2s;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
 }
 
 .work-experience-card:hover {
-  border-color: var(--accent-color);
+  border-color: var(--border-strong);
+  background: var(--card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .work-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 8px;
+  margin-bottom: 0.35rem;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
 .company-name {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   font-weight: 700;
-  font-size: 1.125rem;
   margin: 0;
-  color: var(--text-primary);
 }
 
 .location {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
 }
 
 .work-details {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 16px;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
 .role {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
   font-size: 0.875rem;
   margin: 0;
-  color: var(--text-primary);
+  color: var(--text-secondary);
 }
 
 .duration {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.6875rem;
-  color: var(--text-tertiary);
-  font-style: italic;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
 }
 
 .responsibilities {
-  list-style-type: disc;
-  padding-left: 24px;
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
 .responsibilities li {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 0.8125rem;
+  position: relative;
+  font-size: 0.825rem;
   color: var(--text-secondary);
-  margin-bottom: 8px;
+  margin-bottom: 0.35rem;
   line-height: 1.6;
+  padding-left: 1rem;
 }
 
-.responsibilities li:last-child {
-  margin-bottom: 0;
+.responsibilities li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-color);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .work-experience-card {
-    padding: 20px;
-    border-radius: 16px;
-    border-color: var(--accent-color);
-  }
-
-  .work-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .company-name {
-    font-size: 1rem;
-  }
-
-  .location {
-    font-size: 0.8125rem;
-  }
-
-  .work-details {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .role {
-    font-size: 0.8125rem;
-  }
-
-  .duration {
-    font-size: 0.625rem;
-  }
-
-  .responsibilities {
-    padding-left: 20px;
-  }
-
-  .responsibilities li {
-    font-size: 0.75rem;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .work-experience-card {
-    padding: 28px;
-    border-color: var(--accent-color);
+    padding: 1.15rem;
   }
 }
