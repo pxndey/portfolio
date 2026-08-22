@@ -15,7 +15,9 @@
   cursor: pointer;
   z-index: 9999;
   overflow: hidden;
-  backdrop-filter: blur(var(--surface-blur));
+  /* No backdrop-filter: on a fixed element it forces continuous compositing of
+     everything behind it, which defeats the perf work. The frosted look comes
+     from the translucent --card-bg over the page dot grid. */
   transition:
     width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     color 0.2s ease,

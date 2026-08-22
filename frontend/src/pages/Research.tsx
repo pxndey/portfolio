@@ -27,7 +27,12 @@ function Research({ portfolioData }: ResearchProps) {
 
   return (
     <div className="research-page">
+      <p className="page-eyebrow">Publications</p>
       <h1>Research</h1>
+      <p className="page-desc">
+        Papers and preprints, mostly on self-supervised localization in neural recordings
+        and computer vision.
+      </p>
       <Timeline>
         {items.map((publication) => (
           <TimelineItem

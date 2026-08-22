@@ -109,14 +109,14 @@
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: #22c55e;
+	background: var(--open-dot);
 	margin-right: 0.5rem;
 	flex-shrink: 0;
 	animation: openPulse 2s ease-in-out infinite;
 }
 
 @keyframes openPulse {
-	0%, 100% { opacity: 1; box-shadow: 0 0 0 0 color-mix(in srgb, #22c55e 40%, transparent); }
+	0%, 100% { opacity: 1; box-shadow: 0 0 0 0 color-mix(in srgb, var(--open-dot) 40%, transparent); }
 	50% { opacity: 0.75; box-shadow: 0 0 0 4px transparent; }
 }
 

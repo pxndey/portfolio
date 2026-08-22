@@ -60,7 +60,12 @@ function Projects({ portfolioData }: ProjectsProps) {
 
   return (
     <div className="projects-page">
+      <p className="page-eyebrow">Selected work</p>
       <h1>Projects</h1>
+      <p className="page-desc">
+        A few things I've shipped — research-adjacent tooling, a self-hosted job tracker,
+        and whatever F1-related distraction I got pulled into.
+      </p>
       <Timeline>
         {items.map((project) => (
           <TimelineItem

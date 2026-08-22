@@ -23,7 +23,12 @@ function Experience({ portfolioData }: ExperienceProps) {
 
   return (
     <div className="experience-page">
+      <p className="page-eyebrow">Work</p>
       <h1>Experience</h1>
+      <p className="page-desc">
+        Research and engineering roles — mostly around neural recordings, computer vision,
+        and the machines they run on.
+      </p>
       <Timeline>
         {items.map((work) => (
           <TimelineItem

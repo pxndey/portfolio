@@ -1,14 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <!-- street grid -->
-  <path d="M16 30h88M16 54h88M16 78h88"/>
-  <path d="M32 12v96M58 12v96"/>
-  <!-- broadway diagonal -->
-  <path d="M22 108L98 14" stroke-width="1" opacity="0.45"/>
-  <!-- east river -->
-  <path d="M96 12v96" stroke-width="1" opacity="0.4"/>
-  <path d="M100 66h8M100 72h8M100 78h8" stroke-width="1" opacity="0.35"/>
-  <!-- bridge -->
-  <path d="M84 54h28"/>
-  <path d="M88 40v26M106 40v26"/>
-  <path d="M88 42q9 15 18 0"/>
+  <!-- Manhattan street grid (thin, asymmetric, whitespace): 3 avenues + 2 streets -->
+  <path d="M18 20v56" stroke-width="1" opacity="0.5"/>
+  <path d="M34 20v56" stroke-width="1" opacity="0.5"/>
+  <path d="M50 20v56" stroke-width="1" opacity="0.5"/>
+  <path d="M12 38h44" stroke-width="1" opacity="0.5"/>
+  <path d="M12 56h44" stroke-width="1" opacity="0.5"/>
+  <!-- Broadway: the diagonal slicing the grid (readable) -->
+  <path d="M10 100L52 58" stroke-width="1" opacity="0.7"/>
+  <!-- East River: a real vertical band clear of the grid -->
+  <path d="M90 12v96" stroke-width="1" opacity="0.4"/>
+  <path d="M100 12v96" stroke-width="1" opacity="0.4"/>
+  <!-- Brooklyn Bridge: road from the grid to two towers, deck, sagging cable -->
+  <path d="M60 50h22" stroke-width="1" opacity="0.6"/>
+  <path d="M88 36v24M98 36v24" />
+  <path d="M82 60h20" />
+  <path d="M88 38q5 11 10 0" />
 </svg>

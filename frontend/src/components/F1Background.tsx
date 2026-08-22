@@ -31,6 +31,18 @@ export default function F1Background() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     let raf: number
+    let visible = true
+
+    // --accent-color is set once on theme load and can't change while this runs,
+    // so read it once instead of hitting getComputedStyle from inside the rAF
+    // loop every frame.
+    const readAccent = () =>
+      getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() ||
+      '#646cff'
+    let accent = readAccent()
+    const reReadAccent = () => {
+      accent = readAccent()
+    }
 
     const svgNS = 'http://www.w3.org/2000/svg'
     const tmpSvg = document.createElementNS(svgNS, 'svg')
@@ -115,14 +127,15 @@ export default function F1Background() {
     }
 
     const draw = (now: number) => {
+      raf = requestAnimationFrame(draw)
+
+      // Skip all drawing when the tab is hidden or user prefers reduced motion —
+      // no point paying for canvas work that can't be seen.
+      if (!visible || document.hidden) return
+
       const w = window.innerWidth
       const h = window.innerHeight
       ctx.clearRect(0, 0, w, h)
-
-      const accent =
-        getComputedStyle(document.documentElement)
-          .getPropertyValue('--accent-color')
-          .trim() || '#646cff'
 
       const elapsed = now - phaseStart
       const td = trackData[currentTrack]
@@ -203,9 +216,17 @@ export default function F1Background() {
     raf = requestAnimationFrame(draw)
     window.addEventListener('resize', resize)
 
+    const onVisibility = () => {
+      visible = !document.hidden
+      // Re-cache accent on visibility restore in case the theme changed serverside.
+      reReadAccent()
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', resize)
+      document.removeEventListener('visibilitychange', onVisibility)
     }
   }, [])
 

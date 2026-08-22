@@ -34,7 +34,12 @@ interface AcademicsProps {
 function Academics({ portfolioData }: AcademicsProps) {
   return (
     <div className="academics-page">
+      <p className="page-eyebrow">Coursework &amp; beyond</p>
       <h1>Academics</h1>
+      <p className="page-desc">
+        MS CS at NYU, plus the undergrad years that got me here — coursework and
+        the extracurricular detours that mattered.
+      </p>
       <Education data={portfolioData.education} />
     </div>
   )
