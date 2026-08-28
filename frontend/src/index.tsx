@@ -51,6 +51,17 @@ const server = serve({
                 },
             });
         },
+
+        "/api/status": async (req) => {
+            const url = new URL(req.url);
+            const upstream = await fetch(`${backendUrl}/status${url.search}`);
+            return new Response(upstream.body, {
+                status: upstream.status,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+        },
     },
 
     development: !isProd,

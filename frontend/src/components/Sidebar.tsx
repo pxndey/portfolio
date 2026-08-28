@@ -8,6 +8,8 @@ interface PortfolioData {
   education: any[]
   publications: any[]
   projects: any[]
+  toolGroups?: any[]
+  statusItems?: any[]
 }
 
 interface SidebarProps {
@@ -46,6 +48,8 @@ function Sidebar({ portfolioData }: SidebarProps) {
     { path: '/experience', label: 'Experience', key: 'experience', dataKey: 'workExperience' as keyof PortfolioData },
     { path: '/projects', label: 'Projects', key: 'projects', dataKey: 'projects' as keyof PortfolioData },
     { path: '/research', label: 'Research', key: 'research', dataKey: 'publications' as keyof PortfolioData },
+    { path: '/tools', label: 'Tools', key: 'tools', dataKey: 'toolGroups' as keyof PortfolioData },
+    { path: '/status', label: 'Status', key: 'status', dataKey: 'statusItems' as keyof PortfolioData },
     { path: '/contact', label: 'Contact', key: 'contact', alwaysShow: true },
     { path: '/music', label: 'Music', key: 'music', alwaysShow: true, dimmed: true },
     { path: '/misc', label: 'Misc', key: 'misc', alwaysShow: true, dimmed: true },

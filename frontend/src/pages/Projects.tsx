@@ -81,7 +81,6 @@ function Projects({ portfolioData }: ProjectsProps) {
             </div>
             <p className="timeline-meta">
               <span>{project.technologies}</span>
-              <span className={`category-chip ${project.category}`}>{project.category}</span>
             </p>
             <ul className="timeline-bullets">
               {project.description.map((desc) => (

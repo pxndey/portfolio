@@ -11,6 +11,7 @@ const pages = [
   { path: '/projects', name: 'projects' },
   { path: '/academics', name: 'academics' },
   { path: '/research', name: 'research' },
+  { path: '/tools', name: 'tools' },
 ]
 
 const themes = ['dark', 'light'] as const

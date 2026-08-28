@@ -3,6 +3,8 @@ import Academics from './pages/Academics'
 import Experience from './pages/Experience'
 import Projects from './pages/Projects'
 import Research from './pages/Research'
+import Tools from './pages/Tools'
+import Status from './pages/Status'
 import Contact from './pages/Contact'
 import Music from './pages/Music'
 import Misc from './pages/Misc'
@@ -44,6 +46,8 @@ function App() {
             <Route path="/experience" element={<Experience portfolioData={portfolioData} />} />
             <Route path="/projects" element={<Projects portfolioData={portfolioData} />} />
             <Route path="/research" element={<Research portfolioData={portfolioData} />} />
+            <Route path="/tools" element={<Tools portfolioData={portfolioData} />} />
+            <Route path="/status" element={<Status portfolioData={portfolioData} />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/music" element={<Music />} />
             <Route path="/misc" element={<Misc />} />

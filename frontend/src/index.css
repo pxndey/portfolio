@@ -154,7 +154,9 @@ mark {
 .projects-page,
 .research-page,
 .music-container,
-.misc-container {
+.misc-container,
+.tools-page,
+.status-page {
   width: 100%;
   margin-inline: auto;
 }

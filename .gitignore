@@ -64,6 +64,7 @@ bun-error.log*
 *.so
 */*.dylib
 */*.test
+/backend/backend
 
 # Build output
 /bin/

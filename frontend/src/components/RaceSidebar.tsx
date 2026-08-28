@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, memo } from 'react'
 import racesData from '../../races.json'
 import './RaceSidebar.css'
 
@@ -11,14 +11,15 @@ interface Race {
   duration_hours?: number
 }
 
-type Countdown = { days: number; hours: number; minutes: number; seconds: number }
-
 type RaceState =
-  | { status: 'countdown'; race: Race; countdown: Countdown }
+  | { status: 'countdown'; race: Race; target: number }
   | { status: 'live'; race: Race }
   | { status: 'done' }
 
 const LIVE_WINDOW_MS = 3 * 60 * 60 * 1000
+// Full state (which race / live / done) only needs periodic re-checks;
+// the *countdown numbers* tick in a separate leaf component so nothing else re-renders.
+const RECHECK_INTERVAL_MS = 60 * 1000
 
 function computeRaceState(races: Race[]): RaceState {
   const now = Date.now()
@@ -28,18 +29,9 @@ function computeRaceState(races: Race[]): RaceState {
 
   if (!active) return { status: 'done' }
 
-  const diff = new Date(active.datetime_utc).getTime() - now
-  if (diff > 0) {
-    return {
-      status: 'countdown',
-      race: active,
-      countdown: {
-        days: Math.floor(diff / 86400000),
-        hours: Math.floor((diff % 86400000) / 3600000),
-        minutes: Math.floor((diff % 3600000) / 60000),
-        seconds: Math.floor((diff % 60000) / 1000),
-      },
-    }
+  const target = new Date(active.datetime_utc).getTime()
+  if (target > now) {
+    return { status: 'countdown', race: active, target }
   }
 
   return { status: 'live', race: active }
@@ -48,12 +40,55 @@ function computeRaceState(races: Race[]): RaceState {
 function useRaceState(races: Race[]): RaceState {
   const [state, setState] = useState<RaceState>(() => computeRaceState(races))
 
+  // Only re-evaluate the overall race state every minute (live/done transitions);
+  // the per-second ticking happens inside <Countdown>, not here.
   useEffect(() => {
-    const id = setInterval(() => setState(computeRaceState(races)), 1000)
+    const id = setInterval(() => setState(computeRaceState(races)), RECHECK_INTERVAL_MS)
     return () => clearInterval(id)
   }, [races])
 
   return state
+}
+
+// Leaf component that owns the 1s timer so re-rendering is scoped to the numbers only.
+function Countdown({ target }: { target: number }) {
+  const [nowMs, setNowMs] = useState<number>(() => Date.now())
+
+  useEffect(() => {
+    const id = setInterval(() => setNowMs(Date.now()), 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const countdown = useMemo(() => {
+    const diff = target - nowMs
+    if (diff <= 0) return null
+    return {
+      days: Math.floor(diff / 86400000),
+      hours: Math.floor((diff % 86400000) / 3600000),
+      minutes: Math.floor((diff % 3600000) / 60000),
+      seconds: Math.floor((diff % 60000) / 1000),
+    }
+  }, [target, nowMs])
+
+  if (!countdown) {
+    return (
+      <div className="race-live">
+        <span className="live-dot" />
+        LIVE NOW
+      </div>
+    )
+  }
+
+  return (
+    <div className="race-countdown">
+      {(['days', 'hours', 'minutes', 'seconds'] as const).map((unit) => (
+        <div key={unit} className="countdown-unit">
+          <span className="countdown-value">{String(countdown[unit]).padStart(unit === 'days' ? 1 : 2, '0')}</span>
+          <span className="countdown-label">{unit[0]}</span>
+        </div>
+      ))}
+    </div>
+  )
 }
 
 interface RaceCardProps {
@@ -61,7 +96,7 @@ interface RaceCardProps {
   races: Race[]
 }
 
-function RaceCard({ series, races }: RaceCardProps) {
+const RaceCard = memo(function RaceCard({ series, races }: RaceCardProps) {
   const state = useRaceState(races)
 
   if (state.status === 'done') {
@@ -86,14 +121,7 @@ function RaceCard({ series, races }: RaceCardProps) {
       <div className="race-name">{race.name}</div>
       <div className="race-circuit">{race.circuit}</div>
       {state.status === 'countdown' ? (
-        <div className="race-countdown">
-          {(['days', 'hours', 'minutes', 'seconds'] as const).map((unit) => (
-            <div key={unit} className="countdown-unit">
-              <span className="countdown-value">{String(state.countdown[unit]).padStart(unit === 'days' ? 1 : 2, '0')}</span>
-              <span className="countdown-label">{unit[0]}</span>
-            </div>
-          ))}
-        </div>
+        <Countdown target={state.target} />
       ) : (
         <div className="race-live">
           <span className="live-dot" />
@@ -102,7 +130,7 @@ function RaceCard({ series, races }: RaceCardProps) {
       )}
     </div>
   )
-}
+})
 
 export default function RaceSidebar() {
   const [mobileOpen, setMobileOpen] = useState(false)

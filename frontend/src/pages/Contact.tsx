@@ -13,12 +13,12 @@ function Contact() {
       <div className="contact-section">
         <h2 className="section-heading">Email</h2>
         <div className="email-list">
-          <a href="mailto:anushkpandey@proton.me" className="email-link">
+          <a href="mailto:pandeyanushk@nyu.edu" className="email-link">
             <div className="email-icon">
               <FaEnvelope size={18} />
             </div>
             <div className="email-content">
-              <div className="email-address">anushkpandey@proton.me</div>
+              <div className="email-address">pandeyanushk@nyu.edu</div>
               <div className="email-description">Personal inbox</div>
             </div>
           </a>

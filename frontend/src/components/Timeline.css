@@ -128,36 +128,6 @@
   color: var(--text-tertiary);
 }
 
-/* Project category chips */
-.category-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.1rem 0.55rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border-radius: 999px;
-  border: 1px solid currentColor;
-}
-
-.category-chip::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.category-chip.academic {
-  color: var(--cat-academic);
-}
-
-.category-chip.personal {
-  color: var(--cat-personal);
-}
-
 .timeline-item[data-category='academic'] {
   --category-color: var(--cat-academic);
 }
@@ -166,15 +136,8 @@
   --category-color: var(--cat-personal);
 }
 
-.timeline-item[data-category] .timeline-title::after {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-left: 0.45rem;
-  border-radius: 50%;
-  background: var(--category-color, var(--accent-color));
-  vertical-align: middle;
+.timeline-item[data-category] .timeline-title {
+  color: var(--category-color, var(--accent-color));
 }
 
 .timeline-bullets {

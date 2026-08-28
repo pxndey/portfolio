@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -20,6 +21,39 @@ import (
 type AudioData struct {
 	Filename string `json:"filename"`
 	URL      string `json:"url"`
+}
+
+// Status check result
+type StatusItem struct {
+	Name     string `json:"name"`
+	URL      string `json:"url"`
+	Up       bool   `json:"up"`
+	Status   int    `json:"status"`
+	LatencyMS int64 `json:"latencyMS"`
+	Error    string `json:"error,omitempty"`
+	CheckedAt string `json:"checkedAt"`
+}
+
+// checkURL performs an HTTP GET with a short timeout and returns the result
+func checkURL(name, target string) StatusItem {
+	result := StatusItem{Name: name, URL: target, CheckedAt: time.Now().UTC().Format(time.RFC3339)}
+
+	client := &http.Client{Timeout: 5 * time.Second}
+	start := time.Now()
+
+	resp, err := client.Get(target)
+	latency := time.Since(start).Milliseconds()
+	result.LatencyMS = latency
+
+	if err != nil {
+		result.Error = err.Error()
+		return result
+	}
+	defer resp.Body.Close()
+
+	result.Status = resp.StatusCode
+	result.Up = resp.StatusCode >= 200 && resp.StatusCode < 400
+	return result
 }
 
 // Helper function to fetch data from Last.fm API
@@ -48,6 +82,27 @@ func fetchLastFmAPI(baseURL string, params map[string]string) (map[string]interf
 	}
 
 	return result, nil
+}
+
+type loggingResponseWriter struct {
+	http.ResponseWriter
+	statusCode int
+}
+
+func (lrw *loggingResponseWriter) WriteHeader(code int) {
+	lrw.statusCode = code
+	lrw.ResponseWriter.WriteHeader(code)
+}
+
+// loggingMiddleware logs all HTTP requests with method, path, status, and duration
+func loggingMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+		lrw := &loggingResponseWriter{ResponseWriter: w, statusCode: http.StatusOK}
+		next.ServeHTTP(lrw, r)
+		duration := time.Since(start)
+		log.Printf("[%s] %s %s - %d - %v", r.Method, r.URL.Path, r.RemoteAddr, lrw.statusCode, duration)
+	})
 }
 
 // CORS middleware to enable cross-origin requests from frontend
@@ -84,6 +139,7 @@ func main() {
 
 	// Route 1: /audio - return JSON with filename and URL
 	http.HandleFunc("/audio", func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("Fetching random audio file")
 		audioDir := "audio"
 
 		// Read all files from audio directory
@@ -189,6 +245,7 @@ func main() {
 
 	// Route 4: /music - aggregated music data endpoint
 	http.HandleFunc("/music", func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("Fetching Last.fm music data for user: %s", lastfmUsername)
 		if lastfmAPIKey == "" || lastfmUsername == "" {
 			http.Error(w, "Last.fm API configuration missing", 500)
 			return
@@ -261,6 +318,65 @@ func main() {
 		json.NewEncoder(w).Encode(aggregatedData)
 	})
 
+	// Route 4b: /status - check liveness of monitored services
+	http.HandleFunc("/status", func(w http.ResponseWriter, r *http.Request) {
+		targets := r.URL.Query().Get("url")
+		log.Printf("Checking status for targets: %s", targets)
+		if targets == "" {
+			http.Error(w, "Missing 'url' query param (comma-separated urls=name|url)", 400)
+			return
+		}
+
+		// Parse "name|url,name|url"
+		pairs := strings.Split(targets, ",")
+		results := make([]StatusItem, len(pairs))
+		var wg sync.WaitGroup
+
+		for i, pair := range pairs {
+			pair = strings.TrimSpace(pair)
+			if pair == "" {
+				continue
+			}
+			parts := strings.SplitN(pair, "|", 2)
+			name := parts[0]
+			target := parts[0]
+			if len(parts) == 2 {
+				name = parts[0]
+				target = parts[1]
+			}
+
+			// The frontend URL-encodes each field; undo it here.
+			if decoded, err := url.QueryUnescape(name); err == nil {
+				name = decoded
+			}
+			if decoded, err := url.QueryUnescape(target); err == nil {
+				target = decoded
+			}
+
+			wg.Add(1)
+			go func(i int, name, target string) {
+				defer wg.Done()
+				results[i] = checkURL(name, target)
+			}(i, name, target)
+		}
+
+		wg.Wait()
+
+		// Drop empty entries from blank pairs
+		filtered := results[:0]
+		for _, res := range results {
+			if res.URL != "" {
+				filtered = append(filtered, res)
+			}
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]interface{}{
+			"checkedAt": time.Now().UTC().Format(time.RFC3339),
+			"services":  results,
+		})
+	})
+
 	fmt.Printf("Server running on http://localhost:%s\n", port)
-	log.Fatal(http.ListenAndServe(":"+port, corsMiddleware(http.DefaultServeMux)))
+	log.Fatal(http.ListenAndServe(":"+port, loggingMiddleware(corsMiddleware(http.DefaultServeMux))))
 }

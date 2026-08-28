@@ -145,6 +145,13 @@ function Music() {
   const mostRecentTrack = recentTracksData[0]
   const isNowPlaying = mostRecentTrack?.['@attr']?.nowplaying === 'true'
 
+  // Last.fm recent tracks only return small/medium/large images — never index 3.
+  // Grab the largest one that exists instead of assuming a fixed position.
+  const albumArt = (mostRecentTrack?.image ?? [])
+    .map((img) => img['#text'])
+    .filter(Boolean)
+    .pop()
+
   // Format date to Eastern Time
   const formatDateET = (utcTimestamp: string) => {
     const date = new Date(parseInt(utcTimestamp) * 1000)
@@ -214,12 +221,22 @@ function Music() {
         </div>
 
         <div className="chart-container">
-          <h2>{isNowPlaying ? 'Now Playing' : 'Last Played'}</h2>
+          <div className="chart-header">
+            <h2>{isNowPlaying ? 'Now Playing' : 'Last Played'}</h2>
+            {isNowPlaying && (
+              <div className="equalizer" aria-hidden="true">
+                <span style={{ animationDelay: '0ms' }} />
+                <span style={{ animationDelay: '150ms' }} />
+                <span style={{ animationDelay: '300ms' }} />
+                <span style={{ animationDelay: '450ms' }} />
+              </div>
+            )}
+          </div>
           {mostRecentTrack && (
             <div className="now-playing-container">
-              {mostRecentTrack.image && mostRecentTrack.image[3] && (
+              {albumArt && (
                 <img
-                  src={mostRecentTrack.image[3]['#text']}
+                  src={albumArt}
                   alt={mostRecentTrack.name}
                   className="album-image"
                 />
@@ -241,11 +258,13 @@ function Music() {
                     {mostRecentTrack.album['#text']}
                   </div>
                 )}
-                {!isNowPlaying && mostRecentTrack.date && (
-                  <div className="track-detail-date">
-                    {formatDateET(mostRecentTrack.date.uts)}
-                  </div>
-                )}
+                <div className="track-detail-date">
+                  {isNowPlaying
+                    ? 'scrobbling now'
+                    : mostRecentTrack.date
+                      ? formatDateET(mostRecentTrack.date.uts)
+                      : ''}
+                </div>
               </div>
             </div>
           )}

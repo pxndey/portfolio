@@ -10,41 +10,49 @@ function Home() {
           <span className="terminal-dot red" />
           <span className="terminal-dot yellow" />
           <span className="terminal-dot green" />
-          <span className="terminal-title">anushk@nyu ~ %</span>
+          <span className="terminal-title">anushk@nyc ~ %</span>
         </div>
         <div className="terminal-body">
           <p className="terminal-line">
             <span className="terminal-prompt">$</span> whoami
           </p>
-          <p className="terminal-output">anushk pandey</p>
         </div>
       </div>
 
       <header className="home-hero">
+        <h1 className="home-title">I build systems that make noisy data useful.</h1>
+        <p className="home-subtitle">
+          ML researcher and software engineer working across computer vision, neural recordings,
+          and the infrastructure behind them.
+        </p>
         <div className="home-meta">
           <span className="home-badge">MS CS @ NYU</span>
           <span className="home-badge home-badge-open">
             <span className="open-dot" aria-hidden="true" />
-            looking for spring '27 intern + summer '27 FTE
+            seeking spring '27 internships + summer '27 roles
           </span>
         </div>
-        <h1 className="home-title">i break prod — and i'm the one you call when someone else does.</h1>
-        <p className="home-subtitle">Developer and researcher — vision models, neural recordings, and the machines they run on.</p>
       </header>
 
       <blockquote className="home-quote">
         <div>
-          It takes a long time to realize how truly miserable you are, and even longer to see that it doesn't have to be that way. Only after you give up everything can you begin to find a way to truly, be happy.
+          It takes a long time to realize how truly miserable you are, and even longer to see that it doesn't have to be that way.
         </div>
         <div className="quote-author">— Cuddlywhiskers, Bojack Horseman</div>
       </blockquote>
 
       <p className="home-paragraph">
-        I grew up to dinner table conversations about melanomas and sarcomas and whatnot, so when I picked computer science I wanted it to do something. I am at <mark>NYU</mark> for a Masters in CS, working on <mark>computer vision</mark> and <mark>self-supervised localization in neural recordings</mark> — still in the business of trying to make sense of messy biological signal.
+        I'm pursuing an M.S. in Computer Science at <mark>NYU</mark>, where I work in the
+        Neuroinformatics Lab on <mark>self-supervised spike localization and drift correction</mark>.
+        The work sits at the intersection of machine learning, computer vision, and neuroscience:
+        finding structure in biological signals that are messy by nature.
       </p>
 
       <p className="home-paragraph">
-        I am a research assistant in the Neuroinformatics Lab, a TA for Computer Vision, and I ship software people actually use: a collaborative job tracker, a homelab that hosts it, and whatever F1-related thing I get distracted by. Before that I organized hackathons and science outreach back in Vellore.
+        Outside the lab, I teach computer vision and build dependable software for real people.
+        That includes a collaborative job tracker, the self-hosted infrastructure that keeps it
+        running, and the occasional F1 side project. Before New York, I organized hackathons and
+        science outreach in Vellore.
       </p>
 
       <div className="home-links">

@@ -32,6 +32,7 @@ export default function F1Background() {
 
     let raf: number
     let visible = true
+    let windowFocused = true
 
     // --accent-color is set once on theme load and can't change while this runs,
     // so read it once instead of hitting getComputedStyle from inside the rAF
@@ -127,15 +128,22 @@ export default function F1Background() {
     }
 
     const draw = (now: number) => {
-      raf = requestAnimationFrame(draw)
-
       // Skip all drawing when the tab is hidden or user prefers reduced motion —
       // no point paying for canvas work that can't be seen.
-      if (!visible || document.hidden) return
+      if (!visible || document.hidden || !windowFocused) {
+        raf = 0
+        return
+      }
 
       const w = window.innerWidth
       const h = window.innerHeight
-      ctx.clearRect(0, 0, w, h)
+
+      // Only clear the small region the current trail can occupy — NEVER the whole
+      // viewport. A full-viewport clear + repaint every frame was the main lag source.
+      const cxMin = Math.min(placement.x, placement.x + placement.vx)
+      const cyMin = Math.min(placement.y, placement.y + placement.vy)
+      const span = TRACK_SCALE + Math.abs(placement.vx) + TRACK_SCALE / 2
+      ctx.clearRect(cxMin - TRACK_SCALE / 2 - 12, cyMin - TRACK_SCALE / 2 - 12, span, span)
 
       const elapsed = now - phaseStart
       const td = trackData[currentTrack]
@@ -216,17 +224,35 @@ export default function F1Background() {
     raf = requestAnimationFrame(draw)
     window.addEventListener('resize', resize)
 
+    // Pause the animation loop entirely while the tab/window is out of focus —
+    // don't just draw a wasted frame, stop scheduling anything.
     const onVisibility = () => {
       visible = !document.hidden
+      windowFocused = document.hasFocus()
       // Re-cache accent on visibility restore in case the theme changed serverside.
       reReadAccent()
+
+      if (visible && windowFocused) {
+        // Re-baseline the phase so the trail restarts fresh instead of catching up a big jump
+        phase = 'trace'
+        phaseStart = performance.now()
+        cycleStart = phaseStart
+        if (!raf) raf = requestAnimationFrame(draw)
+      } else {
+        cancelAnimationFrame(raf)
+        raf = 0
+      }
     }
     document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('focus', onVisibility)
+    window.addEventListener('blur', onVisibility)
 
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener('resize', resize)
       document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('focus', onVisibility)
+      window.removeEventListener('blur', onVisibility)
     }
   }, [])
 

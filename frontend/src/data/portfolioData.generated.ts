@@ -41,7 +41,11 @@ const portfolioData = {
         {
           "term": "Fall 2026",
           "note": "Teaching Assistant for CS-GY 6643: Computer Vision",
-          "courses": []
+          "courses": [
+            "Big Data",
+            "Deep Learning",
+            "MS Thesis"
+          ]
         },
         {
           "term": "Spring 2026",
@@ -56,7 +60,7 @@ const portfolioData = {
           "courses": [
             "Responsible AI",
             "Computer Vision (CS-GY 6643)",
-            "Big Data"
+            "Algorithms"
           ]
         }
       ]
@@ -218,6 +222,77 @@ const portfolioData = {
         "Implemented a custom four-directional feature aggregation pipeline, maximizing spatial context for state classification.",
         "Achieved 88.9% accuracy on a 16,495-sample test set with a dual-target computer vision model."
       ]
+    }
+  ],
+  "toolGroups": [
+    {
+      "groupName": "Languages",
+      "tools": [
+        "Python",
+        "TypeScript",
+        "Go",
+        "Bash",
+        "SQL",
+        "MATLAB"
+      ]
+    },
+    {
+      "groupName": "ML & Data",
+      "tools": [
+        "PyTorch",
+        "NumPy",
+        "Pandas",
+        "scikit-learn",
+        "Matplotlib"
+      ]
+    },
+    {
+      "groupName": "Web & Infra",
+      "tools": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Docker",
+        "Traefik",
+        "PostgreSQL",
+        "Redis"
+      ]
+    },
+    {
+      "groupName": "Workflow",
+      "tools": [
+        "Git",
+        "Linux",
+        "Oracle SQL",
+        "HPC / SLURM",
+        "Figma"
+      ]
+    }
+  ],
+  "statusItems": [
+    {
+      "name": "Blog",
+      "url": "https://blog.pxndey.com"
+    },
+    {
+      "name": "Gitea",
+      "url": "https://git.pxndey.com"
+    },
+    {
+      "name": "J2J",
+      "url": "https://j2j.pxndey.com"
+    },
+    {
+      "name": "n8n",
+      "url": "https://n8n.pxndey.com"
+    },
+    {
+      "name": "ntfy",
+      "url": "https://ntfy.pxndey.com"
+    },
+    {
+      "name": "Tiredeg",
+      "url": "https://tiredeg.pxndey.com"
     }
   ]
 } as const
