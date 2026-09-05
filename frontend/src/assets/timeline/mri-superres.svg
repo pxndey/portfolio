@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- low-field slice: pixelated anatomy -->
+  <rect x="12" y="26" width="40" height="68" rx="4" stroke-width="1.3"/>
+  <path d="M22 42h14v-6h10v10h6v12h-2v10h-6v8h-10v-6h-10v4h-6v-12h2v-10h2z" stroke-width="1.2"/>
+  <path d="M24 56h8v-4h6v-4h8" stroke-width="1.1" opacity="0.7"/>
+  <path d="M24 66h10v4h8v-4h6" stroke-width="1.1" opacity="0.7"/>
+  <!-- upsampling arrow -->
+  <path d="M56 60h16M72 60l-6-4M72 60l-6 4"/>
+  <!-- high-field slice: smooth anatomy -->
+  <rect x="76" y="26" width="40" height="68" rx="4" stroke-width="1.3"/>
+  <ellipse cx="96" cy="60" rx="15" ry="25" stroke-width="1.2"/>
+  <path d="M84 50c6-5 16-5 24 0" stroke-width="1.1"/>
+  <path d="M84 60c7-4 16-4 24 0" stroke-width="1.1" opacity="0.85"/>
+  <path d="M84 70c6 4 16 4 24 0" stroke-width="1.1" opacity="0.7"/>
+  <path d="M90 40c4-3 10-3 14 0" stroke-width="1" opacity="0.6"/>
+  <path d="M90 80c4 3 10 3 14 0" stroke-width="1.1" opacity="0.6"/>
+</svg>

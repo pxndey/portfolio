@@ -26,8 +26,8 @@ function Experience({ portfolioData }: ExperienceProps) {
       <p className="page-eyebrow">Work</p>
       <h1>Experience</h1>
       <p className="page-desc">
-        Research and engineering roles — mostly around neural recordings, computer vision,
-        and the machines they run on.
+        Research and engineering roles, mostly in neural recordings and
+        computer vision.
       </p>
       <Timeline>
         {items.map((work) => (

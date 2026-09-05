@@ -186,33 +186,80 @@
 .now-playing-container {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  justify-content: center;
+  gap: 1.5rem;
   flex: 1;
-  min-height: 180px;
+  padding: 1rem 0.5rem;
+}
+
+.album-art-link {
+  position: relative;
+  z-index: 0;
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+  transform-origin: top left;
+  transition: transform 0.25s ease;
+}
+
+.album-art-link:hover {
+  transform: scale(1.03);
 }
 
 .album-image {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
   flex-shrink: 0;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+/* Album art duplicated as a blurred drop shadow behind the cover */
+.album-image-reflection {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.55;
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Placeholder when Last.fm has no artwork for a track */
+.album-art-fallback {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--card-hover);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  color: var(--text-muted);
+  font-size: 3.25rem;
 }
 
 .track-details {
-  flex: 1;
+  flex: 0 1 auto;
   min-width: 0;
   text-align: left;
-  padding-right: 0.5rem;
 }
 
 .track-detail-link {
   color: var(--text-primary);
   text-decoration: none;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 600;
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -293,5 +340,23 @@
 
   .track-playcount {
     display: none;
+  }
+
+  .now-playing-container {
+    gap: 1rem;
+  }
+
+  .album-image,
+  .album-art-fallback {
+    width: 96px;
+    height: 96px;
+  }
+
+  .album-art-fallback {
+    font-size: 2.25rem;
+  }
+
+  .track-detail-link {
+    font-size: 1.05rem;
   }
 }

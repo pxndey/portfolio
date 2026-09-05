@@ -37,8 +37,8 @@ function Academics({ portfolioData }: AcademicsProps) {
       <p className="page-eyebrow">Coursework &amp; beyond</p>
       <h1>Academics</h1>
       <p className="page-desc">
-        MS CS at NYU, plus the undergrad years that got me here — coursework and
-        the extracurricular detours that mattered.
+        MS CS at NYU. Before that, undergrad in Vellore and school in
+        Varanasi, and a lot of time spent on things that weren't coursework.
       </p>
       <Education data={portfolioData.education} />
     </div>

@@ -49,6 +49,19 @@ function MusicPlayer() {
     }
   }
 
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) return
+      if (e.metaKey || e.ctrlKey || e.altKey) return
+      if (e.key.toLowerCase() !== 'p') return
+      e.preventDefault()
+      togglePlay()
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [isPlaying, musicData])
+
   const setRandomStartPosition = () => {
     if (!audioRef.current || hasSetInitialPosition.current) return
 
@@ -102,7 +115,8 @@ function MusicPlayer() {
       <button
         className={`music-player-button ${isPlaying ? 'playing' : ''}`}
         onClick={togglePlay}
-        title={`${musicData.artist} - ${musicData.songName}`}
+        title={`${musicData.artist} - ${musicData.songName} (press p to toggle)`}
+        aria-keyshortcuts="p"
       >
         <span className="music-info">
           <div className="music-artist">{musicData.artist}</div>

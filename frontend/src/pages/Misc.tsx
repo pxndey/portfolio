@@ -57,19 +57,19 @@ function Misc() {
 
         <div className="server-writeup">
           <p>
-        	In my life, there are a lot of things I affectionately call my "<mark>sh*tboxes</mark>", well one of them, is this! The site you're browsing is being served off the laptop that got me through my (rough) undergrad, a <mark>2021 HP Omen</mark>!
+        	I have a few things I affectionately call my "<mark>sh*tboxes</mark>", and this site is one of them. You're looking at it being served off the laptop that got me through undergrad, a <mark>2021 HP Omen</mark>.
           </p>
 
           <p>
-            Another is my car, the 2016 <mark>Innova Crysta</mark> (the original sh*tbox). I learnt driving on that car, and with a heavy heart I had to say it goodbye when I came to the US. I love driving, with having driven more than <mark>1600 kilometers in New Zealand</mark> (that's 900 miles for all the freedom people) and more than <mark>1200 miles in 2025 alone</mark>!
+            Another is my car, a 2016 <mark>Innova Crysta</mark> (the original sh*tbox). I learned to drive on it, and I had to say goodbye when I moved to the US. I've put in more than <mark>1,600 kilometers in New Zealand</mark> and over <mark>1,200 miles in 2025 alone</mark>.
           </p>
 
           <p>
-           A lot of my hobbies have been rubbed off on me by my dad, who loved to drive, sitting on his lap in a Maruti 800 listening to Pink Floyd CDs, and walking around the world with cameras in hand.
+           A lot of my hobbies rubbed off from my dad. He loved to drive. I'd sit on his lap in a Maruti 800 listening to Pink Floyd CDs, and we'd walk around with cameras in hand.
           </p>
 
           <p>
-            I also love photography, being seen with a camera since I was like six or seven. Photography has been sort of the original reason of my interest in Computer Vision, these small boxes with a mirror inside, are able to focus, capture, and tag birds, buildings, skies, and even people! The inner workings of a camera are really fascinating, and I plan on reading more about the technology soon :)
+            I also love photography. I've had a camera in my hands since I was six or seven. It's actually what first got me into computer vision: these small boxes with a mirror inside can focus, capture, and tag birds, buildings, and skies. The inner workings of a camera are fascinating, and I want to read more about how they actually work.
           </p>
         </div>
 

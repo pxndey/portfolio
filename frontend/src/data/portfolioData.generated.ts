@@ -10,10 +10,24 @@ const portfolioData = {
       "duration": "Apr 2026 - Present",
       "art": "nyu-neuro",
       "responsibilities": [
-        "Developed a self-supervised machine learning localization network that jointly optimizes with DREDge registration via alternating optimization in PyTorch on Unix.",
-        "Applied rigorous statistics and experimental design to achieve higher pairwise normalized cross-correlation (NCC) than standard baselines without degrading spatial entropy.",
-        "First author on \"End-to-End Spike Localization and Drift Correction,\" submitted to NeurIPS 2026.",
-        "Presented poster at Neuromodulation Conference, CCNY 2026."
+        "Developing a self-supervised machine learning localization network that jointly optimizes with DREDge registration via alternating optimization in PyTorch on Unix.",
+        "Applying rigorous statistics and experimental design to achieve higher pairwise normalized cross-correlation (NCC) than standard baselines without degrading spatial entropy.",
+        "Authoring \"End-to-End Spike Localization and Drift Correction\" as first author, submitted to NeurIPS 2026.",
+        "Presenting a poster at Neuromodulation Conference, CCNY 2026."
+      ]
+    },
+    {
+      "company": "New York University",
+      "location": "New York, NY",
+      "role": "Teaching Assistant, CS-GY 6643 Computer Vision",
+      "duration": "Sep 2026 - Present",
+      "art": "nyu-ta",
+      "responsibilities": [
+        "Designing a course assignment applying SLAM (Simultaneous Localization and Mapping) to F1 onboard camera footage for a class of 80 students; curated the footage datasets and built the dataloader pipelines.",
+        "Delivering weekly office hours, grading assignments, and preparing lecture slides; collaborating with fellow TAs to shape course topics and curriculum.",
+        "Leading end-of-class codelabs and PyTorch/OpenCV tutorial sessions, backed by reference notebooks for the class.",
+        "Supporting students in setting up cloud bursting and NYU HPC (SLURM) environments for compute-intensive coursework.",
+        "Maintaining the course repository, assignment starter code, and environment setup guides."
       ]
     },
     {
@@ -50,8 +64,8 @@ const portfolioData = {
         {
           "term": "Spring 2026",
           "courses": [
-            "Machine Learning (CS-GY 6923)",
-            "Information Visualization (CS-GY 6313)",
+            "Machine Learning",
+            "Information Visualization",
             "Neuroinformatics"
           ]
         },
@@ -120,6 +134,20 @@ const portfolioData = {
           ]
         }
       ]
+    },
+    {
+      "institution": "Delhi Public School, Varanasi",
+      "location": "Varanasi, India",
+      "degree": "CBSE Class XII",
+      "marks": "95%",
+      "duration": "2019 - 2021",
+      "art": "dps",
+      "coursework": [
+        "Physics",
+        "Chemistry",
+        "Mathematics",
+        "English"
+      ]
     }
   ],
   "publications": [
@@ -127,13 +155,18 @@ const portfolioData = {
       "paperName": "End-to-End Spike Localization and Drift Correction",
       "journalName": "NeurIPS 2026 (submitted)",
       "authors": [
-        "Anushk Pandey"
+        "Akshat Mishra*",
+        "Thiago Viegas*",
+        "Anushk Pandey*",
+        "Margaret-Estefani Conde Paredes",
+        "Mihály Vöröslakos",
+        "Erdem Varol"
       ],
       "publicationYear": "2026",
       "doi": "",
       "art": "spike-localization",
       "highlights": [
-        "First-author paper on a self-supervised spike localization network jointly optimized with DREDge registration via alternating optimization in PyTorch.",
+        "Co-first-author paper on a self-supervised spike localization network jointly optimized with DREDge registration via alternating optimization in PyTorch.",
         "Higher pairwise normalized cross-correlation than standard baselines without degrading spatial entropy.",
         "Poster presented at Neuromodulation Conference, CCNY 2026."
       ]
@@ -162,9 +195,22 @@ const portfolioData = {
       "category": "personal",
       "art": "homelab",
       "description": [
-        "Hosts 9+ production services on a single Unix server with Traefik as the reverse proxy.",
+        "Reprovisioned an old laptop as a homelab server hosting 9+ production services with Traefik as the reverse proxy.",
         "Polling-based CI/CD with Docker Compose for 3 actively-developed apps, plus automated database migrations.",
-        "Postgres and object storage with 2 replicas and daily offsite backups; Alertmanager brings incident detection under a minute at 99% uptime."
+        "Postgres and object storage with 2 replicas; Alertmanager brings incident detection under a minute at 99% uptime, with nightly encrypted backups to an attached 4TB external HDD."
+      ]
+    },
+    {
+      "projectName": "Self-Built NAS",
+      "technologies": "Debian, ZFS, restic",
+      "role": "",
+      "duration": "Aug 2026 - Present",
+      "category": "personal",
+      "art": "nas",
+      "description": [
+        "Assembled from raw parts — 12th-gen Intel, 16GB RAM, 32TB HDD, and a 500GB SSD — wired and cabled end to end as a dedicated backup target.",
+        "Debian host with hand-partitioned ZFS storage for copy-on-write snapshots, end-to-end checksums, and self-healing data.",
+        "Nightly incremental restic/borg backups of other machines and devices on the network, verified by scheduled ZFS scrubs."
       ]
     },
     {
@@ -190,8 +236,8 @@ const portfolioData = {
       "githubLink": "https://github.com/pxndey/csgy6923_machineLearning",
       "art": "svg-scaling",
       "description": [
-        "Trained decoder-only transformers from 1.5M to 92M parameters on a 144M-token SVG corpus, comparing Standard Parameterization and μP.",
-        "End-to-end pipeline: tokenization, scaling sweeps, learning-rate transfer, and evaluation. μP scaled monotonically; standard parameterization degraded at larger sizes.",
+        "Trained 24 decoder-only transformers from 1.5M to 92M parameters on a 144M-token SVG corpus, comparing Standard Parameterization and μP.",
+        "μP's zero-shot learning-rate transfer kept validation loss monotonic (0.876 → 0.663) with a fitted power-law exponent α ≈ 0.38 (R² = 0.989); standard parameterization regressed +0.81 nats at 92M.",
         "Best test perplexity of 1.93 at 92M parameters; 100% structurally valid, renderable SVG generations after post-processing."
       ]
     },
@@ -204,23 +250,102 @@ const portfolioData = {
       "githubLink": "https://github.com/pxndey/csgy9223_project",
       "art": "debiasing",
       "description": [
-        "Engineered an adversarial debiasing model from scratch to evaluate alignment and safety metrics across 5 demographic groups.",
-        "Maintained 96.7% accuracy while achieving calibration parity across all protected demographics.",
-        "Reduced maximum false negative rate disparity by 20% across racial groups via adversarial training."
+        "Engineered an adversarial debiasing model from scratch — feature extractor, classifier, and adversary trained in alternating phases — to evaluate fairness metrics across 5 demographic groups on a 100k-row diabetes dataset.",
+        "Maintained 96.7% accuracy on a 29,995-row unseen holdout while achieving calibration parity across all protected demographics.",
+        "Reduced maximum false negative rate disparity by 20% across racial groups (0.0485 → 0.0388) while preserving 0.641 recall, where SMOTE preprocessing dropped recall to 0.574."
       ]
     },
     {
       "projectName": "GeoGuessr Classifier",
-      "technologies": "StreetCLIP, HPC, Computer Vision",
+      "technologies": "StreetCLIP, PyTorch, Computer Vision",
       "role": "",
       "duration": "Dec 2025",
       "category": "academic",
       "githubLink": "https://github.com/pxndey/csgy6643_p4",
       "art": "geoguessr",
       "description": [
-        "Fine-tuned a StreetCLIP backbone on an HPC cluster to process over 329,000 multi-view images across 33 US states.",
+        "Trained dual-task state-classification and GPS-regression heads on a frozen StreetCLIP backbone over 329,900 four-directional Street View images across 33 US states.",
         "Implemented a custom four-directional feature aggregation pipeline, maximizing spatial context for state classification.",
         "Achieved 88.9% accuracy on a 16,495-sample test set with a dual-target computer vision model."
+      ]
+    },
+    {
+      "projectName": "F1 Tire Degradation Dashboard",
+      "technologies": "D3.js, FastF1, Python",
+      "role": "",
+      "duration": "May 2026",
+      "category": "academic",
+      "liveLink": "https://tiredeg.pxndey.com",
+      "githubLink": "https://github.com/pxndey/csgy6313_infoViz",
+      "art": "tiredeg",
+      "description": [
+        "Interactive dashboard comparing compound-specific tire degradation across 25 circuits and 28 drivers, built on 66,049 fuel-corrected clean laps from the 2023-2025 F1 seasons.",
+        "FastF1 telemetry pipeline: downloaded 70 race weekends, filtered to green-flag accurate laps, and applied fuel-load correction (+0.055 s/lap) to distill 2,644 stint-level degradation rates.",
+        "Coordinated multi-view D3.js dashboard with per-stint least-squares regression trendlines, s/lap degradation tooltips, and animated axis transitions."
+      ]
+    },
+    {
+      "projectName": "MERFISH Cell Segmentation & Annotation",
+      "technologies": "Cellpose, U-Net, LightGBM, scikit-learn",
+      "role": "",
+      "duration": "Apr 2026",
+      "category": "academic",
+      "art": "merfish",
+      "description": [
+        "End-to-end spatial-transcriptomics pipeline: segmented cells in MERFISH mouse-brain fields of view across 6 imaging rounds and assigned 224,495 molecules to cells.",
+        "Benchmarked U-Net, 2D/3D Cellpose, and z-projection hyperparameter optimization against an Adjusted Rand Index spot-assignment metric.",
+        "Annotated cells to the Allen Brain Cell Atlas four-level taxonomy, comparing KNN, LightGBM, hierarchical MLP, and cascaded classifier strategies."
+      ]
+    },
+    {
+      "projectName": "Low-Field MRI Super-Resolution",
+      "technologies": "PyTorch, ResUNet, MS-SSIM",
+      "role": "",
+      "duration": "Spring 2026",
+      "category": "academic",
+      "art": "mri-superres",
+      "description": [
+        "Attention-gated 2.5D ResUNet enhancing 64 mT ultra-low-field brain MRI toward 3T quality, upsampling 112x138x40 volumes to 179x221x200.",
+        "Pretrained on 60,000 synthetic slice pairs from the IXI dataset with randomized degradation, gaining +0.10 MS-SSIM — an order of magnitude larger than any architectural change.",
+        "Fine-tuned 6-fold with discriminative learning rates and flip test-time augmentation; 0.6172 private-leaderboard score on the 0.5·SSIM + 0.5·PSNR/50 metric."
+      ]
+    },
+    {
+      "projectName": "Intracortical Neural Decoding",
+      "technologies": "NumPy, scikit-learn, Ridge Regression",
+      "role": "",
+      "duration": "Spring 2026",
+      "category": "academic",
+      "art": "neuro-decode",
+      "description": [
+        "Imputed ~30 masked spike-band-power channels per session across 24 long-term intracortical recording sessions, totaling 468,720 imputed values.",
+        "Fit mask-pattern-grouped Ridge regressors with temporal kinematic features (lagged position, velocity, acceleration) and per-session RidgeCV alpha tuning.",
+        "Decoded hand position from motor-cortex activity, evaluated as mean R² across 48 session-channel groups."
+      ]
+    },
+    {
+      "projectName": "Video Analytics Suite",
+      "technologies": "PyTorch, YOLOv8, OpenCV",
+      "role": "",
+      "duration": "Nov 2025",
+      "category": "academic",
+      "art": "video-analytics",
+      "description": [
+        "Multi-vehicle tracking with YOLOv8s and a custom IOU tracker estimating per-car speeds on highway footage, plus Grad-CAM interpretability on ResNet-50 and DenseNet-121.",
+        "Kaggle baseball pitch prediction on 6,000 training videos: fused pitch physics with 3D CNN + GRU frame-difference features and rule-based MLB strike-zone logic.",
+        "Diagnosed an overfit 84M-parameter model stuck at random-guess accuracy and rebuilt at ~500K parameters (170× smaller) to recover 68-75% validation accuracy."
+      ]
+    },
+    {
+      "projectName": "Multi-Organ Nuclei Segmentation",
+      "technologies": "PyTorch, U-Net, timm",
+      "role": "",
+      "duration": "Oct 2025",
+      "category": "academic",
+      "art": "nuclei-seg",
+      "description": [
+        "Kaggle instance segmentation over 209 annotated histology slides: one-vs-all ResNet50 U-Net decoders with Dice loss across 4 cell classes.",
+        "Trained 20 models via 5-fold cross-validation per class with ensemble averaging, plus a ViT segmentation variant; RLE-encoded final submissions."
       ]
     }
   ],
@@ -230,6 +355,7 @@ const portfolioData = {
       "tools": [
         "Python",
         "TypeScript",
+        "Rust",
         "Go",
         "Bash",
         "SQL",
@@ -252,10 +378,12 @@ const portfolioData = {
         "React",
         "Next.js",
         "Node.js",
+        "Bun",
         "Docker",
         "Traefik",
         "PostgreSQL",
-        "Redis"
+        "Redis",
+        "Firebase"
       ]
     },
     {
@@ -263,9 +391,20 @@ const portfolioData = {
       "tools": [
         "Git",
         "Linux",
+        "uv",
+        "Conda",
         "Oracle SQL",
         "HPC / SLURM",
         "Figma"
+      ]
+    },
+    {
+      "groupName": "AI Agents",
+      "tools": [
+        "Claude Code",
+        "Cursor",
+        "Codex",
+        "OpenCode"
       ]
     }
   ],

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { FiDisc } from 'react-icons/fi'
 import './Music.css'
 
 interface Artist {
@@ -234,13 +235,32 @@ function Music() {
           </div>
           {mostRecentTrack && (
             <div className="now-playing-container">
-              {albumArt && (
-                <img
-                  src={albumArt}
-                  alt={mostRecentTrack.name}
-                  className="album-image"
-                />
-              )}
+              <a
+                href={mostRecentTrack.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="album-art-link"
+              >
+                {albumArt ? (
+                  <>
+                    <img
+                      src={albumArt}
+                      alt=""
+                      aria-hidden="true"
+                      className="album-image-reflection"
+                    />
+                    <img
+                      src={albumArt}
+                      alt={mostRecentTrack.name}
+                      className="album-image"
+                    />
+                  </>
+                ) : (
+                  <div className="album-art-fallback">
+                    <FiDisc aria-hidden="true" />
+                  </div>
+                )}
+              </a>
               <div className="track-details">
                 <a
                   href={mostRecentTrack.url}

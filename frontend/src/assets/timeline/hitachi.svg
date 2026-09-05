@@ -10,10 +10,4 @@
   <rect x="69" y="38" width="7" height="24"/>
   <!-- trend line over the bars -->
   <path d="M33.5 42L46.5 31L59.5 44L72.5 37" opacity="0.7"/>
-  <!-- magnifier handle tilted in over the card -->
-  <line x1="98" y1="100" x2="82" y2="84"/>
-  <!-- magnifier rim -->
-  <circle cx="74" cy="66" r="16"/>
-  <!-- lens highlight -->
-  <circle cx="68.5" cy="60.5" r="2" fill="currentColor" stroke="none" opacity="0.8"/>
 </svg>

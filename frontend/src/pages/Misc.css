@@ -3,22 +3,24 @@
 }
 
 .misc-title {
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 }
 
 .server-section {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	gap: 2rem;
-	margin-bottom: 3rem;
+	gap: 1.25rem;
+	margin-bottom: 0.5rem;
 }
 
 .server-image-container {
 	width: 100%;
+	max-width: 42rem;
+	margin: 0 auto;
 	display: flex;
 	justify-content: center;
-	padding: 0.75rem;
+	padding: 1.25rem;
 	background: var(--card-bg);
 	border: 1px solid var(--border-color);
 	border-radius: var(--radius-lg);
@@ -32,7 +34,7 @@
 
 .server-image {
 	width: 100%;
-	height: 380px;
+	height: 360px;
 	object-fit: cover;
 	object-position: center;
 	border-radius: var(--radius-md);
@@ -109,12 +111,16 @@
 .server-writeup {
 	font-family: var(--font-body);
 	font-size: 1rem;
-	line-height: 1.8;
+	line-height: 1.6;
 	color: var(--text-secondary);
 }
 
 .server-writeup p {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.server-writeup p:last-child {
+	margin-bottom: 0;
 }
 
 .ascii-art {
@@ -125,7 +131,7 @@
 }
 
 .other-services {
-	padding-top: 2rem;
+	padding-top: 1rem;
 	border-top: 1px solid var(--border-color);
 }
 
@@ -173,11 +179,11 @@
 
 	.server-section {
 		gap: 1.5rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.server-image {
-		height: 260px;
+		height: 280px;
 	}
 
 	.server-writeup {

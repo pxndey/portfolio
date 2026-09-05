@@ -88,8 +88,8 @@ function Status({ portfolioData }: StatusProps) {
       <p className="page-eyebrow">Uptime</p>
       <h1>Status</h1>
       <p className="page-desc">
-        Live check of the services running off the homelab — each is probed from the
-        backend every {REFRESH_INTERVAL_MS / 1000}s.
+        Live check of the services running off the homelab. Each is probed from
+        the backend every {REFRESH_INTERVAL_MS / 1000}s.
       </p>
 
       <div className="status-summary">

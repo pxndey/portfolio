@@ -19,8 +19,7 @@ function Tools({ portfolioData }: ToolsProps) {
       <p className="page-eyebrow">Toolbox</p>
       <h1>Tools</h1>
       <p className="page-desc">
-        Languages, libraries, and the infrastructure I reach for day to day — across
-        machine learning, web, and whatever the server room throws at me.
+        What I reach for day to day, across ML, web, and the homelab.
       </p>
 
       {groups.length === 0 ? (

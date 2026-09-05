@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- camera body -->
+  <rect x="20" y="42" width="80" height="52" rx="6"/>
+  <!-- top hump -->
+  <path d="M40 42l6-10h28l6 10"/>
+  <!-- lens -->
+  <circle cx="60" cy="68" r="16"/>
+  <circle cx="60" cy="68" r="9" opacity="0.85"/>
+  <!-- flash -->
+  <circle cx="88" cy="52" r="2" fill="currentColor" stroke="none"/>
+</svg>

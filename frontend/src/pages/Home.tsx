@@ -22,7 +22,7 @@ function Home() {
       <header className="home-hero">
         <h1 className="home-title">I build systems that make noisy data useful.</h1>
         <p className="home-subtitle">
-          ML researcher and software engineer working across computer vision, neural recordings,
+          ML researcher and software engineer working across computer vision, neural data,
           and the infrastructure behind them.
         </p>
         <div className="home-meta">
@@ -44,7 +44,7 @@ function Home() {
       <p className="home-paragraph">
         I'm pursuing an M.S. in Computer Science at <mark>NYU</mark>, where I work in the
         Neuroinformatics Lab on <mark>self-supervised spike localization and drift correction</mark>.
-        The work sits at the intersection of machine learning, computer vision, and neuroscience:
+        The work sits at the intersection of deep learning, computer vision, and neuroscience:
         finding structure in biological signals that are messy by nature.
       </p>
 

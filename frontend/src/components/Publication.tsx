@@ -14,13 +14,32 @@ interface PublicationProps {
   publication: PublicationData
 }
 
+function AuthorName({ name }: { name: string }) {
+  if (name.endsWith('*')) {
+    return (
+      <span className="publication-author" title="Equal contribution">
+        {name.slice(0, -1)}
+        <sup className="publication-star">*</sup>
+      </span>
+    )
+  }
+  return <>{name}</>
+}
+
 const Publication: React.FC<PublicationProps> = ({ publication }) => {
   return (
     <div className="publication-entry">
       <h3 className="timeline-title">{publication.paperName}</h3>
       <p className="timeline-kicker">{publication.journalName}</p>
       <p className="timeline-meta">
-        <span>{publication.authors.join(', ')}</span>
+        <span>
+          {publication.authors.map((author, index) => (
+            <React.Fragment key={author}>
+              {index > 0 ? ', ' : ''}
+              <AuthorName name={author} />
+            </React.Fragment>
+          ))}
+        </span>
         {publication.doi ? <span>{publication.doi}</span> : null}
       </p>
       <ul className="timeline-bullets">

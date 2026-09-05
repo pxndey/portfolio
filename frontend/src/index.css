@@ -113,6 +113,14 @@ body,
     box-shadow 0.3s ease;
 }
 
+/* Smooth light/dark theme swap: real crossfade via the View Transitions API.
+   The old page snapshot fades out while the new one fades in — no white wash. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+}
+
 ::selection {
   background: var(--accent-color);
   color: #fff;

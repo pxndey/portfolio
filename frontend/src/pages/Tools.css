@@ -1,5 +1,5 @@
 .tools-page {
-  max-width: var(--prose-max);
+  max-width: var(--content-max);
 }
 
 .tools-page h1 {
@@ -7,9 +7,18 @@
 }
 
 .tools-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 2.5rem;
+}
+
+.tools-section {
+  min-width: 0;
+}
+
+/* Odd-count final group spans the full row so the grid never orphans one cell */
+.tools-section:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .tools-section-title {
@@ -19,40 +28,45 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent-color);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
 }
 
 .tools-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .tools-item {
-  position: relative;
-  padding: 0.6rem 0;
-  padding-left: 1.1rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1;
   color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-color);
-  transition: color 0.2s ease, padding-left 0.2s ease;
-}
-
-.tools-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.9em;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  transition: background 0.2s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xs);
+  padding: 0.5rem 0.75rem;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .tools-item:hover {
   color: var(--text-primary);
-  padding-left: 1.35rem;
+  border-color: var(--border-strong);
+  background-color: var(--accent-muted);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .tools-sections {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
 }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- chassis -->
+  <rect x="34" y="14" width="52" height="92" rx="5" stroke-width="1.3"/>
+  <!-- drive bays -->
+  <rect x="42" y="24" width="36" height="12" rx="2" stroke-width="1.2"/>
+  <rect x="42" y="40" width="36" height="12" rx="2" stroke-width="1.2"/>
+  <rect x="42" y="56" width="36" height="12" rx="2" stroke-width="1.2"/>
+  <rect x="42" y="72" width="36" height="12" rx="2" stroke-width="1.2"/>
+  <!-- drive lines -->
+  <path d="M46 30h18M46 46h18M46 62h18M46 78h18" stroke-width="1" opacity="0.6"/>
+  <!-- activity LEDs: one scrubbing -->
+  <circle cx="72" cy="30" r="1.4" fill="currentColor" stroke="none"/>
+  <circle cx="72" cy="46" r="1.4" fill="currentColor" stroke="none"/>
+  <circle cx="72" cy="62" r="1.6" stroke-width="1.1"/>
+  <circle cx="72" cy="78" r="1.4" fill="currentColor" stroke="none"/>
+  <!-- checksum ticks: ZFS verify -->
+  <path d="M46 88h4M52 88h4M58 88h4M64 88h4M70 88h4" stroke-width="1.1" opacity="0.7"/>
+  <!-- power -->
+  <circle cx="60" cy="97" r="2.6" stroke-width="1.2"/>
+</svg>

@@ -38,8 +38,41 @@
 }
 
 .music-player-button:focus-visible {
-  outline: none;
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
   border-color: var(--accent-color);
+}
+
+/* "p" shortcut chip, sits inline next to the icon on hover/focus */
+.music-icon-wrapper::after {
+  content: 'P';
+  max-width: 0;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-muted);
+  background: var(--card-bg);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0.18rem 0;
+  opacity: 0;
+  transition:
+    max-width 0.25s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
+    padding 0.25s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
+    border-color 0.2s ease 0.1s,
+    opacity 0.2s ease 0.1s;
+  pointer-events: none;
+}
+
+.music-player-button:hover .music-icon-wrapper::after,
+.music-player-button:focus-visible .music-icon-wrapper::after {
+  max-width: 2rem;
+  margin-left: 0.45rem;
+  padding: 0.18rem 0.32rem;
+  border-color: var(--border-color);
+  opacity: 1;
 }
 
 /* While playing, the icon + ring pick up the team accent */
@@ -66,8 +99,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.15rem;
   flex: 1;
   min-width: 0;
+  padding: 0 0.9rem 0 1.15rem;
   opacity: 0;
   visibility: hidden;
   white-space: nowrap;
@@ -84,8 +119,8 @@
 
 .music-artist {
   font-weight: 600;
-  font-size: 0.85rem;
-  line-height: 1.4;
+  font-size: 0.8rem;
+  line-height: 1.35;
   color: var(--text-primary);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -93,8 +128,8 @@
 
 .music-song {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  line-height: 1.4;
+  font-size: 0.65rem;
+  line-height: 1.35;
   color: var(--text-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -116,6 +151,10 @@
   .music-icon-wrapper {
     width: 3rem;
     height: 3rem;
+  }
+
+  .music-icon-wrapper::after {
+    display: none;
   }
 
   .music-icon {

@@ -1,3 +1,8 @@
 .publication-entry {
   min-width: 0;
 }
+
+.publication-star {
+  font-weight: 600;
+  margin-left: 1px;
+}

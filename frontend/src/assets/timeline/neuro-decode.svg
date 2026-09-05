@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- intracortical array -->
+  <path d="M14 16h44" stroke-width="1.3"/>
+  <path d="M18 16v14M28 16v22M38 16v17M48 16v24"/>
+  <circle cx="18" cy="30" r="1.6" fill="currentColor" stroke="none"/>
+  <circle cx="28" cy="38" r="1.6" fill="currentColor" stroke="none"/>
+  <circle cx="48" cy="40" r="1.6" fill="currentColor" stroke="none"/>
+  <!-- one masked channel: dashed shank, hollow tip -->
+  <path d="M38 16v17" stroke-dasharray="2 3" stroke-width="1.2"/>
+  <circle cx="38" cy="33" r="1.8" stroke-width="1.2"/>
+  <!-- spike rasters -->
+  <path d="M66 28h5M75 28h3M82 28h5M66 38h6M76 38h3M85 38h3M68 48h4M76 48h3M83 48h4" stroke-width="1.2" opacity="0.8"/>
+  <!-- decoded hand trajectory -->
+  <path d="M30 54c-6 16 8 22 20 18s14-12 26-8 16 14 8 22" stroke-width="1.3"/>
+  <circle cx="30" cy="54" r="1.8" fill="currentColor" stroke="none"/>
+  <!-- reach target -->
+  <circle cx="92" cy="90" r="7" stroke-width="1.2"/>
+  <path d="M92 81v-4M92 99v4M83 90h-4M101 90h4" stroke-width="1.2"/>
+</svg>
