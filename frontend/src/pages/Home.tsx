@@ -20,10 +20,9 @@ function Home() {
       </div>
 
       <header className="home-hero">
-        <h1 className="home-title">I build systems that make noisy data useful.</h1>
+        <h1 className="home-title">ML researcher &amp; software engineer.</h1>
         <p className="home-subtitle">
-          ML researcher and software engineer working across computer vision, neural data,
-          and the infrastructure behind them.
+          Working across computer vision, neural data, and the infrastructure behind them.
         </p>
         <div className="home-meta">
           <span className="home-badge">MS CS @ NYU</span>
