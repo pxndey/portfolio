@@ -28,7 +28,7 @@ function Home() {
           <span className="home-badge">MS CS @ NYU</span>
           <span className="home-badge home-badge-open">
             <span className="open-dot" aria-hidden="true" />
-            seeking spring '27 internships + summer '27 roles
+            seeking spring '27 intern/ft + summer '27 ft roles
           </span>
         </div>
       </header>
