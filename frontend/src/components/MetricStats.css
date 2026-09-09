@@ -1,0 +1,73 @@
+.metric-stats {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0.3rem 0 0.8rem;
+}
+
+.metric-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.8rem 0.2rem 0;
+  margin-right: 0.8rem;
+  border-right: 1px solid var(--border-color);
+}
+
+.metric-stat:last-child {
+  margin-right: 0;
+  padding-right: 0;
+  border-right: none;
+}
+
+.metric-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+  color: var(--accent-color);
+  background: var(--accent-muted);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xs);
+  font-size: 0.8rem;
+}
+
+.metric-stat-body {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.metric-stat-value {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.metric-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .metric-stats {
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .metric-stat {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+  }
+}

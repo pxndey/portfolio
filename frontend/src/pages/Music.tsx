@@ -146,7 +146,7 @@ function Music() {
   const mostRecentTrack = recentTracksData[0]
   const isNowPlaying = mostRecentTrack?.['@attr']?.nowplaying === 'true'
 
-  // Last.fm recent tracks only return small/medium/large images — never index 3.
+  // Last.fm recent tracks only return small/medium/large images, never index 3.
   // Grab the largest one that exists instead of assuming a fixed position.
   const albumArt = (mostRecentTrack?.image ?? [])
     .map((img) => img['#text'])

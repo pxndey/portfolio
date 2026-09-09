@@ -3,6 +3,7 @@ import { FaGithub } from 'react-icons/fa'
 import { FiLink } from 'react-icons/fi'
 import { sortByDuration } from '../lib/chrono'
 import { Timeline, TimelineItem } from '../components/Timeline'
+import { MetricStats, MetricData } from '../components/MetricStats'
 import './Projects.css'
 
 interface ProjectData {
@@ -10,6 +11,8 @@ interface ProjectData {
   technologies: string
   role: string
   duration: string
+  tags?: string[]
+  metrics?: MetricData[]
   githubLink?: string
   liveLink?: string
   description: string[]
@@ -63,8 +66,9 @@ function Projects({ portfolioData }: ProjectsProps) {
       <p className="page-eyebrow">Selected work</p>
       <h1>Projects</h1>
       <p className="page-desc">
-        A few things I've shipped. Some for class, some for me, at least two
-        because of F1.
+        A few things I've shipped. Some for{' '}
+        <span className="legend-academic">class</span>, some for{' '}
+        <span className="legend-personal">me</span>, at least two because of F1.
       </p>
       <Timeline>
         {items.map((project) => (
@@ -82,6 +86,16 @@ function Projects({ portfolioData }: ProjectsProps) {
             <p className="timeline-meta">
               <span>{project.technologies}</span>
             </p>
+            {project.tags?.length ? (
+              <ul className="project-tags">
+                {project.tags.map((tag) => (
+                  <li key={tag} className="project-tag">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            <MetricStats metrics={project.metrics ?? []} />
             <ul className="timeline-bullets">
               {project.description.map((desc) => (
                 <li key={desc}>{desc}</li>

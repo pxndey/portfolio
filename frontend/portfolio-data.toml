@@ -4,6 +4,11 @@ location = "New York, NY"
 role = "Research Assistant"
 duration = "Apr 2026 - Present"
 art = "nyu-neuro"
+metrics = [
+    { icon = "trending-up", value = "NCC ↑", label = "vs. baselines" },
+    { icon = "file-text", value = "1st", label = "author · NeurIPS" },
+    { icon = "mic", value = "CCNY", label = "conference poster" },
+]
 responsibilities = [
     "Developing a self-supervised machine learning localization network that jointly optimizes with DREDge registration via alternating optimization in PyTorch on Unix.",
     "Applying rigorous statistics and experimental design to achieve higher pairwise normalized cross-correlation (NCC) than standard baselines without degrading spatial entropy.",
@@ -17,6 +22,11 @@ location = "New York, NY"
 role = "Teaching Assistant, CS-GY 6643 Computer Vision"
 duration = "Sep 2026 - Present"
 art = "nyu-ta"
+metrics = [
+    { icon = "users", value = "80", label = "students in course" },
+    { icon = "layers", value = "SLAM", label = "assignment designed" },
+    { icon = "cloud", value = "HPC", label = "SLURM + cloud support" },
+]
 responsibilities = [
     "Designing a course assignment applying SLAM (Simultaneous Localization and Mapping) to F1 onboard camera footage for a class of 80 students; curated the footage datasets and built the dataloader pipelines.",
     "Delivering weekly office hours, grading assignments, and preparing lecture slides; collaborating with fellow TAs to shape course topics and curriculum.",
@@ -31,6 +41,11 @@ location = "Gurgaon, India"
 role = "Data Analyst Intern"
 duration = "Jan 2025 - Jul 2025"
 art = "hitachi"
+metrics = [
+    { icon = "zap", value = "60%", label = "dashboard latency" },
+    { icon = "users", value = "250+", label = "schools & colleges" },
+    { icon = "map", value = "3", label = "Indian states" },
+]
 responsibilities = [
     "Optimized pipelines and Oracle SQL queries for the MStar Analytics Platform, reducing dashboard latency by 60% and improving system scalability and performance.",
     "Improved performance for 250+ schools and colleges across 3 Indian states by improving analytics workflows.",
@@ -159,6 +174,12 @@ duration = "2026 - Present"
 category = "personal"
 liveLink = "https://j2j.pxndey.com"
 art = "j2j"
+tags = ["Full-Stack", "Self-Hosted"]
+metrics = [
+    { icon = "layers", value = "15+", label = "features shipped" },
+    { icon = "users", value = "10+", label = "concurrent users" },
+    { icon = "server", value = "99%", label = "uptime, self-hosted" },
+]
 description = [
     "Full-stack collaborative job application tracker: 15+ features across frontend and backend, used by 10+ concurrent users.",
     "Self-hosted behind a reverse-proxy stack with 99% uptime.",
@@ -172,6 +193,12 @@ role = ""
 duration = "2025 - Present"
 category = "personal"
 art = "homelab"
+tags = ["Infra", "CI/CD", "Backups"]
+metrics = [
+    { icon = "server", value = "9+", label = "production services" },
+    { icon = "zap", value = "<1min", label = "incident detection" },
+    { icon = "database", value = "2×", label = "storage replicas" },
+]
 description = [
     "Reprovisioned an old laptop as a homelab server hosting 9+ production services with Traefik as the reverse proxy.",
     "Polling-based CI/CD with Docker Compose for 3 actively-developed apps, plus automated database migrations.",
@@ -185,8 +212,14 @@ role = ""
 duration = "Aug 2026 - Present"
 category = "personal"
 art = "nas"
+tags = ["Storage", "ZFS", "Backups"]
+metrics = [
+    { icon = "hard-drive", value = "32TB", label = "raw HDD storage" },
+    { icon = "database", value = "ZFS", label = "snapshots + self-healing" },
+    { icon = "clock", value = "Nightly", label = "verified restic backups" },
+]
 description = [
-    "Assembled from raw parts — 12th-gen Intel, 16GB RAM, 32TB HDD, and a 500GB SSD — wired and cabled end to end as a dedicated backup target.",
+    "Assembled from raw parts: 12th-gen Intel, 16GB RAM, 32TB HDD, and a 500GB SSD, wired and cabled end to end as a dedicated backup target.",
     "Debian host with hand-partitioned ZFS storage for copy-on-write snapshots, end-to-end checksums, and self-healing data.",
     "Nightly incremental restic/borg backups of other machines and devices on the network, verified by scheduled ZFS scrubs."
 ]
@@ -199,6 +232,11 @@ duration = "Nov 2024"
 category = "personal"
 githubLink = "https://github.com/pxndey/drs"
 art = "drs"
+tags = ["Go", "CLI"]
+metrics = [
+    { icon = "flag", value = "F1", label = "championship standings" },
+    { icon = "clock", value = "Any", label = "season, on demand" },
+]
 description = [
     "Command line tool to show F1 championship data.",
     "Fetch driver and constructor standings for any year, all within the terminal.",
@@ -213,6 +251,12 @@ duration = "May 2026"
 category = "academic"
 githubLink = "https://github.com/pxndey/csgy6923_machineLearning"
 art = "svg-scaling"
+tags = ["Scaling Laws", "μP", "Transformers"]
+metrics = [
+    { icon = "cpu", value = "24", label = "transformers trained" },
+    { icon = "trending-up", value = "1.93", label = "best test perplexity" },
+    { icon = "check-circle", value = "100%", label = "valid SVG generations" },
+]
 description = [
     "Trained 24 decoder-only transformers from 1.5M to 92M parameters on a 144M-token SVG corpus, comparing Standard Parameterization and μP.",
     "μP's zero-shot learning-rate transfer kept validation loss monotonic (0.876 → 0.663) with a fitted power-law exponent α ≈ 0.38 (R² = 0.989); standard parameterization regressed +0.81 nats at 92M.",
@@ -227,8 +271,14 @@ duration = "Dec 2025"
 category = "academic"
 githubLink = "https://github.com/pxndey/csgy9223_project"
 art = "debiasing"
+tags = ["Fairness", "Adversarial"]
+metrics = [
+    { icon = "target", value = "96.7%", label = "holdout accuracy" },
+    { icon = "trending-up", value = "-20%", label = "max FNR disparity" },
+    { icon = "users", value = "5", label = "demographic groups" },
+]
 description = [
-    "Engineered an adversarial debiasing model from scratch — feature extractor, classifier, and adversary trained in alternating phases — to evaluate fairness metrics across 5 demographic groups on a 100k-row diabetes dataset.",
+    "Engineered an adversarial debiasing model from scratch (feature extractor, classifier, and adversary trained in alternating phases) to evaluate fairness metrics across 5 demographic groups on a 100k-row diabetes dataset.",
     "Maintained 96.7% accuracy on a 29,995-row unseen holdout while achieving calibration parity across all protected demographics.",
     "Reduced maximum false negative rate disparity by 20% across racial groups (0.0485 → 0.0388) while preserving 0.641 recall, where SMOTE preprocessing dropped recall to 0.574."
 ]
@@ -241,6 +291,12 @@ duration = "Dec 2025"
 category = "academic"
 githubLink = "https://github.com/pxndey/csgy6643_p4"
 art = "geoguessr"
+tags = ["Computer Vision", "CLIP"]
+metrics = [
+    { icon = "map", value = "88.9%", label = "state accuracy" },
+    { icon = "image", value = "330K", label = "street view images" },
+    { icon = "flag", value = "33", label = "US states covered" },
+]
 description = [
     "Trained dual-task state-classification and GPS-regression heads on a frozen StreetCLIP backbone over 329,900 four-directional Street View images across 33 US states.",
     "Implemented a custom four-directional feature aggregation pipeline, maximizing spatial context for state classification.",
@@ -256,6 +312,12 @@ category = "academic"
 liveLink = "https://tiredeg.pxndey.com"
 githubLink = "https://github.com/pxndey/csgy6313_infoViz"
 art = "tiredeg"
+tags = ["Data Viz", "D3.js", "F1"]
+metrics = [
+    { icon = "activity", value = "66K", label = "clean laps analyzed" },
+    { icon = "flag", value = "25", label = "circuits compared" },
+    { icon = "trending-up", value = "2,644", label = "stint degradation rates" },
+]
 description = [
     "Interactive dashboard comparing compound-specific tire degradation across 25 circuits and 28 drivers, built on 66,049 fuel-corrected clean laps from the 2023-2025 F1 seasons.",
     "FastF1 telemetry pipeline: downloaded 70 race weekends, filtered to green-flag accurate laps, and applied fuel-load correction (+0.055 s/lap) to distill 2,644 stint-level degradation rates.",
@@ -269,6 +331,11 @@ role = ""
 duration = "Apr 2026"
 category = "academic"
 art = "merfish"
+tags = ["Spatial Omics", "Segmentation"]
+metrics = [
+    { icon = "grid", value = "224K", label = "molecules assigned" },
+    { icon = "layers", value = "6", label = "imaging rounds" },
+]
 description = [
     "End-to-end spatial-transcriptomics pipeline: segmented cells in MERFISH mouse-brain fields of view across 6 imaging rounds and assigned 224,495 molecules to cells.",
     "Benchmarked U-Net, 2D/3D Cellpose, and z-projection hyperparameter optimization against an Adjusted Rand Index spot-assignment metric.",
@@ -282,9 +349,15 @@ role = ""
 duration = "Spring 2026"
 category = "academic"
 art = "mri-superres"
+tags = ["Medical Imaging", "Super-Resolution"]
+metrics = [
+    { icon = "activity", value = "0.617", label = "private-leaderboard score" },
+    { icon = "trending-up", value = "+0.10", label = "MS-SSIM from pretraining" },
+    { icon = "cpu", value = "60K", label = "synthetic slice pairs" },
+]
 description = [
     "Attention-gated 2.5D ResUNet enhancing 64 mT ultra-low-field brain MRI toward 3T quality, upsampling 112x138x40 volumes to 179x221x200.",
-    "Pretrained on 60,000 synthetic slice pairs from the IXI dataset with randomized degradation, gaining +0.10 MS-SSIM — an order of magnitude larger than any architectural change.",
+    "Pretrained on 60,000 synthetic slice pairs from the IXI dataset with randomized degradation, gaining +0.10 MS-SSIM, an order of magnitude larger than any architectural change.",
     "Fine-tuned 6-fold with discriminative learning rates and flip test-time augmentation; 0.6172 private-leaderboard score on the 0.5·SSIM + 0.5·PSNR/50 metric."
 ]
 
@@ -295,6 +368,11 @@ role = ""
 duration = "Spring 2026"
 category = "academic"
 art = "neuro-decode"
+tags = ["Neuroscience", "Decoding"]
+metrics = [
+    { icon = "activity", value = "468K", label = "values imputed" },
+    { icon = "clock", value = "24", label = "recording sessions" },
+]
 description = [
     "Imputed ~30 masked spike-band-power channels per session across 24 long-term intracortical recording sessions, totaling 468,720 imputed values.",
     "Fit mask-pattern-grouped Ridge regressors with temporal kinematic features (lagged position, velocity, acceleration) and per-session RidgeCV alpha tuning.",
@@ -308,6 +386,11 @@ role = ""
 duration = "Nov 2025"
 category = "academic"
 art = "video-analytics"
+tags = ["Tracking", "YOLOv8"]
+metrics = [
+    { icon = "video", value = "6,000", label = "pitch videos classified" },
+    { icon = "cpu", value = "170×", label = "smaller rebuilt model" },
+]
 description = [
     "Multi-vehicle tracking with YOLOv8s and a custom IOU tracker estimating per-car speeds on highway footage, plus Grad-CAM interpretability on ResNet-50 and DenseNet-121.",
     "Kaggle baseball pitch prediction on 6,000 training videos: fused pitch physics with 3D CNN + GRU frame-difference features and rule-based MLB strike-zone logic.",
@@ -321,6 +404,11 @@ role = ""
 duration = "Oct 2025"
 category = "academic"
 art = "nuclei-seg"
+tags = ["Segmentation", "Kaggle"]
+metrics = [
+    { icon = "grid", value = "209", label = "histology slides" },
+    { icon = "layers", value = "20", label = "models ensembled" },
+]
 description = [
     "Kaggle instance segmentation over 209 annotated histology slides: one-vs-all ResNet50 U-Net decoders with Dice loss across 4 cell classes.",
     "Trained 20 models via 5-fold cross-validation per class with ensemble averaging, plus a ViT segmentation variant; RLE-encoded final submissions."

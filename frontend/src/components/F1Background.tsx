@@ -16,7 +16,7 @@ const TRACE_DURATION = 2600
 const FADE_DURATION = 900
 const TAIL_LENGTH = 0.35
 const TRACK_SCALE = 320
-// Diagonal drift per cycle — same direction as the body dot grid (gridDrift)
+// Diagonal drift per cycle - same direction as the body dot grid (gridDrift)
 const DRIFT_DISTANCE = 90
 const CYCLE_DURATION = TRACE_DURATION + FADE_DURATION
 
@@ -128,7 +128,7 @@ export default function F1Background() {
     }
 
     const draw = (now: number) => {
-      // Skip all drawing when the tab is hidden or user prefers reduced motion —
+      // Skip all drawing when the tab is hidden or user prefers reduced motion -
       // no point paying for canvas work that can't be seen.
       if (!visible || document.hidden || !windowFocused) {
         raf = 0
@@ -138,7 +138,7 @@ export default function F1Background() {
       const w = window.innerWidth
       const h = window.innerHeight
 
-      // Only clear the small region the current trail can occupy — NEVER the whole
+      // Only clear the small region the current trail can occupy - NEVER the whole
       // viewport. A full-viewport clear + repaint every frame was the main lag source.
       const cxMin = Math.min(placement.x, placement.x + placement.vx)
       const cyMin = Math.min(placement.y, placement.y + placement.vy)
@@ -180,7 +180,7 @@ export default function F1Background() {
         const tailIdx = Math.max(0, Math.floor((progress - TAIL_LENGTH) * (td.pts.length - 1)))
 
         // Draw the traced portion as a comet trail (bright head, fading tail).
-        // No full-track outline — only the moving streak is ever visible.
+        // No full-track outline - only the moving streak is ever visible.
         const segments = 18
         const segSpan = headIdx - tailIdx
         for (let s = 0; s < segments; s++) {
@@ -205,7 +205,7 @@ export default function F1Background() {
           ctx.stroke()
         }
 
-        // Head dot ("car") — parks at the end of the lap while the trail fades
+        // Head dot ("car") - parks at the end of the lap while the trail fades
         const [hx, hy] = mapPt(td.pts[headIdx], td, cx, cy, TRACK_SCALE)
         ctx.beginPath()
         ctx.arc(hx, hy, 3, 0, Math.PI * 2)
@@ -224,7 +224,7 @@ export default function F1Background() {
     raf = requestAnimationFrame(draw)
     window.addEventListener('resize', resize)
 
-    // Pause the animation loop entirely while the tab/window is out of focus —
+    // Pause the animation loop entirely while the tab/window is out of focus -
     // don't just draw a wasted frame, stop scheduling anything.
     const onVisibility = () => {
       visible = !document.hidden

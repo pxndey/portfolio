@@ -28,7 +28,7 @@ This directory contains images for the server carousel on the Misc page.
 
 4. **Optimize your images** before adding them:
    - Render target here is a carousel capped at `--prose-max` wide × 380px tall, so
-     resize to ~1100px max width (1.5× DPR) — no need for multi-megapixel source files.
+     resize to ~1100px max width (1.5× DPR), no need for multi-megapixel source files.
    - Prefer WebP (`cwebp -q 75`) for photos; results here are well under 250KB each.
    - Keep the source resolution modest so the bundle stays lean.
 

@@ -5,3 +5,8 @@
 .experience-page h1 {
   margin-bottom: 0.35rem;
 }
+
+.bullet-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}

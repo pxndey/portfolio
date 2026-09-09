@@ -43,7 +43,7 @@ function parsePoint(raw: string): number {
 }
 
 export function parseRange(duration: string): { start: number; end: number } {
-  const parts = duration.split(/\s*[-–—]\s*/).map((part) => part.trim()).filter(Boolean)
+  const parts = duration.split(/\s*[-\u2013\u2014]\s*/).map((part) => part.trim()).filter(Boolean)
   const start = parsePoint(parts[0] ?? '')
   const end = parts[1] ? parsePoint(parts[1]) : start
   return { start, end }

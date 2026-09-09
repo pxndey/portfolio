@@ -114,7 +114,7 @@ body,
 }
 
 /* Smooth light/dark theme swap: real crossfade via the View Transitions API.
-   The old page snapshot fades out while the new one fades in — no white wash. */
+   The old page snapshot fades out while the new one fades in, no white wash. */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.8s;
@@ -217,7 +217,7 @@ mark {
   border-radius: var(--radius-md);
 }
 
-/* Dot grid — rendered on a fixed pseudo-element and animated with a GPU-composited
+/* Dot grid - rendered on a fixed pseudo-element and animated with a GPU-composited
    transform instead of `background-position` on <body> (which forced a full-viewport
    repaint every frame of the animation). translate3d keeps it on the compositor. */
 @keyframes gridDrift {

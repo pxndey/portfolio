@@ -127,7 +127,7 @@ function Status({ portfolioData }: StatusProps) {
                   <span className="status-card-error">{svc.error}</span>
                 ) : (
                   <>
-                    <span className="status-card-latency">{svc.latencyMS ?? '—'} ms</span>
+                    <span className="status-card-latency">{svc.latencyMS ?? 'N/A'} ms</span>
                     <span className="status-card-code">{svc.status || '…'}</span>
                   </>
                 )}
@@ -139,7 +139,7 @@ function Status({ portfolioData }: StatusProps) {
 
       <div className="status-footer">
         <span className="status-checked-at">
-          last checked {lastCheckedAt ? formatCheckedAt(lastCheckedAt) : loading ? '…' : '—'}
+          last checked {lastCheckedAt ? formatCheckedAt(lastCheckedAt) : loading ? '…' : 'N/A'}
         </span>
         <button className="status-refresh" onClick={fetchStatus} disabled={loading}>
           <FiRefreshCw className={loading ? 'spin' : ''} size={13} />
