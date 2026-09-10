@@ -1,9 +1,5 @@
 .misc-container {
-	max-width: var(--prose-max);
-}
-
-.misc-title {
-	margin-bottom: 1rem;
+	max-width: var(--content-max);
 }
 
 .server-section {
@@ -16,10 +12,9 @@
 
 .server-image-container {
 	width: 100%;
-	max-width: 42rem;
-	margin: 0 auto;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	padding: 1.25rem;
 	background: var(--card-bg);
 	border: 1px solid var(--border-color);
@@ -33,11 +28,12 @@
 }
 
 .server-image {
-	width: 100%;
+	width: min(42rem, 100%);
 	height: 360px;
 	object-fit: cover;
 	object-position: center;
 	border-radius: var(--radius-md);
+	flex-shrink: 0;
 }
 
 .carousel-button {
@@ -173,10 +169,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-	.misc-container {
-		max-width: 100%;
-	}
-
 	.server-section {
 		gap: 1.5rem;
 		margin-bottom: 1rem;

@@ -39,7 +39,7 @@ function Experience({ portfolioData }: ExperienceProps) {
 
   return (
     <div className="experience-page">
-      <p className="page-eyebrow">Work</p>
+      <p className="page-eyebrow">Mostly the lab</p>
       <h1>Experience</h1>
       <p className="page-desc">
         Research and engineering roles, mostly in neural recordings and

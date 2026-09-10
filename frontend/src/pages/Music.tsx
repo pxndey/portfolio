@@ -72,6 +72,48 @@ interface MusicData {
   }
 }
 
+interface ArtistChartPoint {
+  fullName: string
+  playcount: number
+}
+
+function ArtistTooltip({
+  active,
+  payload,
+}: {
+  active?: boolean
+  payload?: Array<{ payload: ArtistChartPoint }>
+}) {
+  if (!active || !payload?.length) return null
+  const point = payload[0].payload
+  return (
+    <div className="chart-tooltip">
+      <div className="chart-tooltip-label">{point.fullName}</div>
+      <div className="chart-tooltip-value">{point.playcount.toLocaleString()} plays</div>
+    </div>
+  )
+}
+
+function MusicHero({ href }: { href?: string }) {
+  return (
+    <>
+      <p className="page-eyebrow">On repeat</p>
+      <h1>
+        {href ? (
+          <a href={href} target="_blank" rel="noopener noreferrer" className="music-title-link">
+            Music
+          </a>
+        ) : (
+          'Music'
+        )}
+      </h1>
+      <p className="page-desc">
+        What I've been playing. Scrobbles, top artists, and whatever is on right now.
+      </p>
+    </>
+  )
+}
+
 function Music() {
   const [data, setData] = useState<MusicData | null>(null)
   const [loading, setLoading] = useState(true)
@@ -100,8 +142,8 @@ function Music() {
   if (loading) {
     return (
       <div className="music-container">
-        <h1>Music</h1>
-        <p>Loading...</p>
+        <MusicHero />
+        <p className="music-status">Loading scrobbles…</p>
       </div>
     )
   }
@@ -109,8 +151,8 @@ function Music() {
   if (error) {
     return (
       <div className="music-container">
-        <h1>Music</h1>
-        <p>Error: {error}</p>
+        <MusicHero />
+        <p className="music-status">Could not load Last.fm: {error}</p>
       </div>
     )
   }
@@ -118,8 +160,8 @@ function Music() {
   if (!data) {
     return (
       <div className="music-container">
-        <h1>Music</h1>
-        <p>No data available</p>
+        <MusicHero />
+        <p className="music-status">No scrobble data yet.</p>
       </div>
     )
   }
@@ -169,11 +211,7 @@ function Music() {
 
   return (
     <div className="music-container">
-      <h1>
-        <a href={userInfo.url} target="_blank" rel="noopener noreferrer" className="music-title-link">
-          Music
-        </a>
-      </h1>
+      <MusicHero href={userInfo.url} />
 
       {/* Stats Row */}
       <div className="stats-row">
@@ -201,20 +239,12 @@ function Music() {
           <h2>Top Artists (All Time)</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={artistChartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-color)" />
               <XAxis dataKey="name" hide />
-              <YAxis stroke="#888" tick={{ fill: '#888' }} />
+              <YAxis stroke="var(--text-muted)" tick={{ fill: 'var(--text-muted)' }} />
               <Tooltip
-                contentStyle={{ backgroundColor: '#2a2a2a', border: '1px solid #444', borderRadius: '4px' }}
-                labelStyle={{ color: '#e0e0e0' }}
-                itemStyle={{ color: '#e0e0e0' }}
-                labelFormatter={(label: string, payload: any[]) => {
-                  if (payload && payload.length > 0) {
-                    return payload[0].payload.fullName
-                  }
-                  return label
-                }}
-                formatter={(value: number) => value.toLocaleString()}
+                cursor={{ fill: 'var(--accent-muted)' }}
+                content={<ArtistTooltip />}
               />
               <Bar dataKey="playcount" fill="var(--accent-color)" />
             </BarChart>

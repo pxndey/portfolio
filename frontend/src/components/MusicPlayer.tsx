@@ -110,6 +110,7 @@ function MusicPlayer() {
         ref={audioRef}
         src={musicData.audioUrl}
         loop
+        preload="none"
         onEnded={() => setIsPlaying(false)}
       />
       <button

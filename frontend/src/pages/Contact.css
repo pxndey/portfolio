@@ -1,18 +1,5 @@
 .contact-container {
-  max-width: var(--prose-max);
-}
-
-.contact-title {
-  margin-bottom: 0.35rem;
-}
-
-.location-subheading {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--text-tertiary);
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
+  max-width: var(--content-max);
 }
 
 .contact-section {

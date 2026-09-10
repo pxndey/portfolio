@@ -8,7 +8,7 @@
   "scripts": {
     "generate:data": "bun run scripts/generate-portfolio-data.ts && bun run scripts/generate-themes.ts",
     "dev": "bun run generate:data && bun --hot src/index.tsx",
-    "build": "bun run generate:data && bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
+    "build": "bun run generate:data && rm -rf dist && bun build ./src/index.html --outdir=dist --target=browser --splitting --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
     "start": "NODE_ENV=production bun src/index.tsx"
   },
   "dependencies": {

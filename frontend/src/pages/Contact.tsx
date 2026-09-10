@@ -1,14 +1,15 @@
 import './Contact.css'
-import { FaGithub, FaLinkedin, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 
 function Contact() {
   return (
     <div className="contact-container">
-      <h1 className="contact-title">Get in Touch</h1>
-      <div className="location-subheading">
-        <FaMapMarkerAlt className="location-icon" />
-        <span>New York, New York</span>
-      </div>
+      <p className="page-eyebrow">Two inboxes</p>
+      <h1>Get in Touch</h1>
+      <p className="page-desc">
+        Based in New York. Professional inquiries to the NYU address, everything
+        else to pxndey.com.
+      </p>
 
       <div className="contact-section">
         <h2 className="section-heading">Email</h2>

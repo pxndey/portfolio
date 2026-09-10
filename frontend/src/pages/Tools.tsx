@@ -16,7 +16,7 @@ function Tools({ portfolioData }: ToolsProps) {
 
   return (
     <div className="tools-page">
-      <p className="page-eyebrow">Toolbox</p>
+      <p className="page-eyebrow">Daily drivers</p>
       <h1>Tools</h1>
       <p className="page-desc">
         What I reach for day to day, across ML, web, and the homelab.

@@ -85,7 +85,7 @@ function Status({ portfolioData }: StatusProps) {
 
   return (
     <div className="status-page">
-      <p className="page-eyebrow">Uptime</p>
+      <p className="page-eyebrow">The Box, live</p>
       <h1>Status</h1>
       <p className="page-desc">
         Live check of the services running off the homelab. Each is probed from
