@@ -1,7 +1,5 @@
-import React from 'react'
 import { sortByDuration } from '../lib/chrono'
 import { Timeline, TimelineItem } from '../components/Timeline'
-import { MetricStats, MetricData } from '../components/MetricStats'
 import './Experience.css'
 
 type Responsibility = string | { name: string; text: string }
@@ -11,7 +9,7 @@ interface WorkExperienceData {
   location: string
   role: string
   duration: string
-  metrics?: MetricData[]
+  metrics?: { icon?: string; value: string; label: string }[]
   responsibilities: Responsibility[]
   art?: string
 }
@@ -56,7 +54,6 @@ function Experience({ portfolioData }: ExperienceProps) {
             <h3 className="timeline-title">{work.role}</h3>
             <p className="timeline-kicker">{work.company}</p>
             <p className="timeline-meta">{work.location}</p>
-            <MetricStats metrics={work.metrics ?? []} />
             <ul className="timeline-bullets">
               {work.responsibilities.map((resp, i) => (
                 <li key={i}>

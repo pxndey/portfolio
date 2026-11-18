@@ -255,7 +255,7 @@ const portfolioData = {
         }
       ],
       "description": [
-        "A collaborative job application tracker I built and self-host: 15+ features across a React/Next.js frontend and PostgreSQL backend, used by 10+ concurrent users behind a reverse-proxy stack at 99% uptime.",
+        "A collaborative job application tracker I built and self-host: 15+ features across frontend and backend, used by 10+ concurrent users behind a reverse-proxy stack at 99% uptime.",
         "Along the way I migrated 1000+ records from Firebase to PostgreSQL with zero data loss and minimal downtime."
       ]
     },
@@ -490,7 +490,7 @@ const portfolioData = {
         }
       ],
       "description": [
-        "An interactive D3 dashboard for compound-specific tire degradation across 25 circuits and 28 drivers, built on 66,049 fuel-corrected clean laps from the 2023–2025 seasons. The FastF1 pipeline covers 70 race weekends, green-flag filtering, and a +0.055 s/lap fuel-load correction that yields 2,644 stint-level degradation rates.",
+        "An interactive dashboard for compound-specific tire degradation across 25 circuits and 28 drivers, built on 66,049 fuel-corrected clean laps from the 2023–2025 seasons. The telemetry pipeline covers 70 race weekends, green-flag filtering, and a +0.055 s/lap fuel-load correction that yields 2,644 stint-level degradation rates.",
         "Views share per-stint least-squares trendlines, s/lap tooltips, and animated axis transitions — equal parts telemetry hygiene and viz craft."
       ]
     },
