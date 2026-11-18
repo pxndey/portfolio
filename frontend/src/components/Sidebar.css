@@ -140,10 +140,10 @@
 }
 
 .nav-section-label {
-	font-family: var(--font-mono);
-	font-size: 0.68rem;
-	font-weight: 600;
-	letter-spacing: 0.06em;
+	font-family: var(--font-body);
+	font-size: 0.72rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
 	color: var(--text-muted);
 	padding: 0 0.85rem;
 	margin-bottom: 0.4rem;
@@ -194,23 +194,23 @@
 }
 
 .nav-item.active .nav-number {
-	background: var(--accent-color);
-	color: #fff;
+	background: transparent;
+	color: var(--accent-color);
 }
 
 .nav-number {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-width: 1.5rem;
-	height: 1.5rem;
+	min-width: 1.25rem;
+	height: 1.25rem;
 	font-family: var(--font-mono);
-	font-size: 0.65rem;
-	font-weight: 600;
-	border-radius: var(--radius-xs);
-	background: var(--card-bg);
-	color: var(--text-tertiary);
-	transition: all 0.2s ease;
+	font-size: 0.62rem;
+	font-weight: 500;
+	border-radius: 0;
+	background: transparent;
+	color: var(--text-muted);
+	transition: color 0.15s ease;
 }
 
 .nav-label {

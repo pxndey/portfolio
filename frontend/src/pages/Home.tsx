@@ -5,32 +5,21 @@ import ResumePDF from '../../Resume.pdf'
 function Home() {
   return (
     <div className="home-container">
-      <div className="home-terminal" aria-label="Terminal prompt">
-        <div className="terminal-bar">
-          <span className="terminal-dot red" />
-          <span className="terminal-dot yellow" />
-          <span className="terminal-dot green" />
-          <span className="terminal-title">anushk@nyc ~ %</span>
-        </div>
-        <div className="terminal-body">
-          <p className="terminal-line">
-            <span className="terminal-prompt">$</span> whoami
-          </p>
-        </div>
-      </div>
-
       <header className="home-hero">
         <h1 className="home-title">ML researcher &amp; software engineer.</h1>
         <p className="home-subtitle">
-          Working across computer vision, neural data, and the infrastructure behind them.
+          Computer vision, neural data, and the infrastructure behind them.
         </p>
-        <div className="home-meta">
-          <span className="home-badge">MS CS @ NYU</span>
-          <span className="home-badge home-badge-open">
-            <span className="open-dot" aria-hidden="true" />
-            seeking spring '27 intern/ft + summer '27 ft roles
+        <p className="home-meta">
+          <span className="home-meta-item">MS CS @ NYU</span>
+          <span className="home-meta-sep" aria-hidden="true">
+            ·
           </span>
-        </div>
+          <span className="home-meta-item home-meta-open">
+            <span className="open-dot" aria-hidden="true" />
+            looking for spring &apos;27 intern/ft and summer &apos;27 ft roles
+          </span>
+        </p>
       </header>
 
       <blockquote className="home-quote">
@@ -41,17 +30,17 @@ function Home() {
       </blockquote>
 
       <p className="home-paragraph">
-        I'm pursuing an M.S. in Computer Science at <mark>NYU</mark>, where I work in the
-        Neuroinformatics Lab on <mark>self-supervised spike localization and drift correction</mark>.
+        I'm pursuing an M.S. in Computer Science at NYU, where I work in the
+        Neuroinformatics Lab on self-supervised spike localization and drift correction.
         The work sits at the intersection of deep learning, computer vision, and neuroscience:
         finding structure in biological signals that are messy by nature.
       </p>
 
       <p className="home-paragraph">
-        Outside the lab, I teach computer vision and build dependable software for real people.
-        That includes a collaborative job tracker, the self-hosted infrastructure that keeps it
-        running, and the occasional F1 side project. Before New York, I organized hackathons and
-        science outreach in Vellore.
+        Outside the lab, I teach computer vision and build software people actually use —
+        a collaborative job tracker, the self-hosted stack that keeps it running, and the
+        occasional F1 side project. Before New York, I organized hackathons and science
+        outreach in Vellore.
       </p>
 
       <div className="home-links">

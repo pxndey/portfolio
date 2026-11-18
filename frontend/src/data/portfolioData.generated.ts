@@ -230,6 +230,7 @@ const portfolioData = {
       "role": "",
       "duration": "2026 - Present",
       "category": "personal",
+      "featured": true,
       "liveLink": "https://j2j.pxndey.com",
       "art": "j2j",
       "tags": [
@@ -254,9 +255,8 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Full-stack collaborative job application tracker: 15+ features across frontend and backend, used by 10+ concurrent users.",
-        "Self-hosted behind a reverse-proxy stack with 99% uptime.",
-        "Migrated 1000+ records from Firebase to PostgreSQL with zero data loss and minimal downtime."
+        "A collaborative job application tracker I built and self-host: 15+ features across a React/Next.js frontend and PostgreSQL backend, used by 10+ concurrent users behind a reverse-proxy stack at 99% uptime.",
+        "Along the way I migrated 1000+ records from Firebase to PostgreSQL with zero data loss and minimal downtime."
       ]
     },
     {
@@ -289,9 +289,8 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Reprovisioned an old laptop as a homelab server hosting 9+ production services with Traefik as the reverse proxy.",
-        "Polling-based CI/CD with Docker Compose for 3 actively-developed apps, plus automated database migrations.",
-        "Postgres and object storage with 2 replicas; Alertmanager brings incident detection under a minute at 99% uptime, with nightly encrypted backups to an attached 4TB external HDD."
+        "An old laptop reprovisioned as a homelab: 9+ production services behind Traefik, polling-based CI/CD with Docker Compose for three apps I actively develop, and automated database migrations.",
+        "Postgres and object storage run with 2 replicas; Alertmanager keeps incident detection under a minute at 99% uptime, with nightly encrypted backups to an attached 4TB drive."
       ]
     },
     {
@@ -324,9 +323,8 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Assembled from raw parts: 12th-gen Intel, 16GB RAM, 32TB HDD, and a 500GB SSD, wired and cabled end to end as a dedicated backup target.",
-        "Debian host with hand-partitioned ZFS storage for copy-on-write snapshots, end-to-end checksums, and self-healing data.",
-        "Nightly incremental restic/borg backups of other machines and devices on the network, verified by scheduled ZFS scrubs."
+        "Built from parts — 12th-gen Intel, 16GB RAM, 32TB HDD, 500GB SSD — as a dedicated backup target on Debian with hand-partitioned ZFS for copy-on-write snapshots, end-to-end checksums, and self-healing.",
+        "Other machines on the network get nightly incremental restic/borg backups, verified by scheduled ZFS scrubs."
       ]
     },
     {
@@ -354,9 +352,7 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Command line tool to show F1 championship data.",
-        "Fetch driver and constructor standings for any year, all within the terminal.",
-        "Display historical race data and standings for any year."
+        "A small Go CLI that pulls F1 driver and constructor championship standings — plus historical race data — for any season, right in the terminal."
       ]
     },
     {
@@ -365,6 +361,7 @@ const portfolioData = {
       "role": "",
       "duration": "May 2026",
       "category": "academic",
+      "featured": true,
       "githubLink": "https://github.com/pxndey/csgy6923_machineLearning",
       "art": "svg-scaling",
       "tags": [
@@ -390,9 +387,8 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Trained 24 decoder-only transformers from 1.5M to 92M parameters on a 144M-token SVG corpus, comparing Standard Parameterization and μP.",
-        "μP's zero-shot learning-rate transfer kept validation loss monotonic (0.876 → 0.663) with a fitted power-law exponent α ≈ 0.38 (R² = 0.989); standard parameterization regressed +0.81 nats at 92M.",
-        "Best test perplexity of 1.93 at 92M parameters; 100% structurally valid, renderable SVG generations after post-processing."
+        "I trained 24 decoder-only transformers (1.5M–92M parameters) on a 144M-token SVG corpus to compare Standard Parameterization against μP. With μP, zero-shot learning-rate transfer kept validation loss monotonic (0.876 → 0.663) and fit a power law with α ≈ 0.38 (R² = 0.989); standard parameterization regressed by +0.81 nats at 92M.",
+        "The best model reached 1.93 test perplexity at 92M parameters, and after post-processing every generated SVG was structurally valid and renderable."
       ]
     },
     {
@@ -425,9 +421,7 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Engineered an adversarial debiasing model from scratch (feature extractor, classifier, and adversary trained in alternating phases) to evaluate fairness metrics across 5 demographic groups on a 100k-row diabetes dataset.",
-        "Maintained 96.7% accuracy on a 29,995-row unseen holdout while achieving calibration parity across all protected demographics.",
-        "Reduced maximum false negative rate disparity by 20% across racial groups (0.0485 → 0.0388) while preserving 0.641 recall, where SMOTE preprocessing dropped recall to 0.574."
+        "Built an adversarial debiasing model from scratch — feature extractor, classifier, and adversary in alternating phases — to study fairness across 5 demographic groups on a 100k-row diabetes dataset. On a 29,995-row holdout it held 96.7% accuracy with calibration parity across protected groups, and cut maximum FNR disparity by 20% across racial groups (0.0485 → 0.0388) while keeping 0.641 recall (SMOTE alone dropped recall to 0.574)."
       ]
     },
     {
@@ -460,9 +454,7 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Trained dual-task state-classification and GPS-regression heads on a frozen StreetCLIP backbone over 329,900 four-directional Street View images across 33 US states.",
-        "Implemented a custom four-directional feature aggregation pipeline, maximizing spatial context for state classification.",
-        "Achieved 88.9% accuracy on a 16,495-sample test set with a dual-target computer vision model."
+        "Dual-task state classification and GPS regression on a frozen StreetCLIP backbone, trained over 329,900 four-directional Street View images across 33 US states. A custom aggregation pipeline pools the four views for spatial context; the model hit 88.9% state accuracy on a 16,495-sample test set."
       ]
     },
     {
@@ -471,6 +463,7 @@ const portfolioData = {
       "role": "",
       "duration": "May 2026",
       "category": "academic",
+      "featured": true,
       "liveLink": "https://tiredeg.pxndey.com",
       "githubLink": "https://github.com/pxndey/csgy6313_infoViz",
       "art": "tiredeg",
@@ -497,9 +490,8 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Interactive dashboard comparing compound-specific tire degradation across 25 circuits and 28 drivers, built on 66,049 fuel-corrected clean laps from the 2023-2025 F1 seasons.",
-        "FastF1 telemetry pipeline: downloaded 70 race weekends, filtered to green-flag accurate laps, and applied fuel-load correction (+0.055 s/lap) to distill 2,644 stint-level degradation rates.",
-        "Coordinated multi-view D3.js dashboard with per-stint least-squares regression trendlines, s/lap degradation tooltips, and animated axis transitions."
+        "An interactive D3 dashboard for compound-specific tire degradation across 25 circuits and 28 drivers, built on 66,049 fuel-corrected clean laps from the 2023–2025 seasons. The FastF1 pipeline covers 70 race weekends, green-flag filtering, and a +0.055 s/lap fuel-load correction that yields 2,644 stint-level degradation rates.",
+        "Views share per-stint least-squares trendlines, s/lap tooltips, and animated axis transitions — equal parts telemetry hygiene and viz craft."
       ]
     },
     {
@@ -508,6 +500,7 @@ const portfolioData = {
       "role": "",
       "duration": "Apr 2026",
       "category": "academic",
+      "featured": true,
       "art": "merfish",
       "tags": [
         "Spatial Omics",
@@ -526,9 +519,8 @@ const portfolioData = {
         }
       ],
       "description": [
-        "End-to-end spatial-transcriptomics pipeline: segmented cells in MERFISH mouse-brain fields of view across 6 imaging rounds and assigned 224,495 molecules to cells.",
-        "Benchmarked U-Net, 2D/3D Cellpose, and z-projection hyperparameter optimization against an Adjusted Rand Index spot-assignment metric.",
-        "Annotated cells to the Allen Brain Cell Atlas four-level taxonomy, comparing KNN, LightGBM, hierarchical MLP, and cascaded classifier strategies."
+        "An end-to-end spatial-transcriptomics pipeline for MERFISH mouse-brain fields of view: cell segmentation across 6 imaging rounds and assignment of 224,495 molecules to cells.",
+        "I benchmarked U-Net, 2D/3D Cellpose, and z-projection hyperparameter choices against Adjusted Rand Index for spot assignment, then annotated cells to the Allen Brain Cell Atlas four-level taxonomy with KNN, LightGBM, hierarchical MLP, and cascaded classifiers."
       ]
     },
     {
@@ -537,6 +529,7 @@ const portfolioData = {
       "role": "",
       "duration": "Spring 2026",
       "category": "academic",
+      "featured": true,
       "art": "mri-superres",
       "tags": [
         "Medical Imaging",
@@ -560,9 +553,8 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Attention-gated 2.5D ResUNet enhancing 64 mT ultra-low-field brain MRI toward 3T quality, upsampling 112x138x40 volumes to 179x221x200.",
-        "Pretrained on 60,000 synthetic slice pairs from the IXI dataset with randomized degradation, gaining +0.10 MS-SSIM, an order of magnitude larger than any architectural change.",
-        "Fine-tuned 6-fold with discriminative learning rates and flip test-time augmentation; 0.6172 private-leaderboard score on the 0.5·SSIM + 0.5·PSNR/50 metric."
+        "An attention-gated 2.5D ResUNet that lifts 64 mT ultra-low-field brain MRI toward 3T quality, upsampling 112×138×40 volumes to 179×221×200. Pretraining on 60,000 synthetic IXI slice pairs with randomized degradation bought +0.10 MS-SSIM — an order of magnitude more than any architectural tweak.",
+        "Six-fold fine-tuning with discriminative learning rates and flip TTA reached a 0.6172 private-leaderboard score on 0.5·SSIM + 0.5·PSNR/50."
       ]
     },
     {
@@ -571,6 +563,7 @@ const portfolioData = {
       "role": "",
       "duration": "Spring 2026",
       "category": "academic",
+      "featured": true,
       "art": "neuro-decode",
       "tags": [
         "Neuroscience",
@@ -589,9 +582,8 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Imputed ~30 masked spike-band-power channels per session across 24 long-term intracortical recording sessions, totaling 468,720 imputed values.",
-        "Fit mask-pattern-grouped Ridge regressors with temporal kinematic features (lagged position, velocity, acceleration) and per-session RidgeCV alpha tuning.",
-        "Decoded hand position from motor-cortex activity, evaluated as mean R² across 48 session-channel groups."
+        "Across 24 long-term intracortical recording sessions I imputed ~30 masked spike-band-power channels per session (468,720 values total), then fit mask-pattern-grouped Ridge regressors with lagged position, velocity, and acceleration features and per-session RidgeCV alpha tuning.",
+        "The goal was decoding hand position from motor-cortex activity, scored as mean R² across 48 session-channel groups."
       ]
     },
     {
@@ -618,9 +610,7 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Multi-vehicle tracking with YOLOv8s and a custom IOU tracker estimating per-car speeds on highway footage, plus Grad-CAM interpretability on ResNet-50 and DenseNet-121.",
-        "Kaggle baseball pitch prediction on 6,000 training videos: fused pitch physics with 3D CNN + GRU frame-difference features and rule-based MLB strike-zone logic.",
-        "Diagnosed an overfit 84M-parameter model stuck at random-guess accuracy and rebuilt at ~500K parameters (170× smaller) to recover 68-75% validation accuracy."
+        "A bundle of CV experiments: multi-vehicle tracking with YOLOv8s and a custom IOU tracker for highway speeds, Grad-CAM on ResNet-50 and DenseNet-121, and a Kaggle baseball pitch model on 6,000 videos that fused pitch physics with 3D CNN + GRU features and MLB strike-zone rules. An overfit 84M-parameter pitch model stuck at chance; rebuilding at ~500K parameters (170× smaller) recovered 68–75% validation accuracy."
       ]
     },
     {
@@ -647,8 +637,7 @@ const portfolioData = {
         }
       ],
       "description": [
-        "Kaggle instance segmentation over 209 annotated histology slides: one-vs-all ResNet50 U-Net decoders with Dice loss across 4 cell classes.",
-        "Trained 20 models via 5-fold cross-validation per class with ensemble averaging, plus a ViT segmentation variant; RLE-encoded final submissions."
+        "Kaggle instance segmentation on 209 annotated histology slides using one-vs-all ResNet50 U-Net decoders with Dice loss across 4 cell classes. Twenty models from 5-fold CV per class were ensembled (plus a ViT variant), with RLE-encoded submissions."
       ]
     }
   ],

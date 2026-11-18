@@ -2,7 +2,7 @@
   width: var(--race-width);
   flex-shrink: 0;
   border-left: 1px solid var(--border-color);
-  padding: 1.75rem 1rem;
+  padding: 1.75rem 0.85rem;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -13,16 +13,16 @@
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .race-sidebar-title {
   font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--text-muted);
-  text-transform: uppercase;
+  text-transform: none;
   flex-shrink: 0;
   margin: 0;
 }
@@ -40,27 +40,31 @@
 .race-sidebar-cards {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.35rem;
   flex: 1;
   min-width: 0;
 }
 
 .race-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 0.75rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+  padding: 0.65rem 0.15rem 0.85rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.3rem;
   min-width: 0;
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.race-card:last-child {
+  border-bottom: none;
 }
 
 .race-card:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--border-color);
+  box-shadow: none;
 }
 
 .race-card-header {
@@ -72,12 +76,12 @@
 }
 
 .race-series {
-  font-family: var(--font-display), sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent-color);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -130,9 +134,9 @@
 
 .countdown-value {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
   font-variant-numeric: tabular-nums;
   line-height: 1.2;
   white-space: nowrap;
@@ -140,18 +144,18 @@
 
 .countdown-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 500;
   color: var(--text-muted);
   line-height: 1;
 }
 
 .race-live {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  margin-top: 0.25rem;
-  color: var(--accent-color);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 0.2rem;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 0.4rem;
